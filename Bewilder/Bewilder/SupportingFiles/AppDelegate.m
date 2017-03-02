@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "JSMainController.h"
+
 
 @interface AppDelegate ()
 
@@ -17,7 +19,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 初始化Window
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    // 设置根控制器
+    [self setupRootVC];
+    [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+/** 设置根控制器 */
+- (void)setupRootVC {
+    
+    JSMainController *rootVC = [[JSMainController alloc] init];
+    self.window.rootViewController = rootVC;
+    
 }
 
 

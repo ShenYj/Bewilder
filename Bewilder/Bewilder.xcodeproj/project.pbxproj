@@ -12,6 +12,7 @@
 		F70456F81E684DDD00CCF791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70456F21E684DDD00CCF791 /* Main.storyboard */; };
 		F70456F91E684DDD00CCF791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456F41E684DDD00CCF791 /* main.m */; };
 		F70456FB1E684E6800CCF791 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70456FA1E684E6800CCF791 /* Launch Screen.storyboard */; };
+		F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456FE1E684FE300CCF791 /* JSMainController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,9 @@
 		F70456F31E684DDD00CCF791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F70456F41E684DDD00CCF791 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F70456FA1E684E6800CCF791 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F70456FD1E684FE300CCF791 /* JSMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMainController.h; sourceTree = "<group>"; };
+		F70456FE1E684FE300CCF791 /* JSMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMainController.m; sourceTree = "<group>"; };
+		F70457011E68505F00CCF791 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		F70456CC1E684CE300CCF791 /* Bewilder */ = {
 			isa = PBXGroup;
 			children = (
+				F70457001E68504E00CCF791 /* Common */,
 				F70456E41E684DCF00CCF791 /* Classes */,
 				F70456EC1E684DDD00CCF791 /* SupportingFiles */,
 			);
@@ -72,7 +77,7 @@
 		F70456E51E684DCF00CCF791 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F70456E71E684DCF00CCF791 /* ViewControllers */,
+				F70456FC1E684FAA00CCF791 /* Controllers */,
 				F70456E61E684DCF00CCF791 /* Models */,
 				F70456EA1E684DCF00CCF791 /* Views */,
 			);
@@ -84,13 +89,6 @@
 			children = (
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		F70456E71E684DCF00CCF791 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		F70456EA1E684DCF00CCF791 /* Views */ = {
@@ -112,6 +110,23 @@
 				F70456F41E684DDD00CCF791 /* main.m */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F70456FC1E684FAA00CCF791 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F70456FD1E684FE300CCF791 /* JSMainController.h */,
+				F70456FE1E684FE300CCF791 /* JSMainController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F70457001E68504E00CCF791 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +155,7 @@
 		F70456C21E684CE300CCF791 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = JS;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ShenYj;
 				TargetAttributes = {
@@ -188,6 +204,7 @@
 			files = (
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
+				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EC2EUS3UQ9;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$PRODUCT_NAME/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = Bewilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ShenYj.Bewilder;
@@ -310,6 +328,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EC2EUS3UQ9;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$PRODUCT_NAME/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = Bewilder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ShenYj.Bewilder;
