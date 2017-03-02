@@ -70,6 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				F70456E51E684DCF00CCF791 /* Main */,
+				F70457021E6853D200CCF791 /* Essence */,
+				F704570E1E6853D200CCF791 /* NewPosts */,
+				F70457061E6853D200CCF791 /* Follow */,
+				F704570A1E6853D200CCF791 /* Mine */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -127,6 +131,130 @@
 				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		F70457021E6853D200CCF791 /* Essence */ = {
+			isa = PBXGroup;
+			children = (
+				F70457031E6853D200CCF791 /* Controllers */,
+				F70457041E6853D200CCF791 /* Models */,
+				F70457051E6853D200CCF791 /* Views */,
+			);
+			path = Essence;
+			sourceTree = "<group>";
+		};
+		F70457031E6853D200CCF791 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F70457041E6853D200CCF791 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F70457051E6853D200CCF791 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F70457061E6853D200CCF791 /* Follow */ = {
+			isa = PBXGroup;
+			children = (
+				F70457071E6853D200CCF791 /* Controllers */,
+				F70457081E6853D200CCF791 /* Models */,
+				F70457091E6853D200CCF791 /* Views */,
+			);
+			path = Follow;
+			sourceTree = "<group>";
+		};
+		F70457071E6853D200CCF791 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F70457081E6853D200CCF791 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F70457091E6853D200CCF791 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F704570A1E6853D200CCF791 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				F704570B1E6853D200CCF791 /* Controllers */,
+				F704570C1E6853D200CCF791 /* Models */,
+				F704570D1E6853D200CCF791 /* Views */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		F704570B1E6853D200CCF791 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F704570C1E6853D200CCF791 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F704570D1E6853D200CCF791 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F704570E1E6853D200CCF791 /* NewPosts */ = {
+			isa = PBXGroup;
+			children = (
+				F704570F1E6853D200CCF791 /* Controllers */,
+				F70457101E6853D200CCF791 /* Models */,
+				F70457111E6853D200CCF791 /* Views */,
+			);
+			path = NewPosts;
+			sourceTree = "<group>";
+		};
+		F704570F1E6853D200CCF791 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F70457101E6853D200CCF791 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F70457111E6853D200CCF791 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,9 +442,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = EC2EUS3UQ9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$PRODUCT_NAME/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = Bewilder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ShenYj.Bewilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -327,9 +457,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = EC2EUS3UQ9;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$PRODUCT_NAME/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = Bewilder/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ShenYj.Bewilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";

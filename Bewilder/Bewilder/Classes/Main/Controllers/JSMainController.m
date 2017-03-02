@@ -24,6 +24,10 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+- (void)addChildController:(UIViewController *)viewController {
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
