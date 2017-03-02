@@ -11,7 +11,6 @@
 		F70456F61E684DDD00CCF791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70456EF1E684DDD00CCF791 /* Assets.xcassets */; };
 		F70456F81E684DDD00CCF791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70456F21E684DDD00CCF791 /* Main.storyboard */; };
 		F70456F91E684DDD00CCF791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456F41E684DDD00CCF791 /* main.m */; };
-		F70456FB1E684E6800CCF791 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70456FA1E684E6800CCF791 /* Launch Screen.storyboard */; };
 		F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456FE1E684FE300CCF791 /* JSMainController.m */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +22,6 @@
 		F70456EF1E684DDD00CCF791 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F70456F31E684DDD00CCF791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F70456F41E684DDD00CCF791 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F70456FA1E684E6800CCF791 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F70456FD1E684FE300CCF791 /* JSMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMainController.h; sourceTree = "<group>"; };
 		F70456FE1E684FE300CCF791 /* JSMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMainController.m; sourceTree = "<group>"; };
 		F70457011E68505F00CCF791 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				F70456DE1E684CE300CCF791 /* Info.plist */,
 				F70456EF1E684DDD00CCF791 /* Assets.xcassets */,
 				F70456F21E684DDD00CCF791 /* Main.storyboard */,
-				F70456FA1E684E6800CCF791 /* Launch Screen.storyboard */,
 				F70456F41E684DDD00CCF791 /* main.m */,
 			);
 			path = SupportingFiles;
@@ -317,7 +314,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F70456FB1E684E6800CCF791 /* Launch Screen.storyboard in Resources */,
 				F70456F81E684DDD00CCF791 /* Main.storyboard in Resources */,
 				F70456F61E684DDD00CCF791 /* Assets.xcassets in Resources */,
 			);
