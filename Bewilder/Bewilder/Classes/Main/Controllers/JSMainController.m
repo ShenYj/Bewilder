@@ -24,6 +24,10 @@
 - (void)setupUI {
     // 设置背景色
     self.view.backgroundColor = [UIColor whiteColor];
+    // 设置tabBarItem字体颜色
+    UITabBarItem *tabBarItem = [UITabBarItem appearance];
+    [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor grayColor]} forState:UIControlStateNormal];
+    [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateSelected];
     // 设置自定义TabBar
     JSTabBar *tabBar = [[JSTabBar alloc] init];
     tabBar.tabBarDelegate = self;
@@ -33,6 +37,7 @@
     [self addChildController:[[UIViewController alloc] init] withTitle:@"新帖" withImageName:@"new"];
     [self addChildController:[[UIViewController alloc] init] withTitle:@"关注" withImageName:@"friendTrends"];
     [self addChildController:[[UIViewController alloc] init] withTitle:@"我" withImageName:@"me"];
+    
 }
 
 - (void)addChildController:(UIViewController *)viewController withTitle:(NSString *)title withImageName:(NSString *)imageName {
@@ -41,8 +46,6 @@
     NSString *imageSelectName = [NSString stringWithFormat:@"tabBar_%@_click_icon",imageName];
     navigationController.tabBarItem.image = [[UIImage imageNamed:imageNormalName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     navigationController.tabBarItem.selectedImage = [[UIImage imageNamed:imageSelectName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [navigationController.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor grayColor]} forState:UIControlStateNormal];
-    [navigationController.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateSelected];
     navigationController.tabBarItem.title = title;
     viewController.title = title;
     [self addChildViewController:navigationController];
