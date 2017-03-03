@@ -12,6 +12,7 @@
 		F70456F81E684DDD00CCF791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F70456F21E684DDD00CCF791 /* Main.storyboard */; };
 		F70456F91E684DDD00CCF791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456F41E684DDD00CCF791 /* main.m */; };
 		F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456FE1E684FE300CCF791 /* JSMainController.m */; };
+		F70457141E695D0200CCF791 /* JSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457131E695D0200CCF791 /* JSTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		F70456FD1E684FE300CCF791 /* JSMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMainController.h; sourceTree = "<group>"; };
 		F70456FE1E684FE300CCF791 /* JSMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMainController.m; sourceTree = "<group>"; };
 		F70457011E68505F00CCF791 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F70457121E695D0200CCF791 /* JSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTabBar.h; sourceTree = "<group>"; };
+		F70457131E695D0200CCF791 /* JSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,8 @@
 		F70456EA1E684DCF00CCF791 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F70457121E695D0200CCF791 /* JSTabBar.h */,
+				F70457131E695D0200CCF791 /* JSTabBar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 			files = (
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
+				F70457141E695D0200CCF791 /* JSTabBar.m in Sources */,
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

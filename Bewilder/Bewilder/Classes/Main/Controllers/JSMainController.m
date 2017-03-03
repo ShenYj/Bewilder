@@ -7,8 +7,9 @@
 //
 
 #import "JSMainController.h"
+#import "JSTabBar.h"
 
-@interface JSMainController ()
+@interface JSMainController () <JSTabBarDelegate>
 
 @end
 
@@ -21,7 +22,12 @@
 }
 
 - (void)setupUI {
+    // 设置背景色
     self.view.backgroundColor = [UIColor whiteColor];
+    // 设置自定义TabBar
+    JSTabBar *tabBar = [[JSTabBar alloc] init];
+    tabBar.tabBarDelegate = self;
+    [self setValue:tabBar forKey:@"tabBar"];
     // 设置子控制器
     [self addChildController:[[UIViewController alloc] init] withTitle:@"精华" withImageName:@"essence"];
     [self addChildController:[[UIViewController alloc] init] withTitle:@"新帖" withImageName:@"new"];
@@ -40,6 +46,13 @@
     navigationController.tabBarItem.title = title;
     viewController.title = title;
     [self addChildViewController:navigationController];
+}
+
+#pragma mark
+#pragma mark - JSTabBarDelegate
+
+- (void)tabBar:(JSTabBar *)tabBar withComposeButton:(UIButton *)composeButton {
+    NSLog(@"%s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {
