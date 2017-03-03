@@ -7,6 +7,7 @@
 //
 
 #import "JSMainController.h"
+#import "JSBaseViewController.h"
 #import "JSTabBar.h"
 
 @interface JSMainController () <JSTabBarDelegate>
@@ -25,18 +26,18 @@
     // 设置背景色
     self.view.backgroundColor = [UIColor whiteColor];
     // 设置tabBarItem字体颜色
-    UITabBarItem *tabBarItem = [UITabBarItem appearance];
-    [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor grayColor]} forState:UIControlStateNormal];
-    [tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateSelected];
+    //UITabBarItem *tabBarItem = [UITabBarItem appearance];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor grayColor]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateSelected];
     // 设置自定义TabBar
     JSTabBar *tabBar = [[JSTabBar alloc] init];
     tabBar.tabBarDelegate = self;
     [self setValue:tabBar forKey:@"tabBar"];
     // 设置子控制器
-    [self addChildController:[[UIViewController alloc] init] withTitle:@"精华" withImageName:@"essence"];
-    [self addChildController:[[UIViewController alloc] init] withTitle:@"新帖" withImageName:@"new"];
-    [self addChildController:[[UIViewController alloc] init] withTitle:@"关注" withImageName:@"friendTrends"];
-    [self addChildController:[[UIViewController alloc] init] withTitle:@"我" withImageName:@"me"];
+    [self addChildController:[[JSBaseViewController alloc] init] withTitle:@"精华" withImageName:@"essence"];
+    [self addChildController:[[JSBaseViewController alloc] init] withTitle:@"新帖" withImageName:@"new"];
+    [self addChildController:[[JSBaseViewController alloc] init] withTitle:@"关注" withImageName:@"friendTrends"];
+    [self addChildController:[[JSBaseViewController alloc] init] withTitle:@"我" withImageName:@"me"];
     
 }
 

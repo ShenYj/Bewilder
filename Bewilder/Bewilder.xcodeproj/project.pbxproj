@@ -13,6 +13,10 @@
 		F70456F91E684DDD00CCF791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456F41E684DDD00CCF791 /* main.m */; };
 		F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456FE1E684FE300CCF791 /* JSMainController.m */; };
 		F70457141E695D0200CCF791 /* JSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457131E695D0200CCF791 /* JSTabBar.m */; };
+		F704571D1E69BD8400CCF791 /* JSBaseNavBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457171E69BD8400CCF791 /* JSBaseNavBarButtonItem.m */; };
+		F704571E1E69BD8400CCF791 /* JSBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457191E69BD8400CCF791 /* JSBaseNavigationController.m */; };
+		F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704571B1E69BD8400CCF791 /* JSBaseViewController.m */; };
+		F70457201E69BD8400CCF791 /* v2_goback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F704571C1E69BD8400CCF791 /* v2_goback@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,13 @@
 		F70457011E68505F00CCF791 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F70457121E695D0200CCF791 /* JSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTabBar.h; sourceTree = "<group>"; };
 		F70457131E695D0200CCF791 /* JSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTabBar.m; sourceTree = "<group>"; };
+		F70457161E69BD8400CCF791 /* JSBaseNavBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBaseNavBarButtonItem.h; sourceTree = "<group>"; };
+		F70457171E69BD8400CCF791 /* JSBaseNavBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseNavBarButtonItem.m; sourceTree = "<group>"; };
+		F70457181E69BD8400CCF791 /* JSBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBaseNavigationController.h; sourceTree = "<group>"; };
+		F70457191E69BD8400CCF791 /* JSBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseNavigationController.m; sourceTree = "<group>"; };
+		F704571A1E69BD8400CCF791 /* JSBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBaseViewController.h; sourceTree = "<group>"; };
+		F704571B1E69BD8400CCF791 /* JSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseViewController.m; sourceTree = "<group>"; };
+		F704571C1E69BD8400CCF791 /* v2_goback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "v2_goback@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +134,7 @@
 			children = (
 				F70456FD1E684FE300CCF791 /* JSMainController.h */,
 				F70456FE1E684FE300CCF791 /* JSMainController.m */,
+				F70457151E69BD8400CCF791 /* BaseViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +271,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F70457151E69BD8400CCF791 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F70457161E69BD8400CCF791 /* JSBaseNavBarButtonItem.h */,
+				F70457171E69BD8400CCF791 /* JSBaseNavBarButtonItem.m */,
+				F70457181E69BD8400CCF791 /* JSBaseNavigationController.h */,
+				F70457191E69BD8400CCF791 /* JSBaseNavigationController.m */,
+				F704571A1E69BD8400CCF791 /* JSBaseViewController.h */,
+				F704571B1E69BD8400CCF791 /* JSBaseViewController.m */,
+				F704571C1E69BD8400CCF791 /* v2_goback@2x.png */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F70457201E69BD8400CCF791 /* v2_goback@2x.png in Resources */,
 				F70456F81E684DDD00CCF791 /* Main.storyboard in Resources */,
 				F70456F61E684DDD00CCF791 /* Assets.xcassets in Resources */,
 			);
@@ -334,7 +361,10 @@
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F70457141E695D0200CCF791 /* JSTabBar.m in Sources */,
+				F704571E1E69BD8400CCF791 /* JSBaseNavigationController.m in Sources */,
+				F704571D1E69BD8400CCF791 /* JSBaseNavBarButtonItem.m in Sources */,
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
+				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
