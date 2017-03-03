@@ -22,10 +22,23 @@
 
 - (void)setupUI {
     self.view.backgroundColor = [UIColor whiteColor];
+    // 设置子控制器
+    [self addChildController:[[UIViewController alloc] init] withTitle:@"精选" withImageName:@"essence"];
+    [self addChildController:[[UIViewController alloc] init] withTitle:@"精选" withImageName:@"new"];
+    [self addChildController:[[UIViewController alloc] init] withTitle:@"精选" withImageName:@"friendTrends"];
+    [self addChildController:[[UIViewController alloc] init] withTitle:@"精选" withImageName:@"me"];
 }
 
-- (void)addChildController:(UIViewController *)viewController {
-    
+- (void)addChildController:(UIViewController *)viewController withTitle:(NSString *)title withImageName:(NSString *)imageName {
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    NSString *imageNormalName = [NSString stringWithFormat:@"tabBar_%@_icon",imageName];
+    NSString *imageSelectName = [NSString stringWithFormat:@"tabBar_%@_click_icon",imageName];
+    navigationController.tabBarItem.image = [[UIImage imageNamed:imageNormalName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    navigationController.tabBarItem.selectedImage = [[UIImage imageNamed:imageSelectName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [navigationController.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor grayColor]} forState:UIControlStateNormal];
+    [navigationController.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor]} forState:UIControlStateSelected];
+    navigationController.title = title;
+    [self addChildViewController:navigationController];
 }
 
 - (void)didReceiveMemoryWarning {
