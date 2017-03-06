@@ -19,8 +19,6 @@
 #define NSLog(...)
 #endif
 
-#endif
-
 
 #pragma mark - 头文件
 //#import "JSUIkitExtension.h"
@@ -37,6 +35,11 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define THEME_COLOR [UIColor js_colorWithHex:0x9370DB]
+
+
+
+
+#endif
 
 
 #endif /* PrefixHeader_pch */

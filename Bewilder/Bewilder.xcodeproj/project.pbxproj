@@ -17,6 +17,10 @@
 		F704571E1E69BD8400CCF791 /* JSBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457191E69BD8400CCF791 /* JSBaseNavigationController.m */; };
 		F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704571B1E69BD8400CCF791 /* JSBaseViewController.m */; };
 		F70457201E69BD8400CCF791 /* v2_goback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F704571C1E69BD8400CCF791 /* v2_goback@2x.png */; };
+		F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457221E6CE2B900CCF791 /* JSEssenceController.m */; };
+		F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457281E6CE2F200CCF791 /* JSNewPostsController.m */; };
+		F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572B1E6CE30300CCF791 /* JSFollowViewController.m */; };
+		F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572E1E6CE30C00CCF791 /* JSMineViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,14 @@
 		F704571A1E69BD8400CCF791 /* JSBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBaseViewController.h; sourceTree = "<group>"; };
 		F704571B1E69BD8400CCF791 /* JSBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseViewController.m; sourceTree = "<group>"; };
 		F704571C1E69BD8400CCF791 /* v2_goback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "v2_goback@2x.png"; sourceTree = "<group>"; };
+		F70457211E6CE2B900CCF791 /* JSEssenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceController.h; sourceTree = "<group>"; };
+		F70457221E6CE2B900CCF791 /* JSEssenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceController.m; sourceTree = "<group>"; };
+		F70457271E6CE2F200CCF791 /* JSNewPostsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNewPostsController.h; sourceTree = "<group>"; };
+		F70457281E6CE2F200CCF791 /* JSNewPostsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNewPostsController.m; sourceTree = "<group>"; };
+		F704572A1E6CE30300CCF791 /* JSFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSFollowViewController.h; sourceTree = "<group>"; };
+		F704572B1E6CE30300CCF791 /* JSFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSFollowViewController.m; sourceTree = "<group>"; };
+		F704572D1E6CE30C00CCF791 /* JSMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineViewController.h; sourceTree = "<group>"; };
+		F704572E1E6CE30C00CCF791 /* JSMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +172,8 @@
 		F70457031E6853D200CCF791 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F70457211E6CE2B900CCF791 /* JSEssenceController.h */,
+				F70457221E6CE2B900CCF791 /* JSEssenceController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +205,8 @@
 		F70457071E6853D200CCF791 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F704572A1E6CE30300CCF791 /* JSFollowViewController.h */,
+				F704572B1E6CE30300CCF791 /* JSFollowViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -222,6 +238,8 @@
 		F704570B1E6853D200CCF791 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F704572D1E6CE30C00CCF791 /* JSMineViewController.h */,
+				F704572E1E6CE30C00CCF791 /* JSMineViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -253,6 +271,8 @@
 		F704570F1E6853D200CCF791 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F70457271E6CE2F200CCF791 /* JSNewPostsController.h */,
+				F70457281E6CE2F200CCF791 /* JSNewPostsController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -358,13 +378,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */,
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
+				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
 				F70457141E695D0200CCF791 /* JSTabBar.m in Sources */,
+				F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */,
 				F704571E1E69BD8400CCF791 /* JSBaseNavigationController.m in Sources */,
 				F704571D1E69BD8400CCF791 /* JSBaseNavBarButtonItem.m in Sources */,
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
+				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
