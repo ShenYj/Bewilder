@@ -34,9 +34,10 @@
 #define SCREEN_BOUNDS [UIScreen mainScreen].bounds
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-#define THEME_COLOR [UIColor js_colorWithHex:0x9370DB]
 
-
+/** RGB宏 */
+#define JS_RGB_Color(r,g,b) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
+#define JS_Gray_Color(g) JS_RGB_Color(g,g,g)
 
 
 #endif

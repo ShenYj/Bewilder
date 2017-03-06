@@ -55,7 +55,8 @@ static NSString * const reusedIdentifier = @"reusedIdentifier";
 /** 主视图 */
 - (void)prepareView {
     // 设置基类视图背景色
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = JS_Gray_Color(206);
+    self.tableView.backgroundColor = JS_Gray_Color(206);
     // 取消穿透
     self.automaticallyAdjustsScrollViewInsets = NO;
     
@@ -63,7 +64,7 @@ static NSString * const reusedIdentifier = @"reusedIdentifier";
 /** 表格视图 */
 - (void)prepareTableView {
     [self.view addSubview:self.tableView];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reusedIdentifier];
+    //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reusedIdentifier];
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
