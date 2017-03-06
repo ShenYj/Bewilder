@@ -22,4 +22,8 @@
 @property (nonatomic,strong) UITableView *tableView;
 - (void)prepareTableView;
 
+/** 设置UI */
+- (void)setUpUI;
+
+
 @end

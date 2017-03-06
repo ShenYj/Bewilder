@@ -8,6 +8,7 @@
 
 #import "JSBaseNavigationController.h"
 #import "JSBaseViewController.h"
+#import "JSBaseNavBarButtonItem.h"
 
 @interface JSBaseNavigationController ()
 

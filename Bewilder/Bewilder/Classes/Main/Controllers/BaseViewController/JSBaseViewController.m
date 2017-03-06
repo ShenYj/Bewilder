@@ -10,7 +10,7 @@
 #import "JSBaseNavigationController.h"
 
 static CGFloat const kNavigationBarHeight = 64.f;  /** 自定义导航条高度 */
-static NSString * const reusedIdentifier = @"reusedIdentifier";
+
 
 @interface JSBaseViewController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -21,8 +21,8 @@ static NSString * const reusedIdentifier = @"reusedIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置视图
-    [self setUpUI];
     [self prepareTableView];
+    [self setUpUI];
 }
 
 #pragma mark
@@ -48,7 +48,6 @@ static NSString * const reusedIdentifier = @"reusedIdentifier";
 
 /** 设置UI */
 - (void)setUpUI {
-    
     [self prepareCustomNavigationBar];
     [self prepareView];
 }

@@ -7,7 +7,11 @@
 //
 
 #import "JSMainController.h"
-#import "JSBaseViewController.h"
+#import "JSEssenceController.h"
+#import "JSNewPostsController.h"
+#import "JSFollowViewController.h"
+#import "JSMineViewController.h"
+#import "JSBaseNavigationController.h"
 #import "JSTabBar.h"
 
 @interface JSMainController () <JSTabBarDelegate>
@@ -34,21 +38,21 @@
     tabBar.tabBarDelegate = self;
     [self setValue:tabBar forKey:@"tabBar"];
     // 设置子控制器
-    [self addChildController:[[JSBaseViewController alloc] init] withTitle:@"精华" withImageName:@"essence"];
-    [self addChildController:[[JSBaseViewController alloc] init] withTitle:@"新帖" withImageName:@"new"];
-    [self addChildController:[[JSBaseViewController alloc] init] withTitle:@"关注" withImageName:@"friendTrends"];
-    [self addChildController:[[JSBaseViewController alloc] init] withTitle:@"我" withImageName:@"me"];
+    [self addChildController:[[JSEssenceController alloc] init] withTitle:@"精华" withImageName:@"essence"];
+    [self addChildController:[[JSNewPostsController alloc] init] withTitle:@"新帖" withImageName:@"new"];
+    [self addChildController:[[JSFollowViewController alloc] init] withTitle:@"关注" withImageName:@"friendTrends"];
+    [self addChildController:[[JSMineViewController alloc] init] withTitle:@"我" withImageName:@"me"];
     
 }
 
-- (void)addChildController:(UIViewController *)viewController withTitle:(NSString *)title withImageName:(NSString *)imageName {
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+- (void)addChildController:(JSBaseViewController *)viewController withTitle:(NSString *)title withImageName:(NSString *)imageName {
     NSString *imageNormalName = [NSString stringWithFormat:@"tabBar_%@_icon",imageName];
     NSString *imageSelectName = [NSString stringWithFormat:@"tabBar_%@_click_icon",imageName];
-    navigationController.tabBarItem.image = [[UIImage imageNamed:imageNormalName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    navigationController.tabBarItem.selectedImage = [[UIImage imageNamed:imageSelectName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    navigationController.tabBarItem.title = title;
+    viewController.tabBarItem.image = [[UIImage imageNamed:imageNormalName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    viewController.tabBarItem.selectedImage = [[UIImage imageNamed:imageSelectName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    viewController.tabBarItem.title = title;
     viewController.title = title;
+    JSBaseNavigationController *navigationController = [[JSBaseNavigationController alloc] initWithRootViewController:viewController];
     [self addChildViewController:navigationController];
 }
 
