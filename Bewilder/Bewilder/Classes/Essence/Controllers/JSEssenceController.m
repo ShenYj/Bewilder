@@ -31,7 +31,7 @@ static NSString * const reusedIdentifier = @"EssenceReusedIdentifier";
 }
 
 - (void)prepareNavigationBar {
-    
+    self.js_navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     self.js_navigationItem.leftBarButtonItem = [[JSBaseNavBarButtonItem alloc] initWithNormalImgName:@"MainTagSubIcon" withHighlightedImgName:@"MainTagSubIconClick" withTarget:self withAction:@selector(clickLeftNavigationBarItem:)];
     
 }

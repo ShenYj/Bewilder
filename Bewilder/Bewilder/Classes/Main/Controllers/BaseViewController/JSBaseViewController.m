@@ -63,7 +63,6 @@ static CGFloat const kNavigationBarHeight = 64.f;  /** 自定义导航条高度 
 /** 表格视图 */
 - (void)prepareTableView {
     [self.view addSubview:self.tableView];
-    //[self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reusedIdentifier];
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }

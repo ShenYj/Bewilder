@@ -8,6 +8,8 @@
 
 #import "JSNewPostsController.h"
 
+static NSString * const reusedIdentifier = @"newPostsReusedIdentifier";
+
 @interface JSNewPostsController ()
 
 @end
@@ -17,6 +19,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)prepareTableView {
+    [super prepareTableView];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reusedIdentifier];
+}
+
+- (void)setUpUI {
+    [super setUpUI];
+    [self prepareNavigationBar];
+}
+
+- (void)prepareNavigationBar {
+    
+    self.js_navigationItem.leftBarButtonItem = [[JSBaseNavBarButtonItem alloc] initWithNormalImgName:@"MainTagSubIcon" withHighlightedImgName:@"MainTagSubIconClick" withTarget:self withAction:@selector(clickLeftNavigationBarItem:)];
+    
+}
+
+- (void)clickLeftNavigationBarItem:(JSBaseNavBarButtonItem *)sender {
+    NSLog(@"%s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {

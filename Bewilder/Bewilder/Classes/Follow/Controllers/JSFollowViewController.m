@@ -8,6 +8,8 @@
 
 #import "JSFollowViewController.h"
 
+static NSString * const reusedIdentifier = @"followReusedIdentifier";
+
 @interface JSFollowViewController ()
 
 @end
@@ -17,6 +19,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)setUpUI {
+    [super setUpUI];
+    [self prepareNavigationBar];
+}
+
+- (void)prepareNavigationBar {
+    self.js_navigationItem.title = @"我的关注";
+    
+    self.js_navigationItem.leftBarButtonItem = [[JSBaseNavBarButtonItem alloc] initWithNormalImgName:@"friendsRecommentIcon" withHighlightedImgName:@"friendsRecommentIcon-click" withTarget:self withAction:@selector(clickLeftNavigationBarItem:)];
+}
+
+- (void)prepareTableView {
+    [super prepareTableView];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reusedIdentifier];
+}
+
+
+- (void)clickLeftNavigationBarItem:(JSBaseNavBarButtonItem *)sender {
+    NSLog(@"%s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {
