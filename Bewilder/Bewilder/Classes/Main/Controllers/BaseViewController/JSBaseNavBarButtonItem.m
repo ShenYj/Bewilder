@@ -63,6 +63,8 @@
         // 是返回按钮 (使用原图样式,不做渲染)
         [button setImage:[[UIImage imageNamed:backImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [button setImage:[[UIImage imageNamed:[NSString stringWithFormat:@"%@_highlighted",backImageName]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  forState:UIControlStateHighlighted];
+        // 左侧缩进
+        button.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
     }
     [button sizeToFit];
     JSBaseNavBarButtonItem *barButtonItem = [[JSBaseNavBarButtonItem alloc] initWithCustomView:button];

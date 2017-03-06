@@ -7,6 +7,7 @@
 //
 
 #import "JSMineViewController.h"
+#import "JSSettingViewController.h"
 
 static NSString * const reusedIdentifier = @"mineReusedIdentifier";
 
@@ -44,7 +45,8 @@ static NSString * const reusedIdentifier = @"mineReusedIdentifier";
     NSLog(@"%s",__func__);
 }
 - (void)clickRightNavigationBarItem:(JSBaseNavBarButtonItem *)sender {
-    NSLog(@"%s",__func__);
+    JSSettingViewController *settingVC = [[JSSettingViewController alloc] init];
+    [self.navigationController pushViewController:settingVC animated:YES];
 }
 
 
