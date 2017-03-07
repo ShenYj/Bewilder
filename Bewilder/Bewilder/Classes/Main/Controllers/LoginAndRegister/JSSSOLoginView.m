@@ -66,7 +66,6 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
     }];
 }
 
-
 #pragma mark
 #pragma mark - lazy
 

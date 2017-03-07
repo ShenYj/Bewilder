@@ -13,5 +13,6 @@ pod 'SDWebImage'
 pod 'MBProgressHUD'
 pod 'YYModel'
 pod 'MJRefresh'
+pod 'pop'
 
 end

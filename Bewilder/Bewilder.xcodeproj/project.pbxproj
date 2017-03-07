@@ -26,6 +26,7 @@
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
 		F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF701E6EDACA00519692 /* JSSSOLoginView.m */; };
 		F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF731E6EE3DF00519692 /* JSSSOBtn.m */; };
+		F772DF771E6EED1900519692 /* JSTopLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF761E6EED1900519692 /* JSTopLoginView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,8 @@
 		F772DF701E6EDACA00519692 /* JSSSOLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSOLoginView.m; sourceTree = "<group>"; };
 		F772DF721E6EE3DF00519692 /* JSSSOBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSOBtn.h; sourceTree = "<group>"; };
 		F772DF731E6EE3DF00519692 /* JSSSOBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSOBtn.m; sourceTree = "<group>"; };
+		F772DF751E6EED1900519692 /* JSTopLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTopLoginView.h; sourceTree = "<group>"; };
+		F772DF761E6EED1900519692 /* JSTopLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTopLoginView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,10 +352,12 @@
 			children = (
 				F772DF6B1E6E903300519692 /* JSLoginViewController.h */,
 				F772DF6C1E6E903300519692 /* JSLoginViewController.m */,
-				F772DF6F1E6EDACA00519692 /* JSSSOLoginView.h */,
-				F772DF701E6EDACA00519692 /* JSSSOLoginView.m */,
 				F772DF721E6EE3DF00519692 /* JSSSOBtn.h */,
 				F772DF731E6EE3DF00519692 /* JSSSOBtn.m */,
+				F772DF6F1E6EDACA00519692 /* JSSSOLoginView.h */,
+				F772DF701E6EDACA00519692 /* JSSSOLoginView.m */,
+				F772DF751E6EED1900519692 /* JSTopLoginView.h */,
+				F772DF761E6EED1900519692 /* JSTopLoginView.m */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
+				F772DF771E6EED1900519692 /* JSTopLoginView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
