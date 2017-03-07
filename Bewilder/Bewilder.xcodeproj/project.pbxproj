@@ -25,6 +25,7 @@
 		F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457341E6DA6C000CCF791 /* JSSettingViewController.m */; };
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
 		F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF701E6EDACA00519692 /* JSSSOLoginView.m */; };
+		F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF731E6EE3DF00519692 /* JSSSOBtn.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,8 @@
 		F772DF6C1E6E903300519692 /* JSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSLoginViewController.m; path = ../JSLoginViewController.m; sourceTree = "<group>"; };
 		F772DF6F1E6EDACA00519692 /* JSSSOLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSOLoginView.h; sourceTree = "<group>"; };
 		F772DF701E6EDACA00519692 /* JSSSOLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSOLoginView.m; sourceTree = "<group>"; };
+		F772DF721E6EE3DF00519692 /* JSSSOBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSOBtn.h; sourceTree = "<group>"; };
+		F772DF731E6EE3DF00519692 /* JSSSOBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSOBtn.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +351,8 @@
 				F772DF6C1E6E903300519692 /* JSLoginViewController.m */,
 				F772DF6F1E6EDACA00519692 /* JSSSOLoginView.h */,
 				F772DF701E6EDACA00519692 /* JSSSOLoginView.m */,
+				F772DF721E6EE3DF00519692 /* JSSSOBtn.h */,
+				F772DF731E6EE3DF00519692 /* JSSSOBtn.m */,
 			);
 			path = LoginAndRegister;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */,
+				F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */,
 				F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */,
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,

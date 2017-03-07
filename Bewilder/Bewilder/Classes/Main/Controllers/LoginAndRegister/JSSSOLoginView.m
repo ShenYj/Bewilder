@@ -7,6 +7,8 @@
 //
 
 #import "JSSSOLoginView.h"
+#import "JSSSOBtn.h"
+
 
 static CGFloat const kMargin = 10.f;         // 顶部间距
 
@@ -15,9 +17,9 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
 @property (nonatomic,strong) UILabel *detailLabel;                  // 顶部说明label
 @property (nonatomic,strong) UIImageView *separatorLeftImgView;     // 左侧分割线
 @property (nonatomic,strong) UIImageView *separatorRightImgView;    // 右侧分割线
-@property (nonatomic,strong) UIButton *sinaBtn;                     // 新浪登录登录
-@property (nonatomic,strong) UIButton *qqBtn;                       // qq登录
-@property (nonatomic,strong) UIButton *tencentBtn;                  // 腾讯微博登录
+@property (nonatomic,strong) JSSSOBtn *sinaBtn;                     // 新浪登录登录
+@property (nonatomic,strong) JSSSOBtn *qqBtn;                       // qq登录
+@property (nonatomic,strong) JSSSOBtn *tencentBtn;                  // 腾讯微博登录
 
 @end
 
@@ -54,7 +56,7 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
     }];
     
     NSArray *btnsArr = @[self.sinaBtn,self.qqBtn,self.tencentBtn];
-    [btnsArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:2*kMargin leadSpacing:4*kMargin tailSpacing:4*kMargin];
+    [btnsArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:kMargin leadSpacing:2*kMargin tailSpacing:2*kMargin];
     [btnsArr mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.detailLabel.mas_bottom).mas_offset(2*kMargin);
     }];
@@ -95,29 +97,32 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
     return _separatorRightImgView;
 }
 
-- (UIButton *)sinaBtn {
+- (JSSSOBtn *)sinaBtn {
     if (_sinaBtn == nil) {
-        _sinaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _sinaBtn = [JSSSOBtn buttonWithType:UIButtonTypeCustom];
         [_sinaBtn setImage:[UIImage imageNamed:@"login_sina_icon"] forState:UIControlStateNormal];
         [_sinaBtn setImage:[UIImage imageNamed:@"login_sina_icon_click"] forState:UIControlStateHighlighted];
+        [_sinaBtn setTitle:@"新浪微博登录" forState:UIControlStateNormal];
     }
     return _sinaBtn;
-}
 
-- (UIButton *)qqBtn {
+}
+- (JSSSOBtn *)qqBtn {
     if (_qqBtn == nil) {
-        _qqBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _qqBtn = [JSSSOBtn buttonWithType:UIButtonTypeCustom];
         [_qqBtn setImage:[UIImage imageNamed:@"login_QQ_icon"] forState:UIControlStateNormal];
         [_qqBtn setImage:[UIImage imageNamed:@"login_QQ_icon_click"] forState:UIControlStateHighlighted];
+        [_qqBtn setTitle:@"QQ登录" forState:UIControlStateNormal];
     }
     return _qqBtn;
 }
 
-- (UIButton *)tencentBtn {
+- (JSSSOBtn *)tencentBtn {
     if (_tencentBtn == nil) {
-        _tencentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _tencentBtn = [JSSSOBtn buttonWithType:UIButtonTypeCustom];
         [_tencentBtn setImage:[UIImage imageNamed:@"login_tecent_icon"] forState:UIControlStateNormal];
         [_tencentBtn setImage:[UIImage imageNamed:@"login_tecent_icon_click"] forState:UIControlStateHighlighted];
+        [_tencentBtn setTitle:@"腾讯微博登录" forState:UIControlStateNormal];
     }
     return _tencentBtn;
 }
