@@ -24,6 +24,7 @@
 		F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572E1E6CE30C00CCF791 /* JSMineViewController.m */; };
 		F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457341E6DA6C000CCF791 /* JSSettingViewController.m */; };
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
+		F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF701E6EDACA00519692 /* JSSSOLoginView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,8 +60,10 @@
 		F704572E1E6CE30C00CCF791 /* JSMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineViewController.m; sourceTree = "<group>"; };
 		F70457331E6DA6C000CCF791 /* JSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSettingViewController.h; sourceTree = "<group>"; };
 		F70457341E6DA6C000CCF791 /* JSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSettingViewController.m; sourceTree = "<group>"; };
-		F772DF6B1E6E903300519692 /* JSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoginViewController.h; sourceTree = "<group>"; };
-		F772DF6C1E6E903300519692 /* JSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoginViewController.m; sourceTree = "<group>"; };
+		F772DF6B1E6E903300519692 /* JSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSLoginViewController.h; path = ../JSLoginViewController.h; sourceTree = "<group>"; };
+		F772DF6C1E6E903300519692 /* JSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSLoginViewController.m; path = ../JSLoginViewController.m; sourceTree = "<group>"; };
+		F772DF6F1E6EDACA00519692 /* JSSSOLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSOLoginView.h; sourceTree = "<group>"; };
+		F772DF701E6EDACA00519692 /* JSSSOLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSOLoginView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +179,7 @@
 			children = (
 				F70456FD1E684FE300CCF791 /* JSMainController.h */,
 				F70456FE1E684FE300CCF791 /* JSMainController.m */,
-				F772DF6B1E6E903300519692 /* JSLoginViewController.h */,
-				F772DF6C1E6E903300519692 /* JSLoginViewController.m */,
+				F772DF6E1E6EDA8900519692 /* LoginAndRegister */,
 				F70457151E69BD8400CCF791 /* BaseViewController */,
 			);
 			path = Controllers;
@@ -339,6 +341,17 @@
 			path = BaseViewController;
 			sourceTree = "<group>";
 		};
+		F772DF6E1E6EDA8900519692 /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				F772DF6B1E6E903300519692 /* JSLoginViewController.h */,
+				F772DF6C1E6E903300519692 /* JSLoginViewController.m */,
+				F772DF6F1E6EDACA00519692 /* JSSSOLoginView.h */,
+				F772DF701E6EDACA00519692 /* JSSSOLoginView.m */,
+			);
+			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -464,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */,
+				F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */,
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,

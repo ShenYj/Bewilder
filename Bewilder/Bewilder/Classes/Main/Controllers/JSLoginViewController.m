@@ -7,8 +7,12 @@
 //
 
 #import "JSLoginViewController.h"
+#import "JSSSOLoginView.h"
 
 @interface JSLoginViewController ()
+
+/** 底部快速登录视图 */
+@property (nonatomic,strong) JSSSOLoginView *ssoLoginView;
 
 @end
 
@@ -23,7 +27,13 @@
 - (void)prepareView {
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"login_register_background"].CGImage);
+    self.view.layer.contentsScale = [UIScreen mainScreen].scale;
     
+    [self.view addSubview:self.ssoLoginView];
+    
+    [self.ssoLoginView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.left.right.mas_equalTo(self.view);
+    }];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -35,14 +45,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark
+#pragma mark - lazy
+
+- (JSSSOLoginView *)ssoLoginView {
+    if (!_ssoLoginView) {
+        _ssoLoginView = [[JSSSOLoginView alloc] init];
+    }
+    return _ssoLoginView;
 }
-*/
+
 
 @end

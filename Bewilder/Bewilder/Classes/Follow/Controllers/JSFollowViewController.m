@@ -76,12 +76,8 @@ static CGFloat const kSubViewMargin = 20.f;                             // å†…éƒ
 }
 
 - (void)clickLoginRegisterBtn:(UIButton *)sender {
-    NSLog(@"%@",NSStringFromSelector(_cmd));
-    
     JSLoginViewController *loginRegisterVC = [[JSLoginViewController alloc] init];
-    [self presentViewController:loginRegisterVC animated:YES completion:^{
-        
-    }];
+    [self presentViewController:loginRegisterVC animated:YES completion:nil];
 }
 
 
