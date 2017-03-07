@@ -53,6 +53,7 @@
     viewController.tabBarItem.title = title;
     viewController.title = title;
     JSBaseNavigationController *navigationController = [[JSBaseNavigationController alloc] initWithRootViewController:viewController];
+    // push控制器后隐藏底部tabBar
     navigationController.bottomBarHiddenWhenPushed = YES;
     [self addChildViewController:navigationController];
 }

@@ -23,6 +23,7 @@
 		F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572B1E6CE30300CCF791 /* JSFollowViewController.m */; };
 		F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572E1E6CE30C00CCF791 /* JSMineViewController.m */; };
 		F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457341E6DA6C000CCF791 /* JSSettingViewController.m */; };
+		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		F704572E1E6CE30C00CCF791 /* JSMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineViewController.m; sourceTree = "<group>"; };
 		F70457331E6DA6C000CCF791 /* JSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSettingViewController.h; sourceTree = "<group>"; };
 		F70457341E6DA6C000CCF791 /* JSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSettingViewController.m; sourceTree = "<group>"; };
+		F772DF6B1E6E903300519692 /* JSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoginViewController.h; sourceTree = "<group>"; };
+		F772DF6C1E6E903300519692 /* JSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +176,8 @@
 			children = (
 				F70456FD1E684FE300CCF791 /* JSMainController.h */,
 				F70456FE1E684FE300CCF791 /* JSMainController.m */,
+				F772DF6B1E6E903300519692 /* JSLoginViewController.h */,
+				F772DF6C1E6E903300519692 /* JSLoginViewController.m */,
 				F70457151E69BD8400CCF791 /* BaseViewController */,
 			);
 			path = Controllers;
@@ -465,6 +470,7 @@
 				F70457141E695D0200CCF791 /* JSTabBar.m in Sources */,
 				F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */,
 				F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */,
+				F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */,
 				F704571E1E69BD8400CCF791 /* JSBaseNavigationController.m in Sources */,
 				F704571D1E69BD8400CCF791 /* JSBaseNavBarButtonItem.m in Sources */,
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
