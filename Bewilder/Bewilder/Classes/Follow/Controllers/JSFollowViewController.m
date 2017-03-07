@@ -36,7 +36,6 @@ static CGFloat const kSubViewMargin = 20.f;                             // 内�
 /** 设置导航条 */
 - (void)prepareNavigationBar {
     self.js_navigationItem.title = @"我的关注";
-    
     self.js_navigationItem.leftBarButtonItem = [[JSBaseNavBarButtonItem alloc] initWithNormalImgName:@"friendsRecommentIcon" withHighlightedImgName:@"friendsRecommentIcon-click" withTarget:self withAction:@selector(clickLeftNavigationBarItem:)];
 }
 
@@ -69,10 +68,22 @@ static CGFloat const kSubViewMargin = 20.f;                             // 内�
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reusedIdentifier];
 }
 
+#pragma mark
+#pragma mark - target
 
 - (void)clickLeftNavigationBarItem:(JSBaseNavBarButtonItem *)sender {
     NSLog(@"%s",__func__);
 }
+
+- (void)clickLoginRegisterBtn:(UIButton *)sender {
+    NSLog(@"%@",NSStringFromSelector(_cmd));
+    
+    JSLoginViewController *loginRegisterVC = [[JSLoginViewController alloc] init];
+    [self presentViewController:loginRegisterVC animated:YES completion:^{
+        
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -108,6 +119,7 @@ static CGFloat const kSubViewMargin = 20.f;                             // 内�
         [_bottom_LoginBtn setTitle:@"立即登录/注册" forState:UIControlStateNormal];
         [_bottom_LoginBtn setBackgroundImage:[UIImage imageNamed:@"friendsTrend_login"] forState:UIControlStateNormal];
         [_bottom_LoginBtn setBackgroundImage:[UIImage imageNamed:@"friendsTrend_login_click"] forState:UIControlStateHighlighted];
+        [_bottom_LoginBtn addTarget:self action:@selector(clickLoginRegisterBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _bottom_LoginBtn;
 }
