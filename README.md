@@ -7,5 +7,5 @@
 - [x] 顶部视图(包含左侧关闭按钮;右侧注册登录切换按钮)   `JSTopLoginViewCloseControllerDelegate`
 - [x] 中间视图(包含登录界面;注册界面)                 `JSCenterLoginViewDelegate`
 - [x] 底部视图(包含SSO登录的三个按钮及其他子控件)       `JSSSOLoginViewDelegate`
-效果图:<br>
+<br>效果图:<br>
 ![注册登录](https://github.com/ShenYj/Bewilder/blob/master/01-关注:登录注册界面.gif?raw=true)
