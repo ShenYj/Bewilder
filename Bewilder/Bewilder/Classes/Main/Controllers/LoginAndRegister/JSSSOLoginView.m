@@ -67,6 +67,33 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
 }
 
 #pragma mark
+#pragma mark- target
+
+- (void)clickSSOButton:(JSSSOBtn *)sender {
+    /*
+     SSOButtonTypeSinaWB         = 1001,         // 新浪微博登录
+     SSOButtonTypeQQ             = 1002,         // QQ账号登录
+     SSOButtonTypeTencentWB      = 1003          // 腾讯微博登录
+     */
+    if ([self.delegate respondsToSelector:@selector(ssoLoginView:buttonType:)]) {
+        
+        switch (sender.tag) {
+            case 1001:
+                [self.delegate ssoLoginView:self buttonType:SSOButtonTypeSinaWB];
+                break;
+            case 1002:
+                [self.delegate ssoLoginView:self buttonType:SSOButtonTypeQQ];
+                break;
+            case 1003:
+                [self.delegate ssoLoginView:self buttonType:SSOButtonTypeTencentWB];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+#pragma mark
 #pragma mark - lazy
 
 - (UILabel *)detailLabel {
@@ -102,6 +129,8 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
         [_sinaBtn setImage:[UIImage imageNamed:@"login_sina_icon"] forState:UIControlStateNormal];
         [_sinaBtn setImage:[UIImage imageNamed:@"login_sina_icon_click"] forState:UIControlStateHighlighted];
         [_sinaBtn setTitle:@"新浪微博登录" forState:UIControlStateNormal];
+        _sinaBtn.tag = 1001;
+        [_sinaBtn addTarget:self action:@selector(clickSSOButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _sinaBtn;
 
@@ -113,6 +142,8 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
         [_qqBtn setImage:[UIImage imageNamed:@"login_QQ_icon"] forState:UIControlStateNormal];
         [_qqBtn setImage:[UIImage imageNamed:@"login_QQ_icon_click"] forState:UIControlStateHighlighted];
         [_qqBtn setTitle:@"QQ登录" forState:UIControlStateNormal];
+        _qqBtn.tag = 1002;
+        [_qqBtn addTarget:self action:@selector(clickSSOButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _qqBtn;
 }
@@ -123,6 +154,8 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
         [_tencentBtn setImage:[UIImage imageNamed:@"login_tecent_icon"] forState:UIControlStateNormal];
         [_tencentBtn setImage:[UIImage imageNamed:@"login_tecent_icon_click"] forState:UIControlStateHighlighted];
         [_tencentBtn setTitle:@"腾讯微博登录" forState:UIControlStateNormal];
+        _tencentBtn.tag = 1003;
+        [_tencentBtn addTarget:self action:@selector(clickSSOButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _tencentBtn;
 }

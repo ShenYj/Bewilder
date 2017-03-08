@@ -13,7 +13,7 @@
 
 static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图距离父控制器View的间距
 
-@interface JSLoginViewController () <JSTopLoginViewCloseControllerDelegate,JSCenterLoginViewDelegate>
+@interface JSLoginViewController () <JSTopLoginViewCloseControllerDelegate,JSCenterLoginViewDelegate,JSSSOLoginViewDelegate>
 
 /** 顶部关闭&注册帐号视图 */
 @property (nonatomic,strong) JSTopLoginView *closeRegisteView;
@@ -117,6 +117,26 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 }
 
 #pragma mark
+#pragma mark - JSSSOLoginViewDelegate
+
+- (void)ssoLoginView:(JSSSOLoginView *)ssoLoginView buttonType:(SSOButtonType)type {
+    
+    switch (type) {
+        case SSOButtonTypeSinaWB:
+            NSLog(@"新浪微博登录");
+            break;
+        case SSOButtonTypeQQ:
+            NSLog(@"QQ账号登录");
+            break;
+        case SSOButtonTypeTencentWB:
+            NSLog(@"腾讯微博登录");
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark
 #pragma mark - lazy
 
 - (JSTopLoginView *)closeRegisteView {
@@ -146,6 +166,7 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 - (JSSSOLoginView *)ssoLoginView {
     if (!_ssoLoginView) {
         _ssoLoginView = [[JSSSOLoginView alloc] init];
+        _ssoLoginView.delegate = self;
     }
     return _ssoLoginView;
 }
