@@ -13,12 +13,15 @@
 
 static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图距离父控制器View的间距
 
-@interface JSLoginViewController () <JSTopLoginViewCloseControllerDelegate>
+@interface JSLoginViewController () <JSTopLoginViewCloseControllerDelegate,JSCenterLoginViewDelegate>
 
 /** 顶部关闭&注册帐号视图 */
 @property (nonatomic,strong) JSTopLoginView *closeRegisteView;
-/** 中间的账号密码登录视图 */
+/** 中间的账号密码登录视图 & 注册账号视图 */
 @property (nonatomic,strong) JSCenterLoginView *centerLoginView;
+@property (nonatomic,strong) JSCenterLoginView *centerRegistView;
+@property (nonatomic,assign) CGFloat centerViewOffset;              // 中间登录视图和注册视图滚动切换偏移量(每次偏移量 = 当前值 * -1)
+
 /** 底部快速登录视图 */
 @property (nonatomic,strong) JSSSOLoginView *ssoLoginView;
 
@@ -33,12 +36,14 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 }
 
 - (void)prepareView {
+    self.centerViewOffset = SCREEN_WIDTH;
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"login_register_background"].CGImage);
     self.view.layer.contentsScale = [UIScreen mainScreen].scale;
     
     [self.view addSubview:self.ssoLoginView];
     [self.view addSubview:self.centerLoginView];
+    [self.view addSubview:self.centerRegistView];
     [self.view addSubview:self.closeRegisteView];
     
     [self.closeRegisteView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -49,6 +54,12 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
     [self.centerLoginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.closeRegisteView.mas_bottom).mas_offset(kTopViewMargin);
         make.left.right.mas_equalTo(self.view);
+    }];
+    
+    [self.centerRegistView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.centerLoginView.mas_right);
+        make.top.mas_equalTo(self.centerLoginView);
+        make.width.mas_equalTo(self.centerLoginView);
     }];
     
     [self.ssoLoginView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -67,6 +78,7 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.centerLoginView endEditing:YES];
+    [self.centerRegistView endEditing:YES];
 }
 
 
@@ -78,7 +90,30 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 }
 
 - (void)registAccountWithTopLoginView:(JSTopLoginView *)topLoginView {
-    NSLog(@"%s",__func__);
+    
+    [UIView animateWithDuration:0.5 delay:0.25 usingSpringWithDamping:0.5 initialSpringVelocity:1.0 options:0 animations:^{
+        self.centerViewOffset *= -1;
+        self.centerLoginView.transform = CGAffineTransformTranslate(self.centerLoginView.transform, self.centerViewOffset, 0);
+        self.centerRegistView.transform = CGAffineTransformTranslate(self.centerRegistView.transform, self.centerViewOffset, 0);
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+#pragma mark
+#pragma mark - JSCenterLoginViewDelegate
+
+- (void)centerLoginView:(JSCenterLoginView *)centerLoginView viewMode:(JSCenterLoginViewMode)mode {
+    switch (mode) {
+        case JSCenterLoginViewModeLoginIn:
+            
+            break;
+        case JSCenterLoginViewModeRegister:
+            
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark
@@ -94,9 +129,18 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 
 - (JSCenterLoginView *)centerLoginView {
     if (!_centerLoginView) {
-        _centerLoginView = [[JSCenterLoginView alloc] init];
+        _centerLoginView = [[JSCenterLoginView alloc] initWithCenterViewMode:JSCenterLoginViewModeLoginIn];
+        _centerLoginView.delegate = self;
     }
     return _centerLoginView;
+}
+
+- (JSCenterLoginView *)centerRegistView {
+    if (!_centerRegistView) {
+        _centerRegistView = [[JSCenterLoginView alloc] initWithCenterViewMode:JSCenterLoginViewModeRegister];
+        _centerRegistView.delegate = self;
+    }
+    return _centerRegistView;
 }
 
 - (JSSSOLoginView *)ssoLoginView {

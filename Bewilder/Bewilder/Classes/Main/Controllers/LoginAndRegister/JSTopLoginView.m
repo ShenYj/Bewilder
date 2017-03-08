@@ -58,6 +58,8 @@ static CGFloat const kSelfHeigth = 50.f;        // 自身高度
 }
 
 - (void)clickRegistButton:(UIButton *)sender {
+    
+    sender.selected = !sender.isSelected;
     if ([self.delegate respondsToSelector:@selector(registAccountWithTopLoginView:)]) {
         [self.delegate registAccountWithTopLoginView:self];
     }
@@ -80,6 +82,7 @@ static CGFloat const kSelfHeigth = 50.f;        // 自身高度
     if (!_registerBtn) {
         _registerBtn = [[UIButton alloc] init];
         [_registerBtn setTitle:@"注册账号" forState:UIControlStateNormal];
+        [_registerBtn setTitle:@"登录账号" forState:UIControlStateSelected];
         [_registerBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_registerBtn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
         _registerBtn.titleLabel.font = [UIFont systemFontOfSize:15];
