@@ -7,6 +7,7 @@
 //
 
 #import "JSCenterLoginView.h"
+#import "JSLoginTextField.h"
 
 static CGFloat const kBackgroundImgViewHeigth = 92.f;           // 背景图高度
 static CGFloat const kBackgroundImgViewWidth = 266.f;           // 背景图宽度
@@ -19,8 +20,8 @@ static CGFloat const kMargin = 10.f;                            // 间距
 /** 背景图片 */
 @property (nonatomic,strong) UIImageView *backgroundImgView;
 /** 帐号密码输入框 */
-@property (nonatomic,strong) UITextField *userAccountTF;
-@property (nonatomic,strong) UITextField *userPasswordTF;
+@property (nonatomic,strong) JSLoginTextField *userAccountTF;
+@property (nonatomic,strong) JSLoginTextField *userPasswordTF;
 /** 登录按钮 */
 @property (nonatomic,strong) UIButton *loginBtn;
 /** 注册按钮 */
@@ -135,28 +136,18 @@ static CGFloat const kMargin = 10.f;                            // 间距
     return _backgroundImgView;
 }
 
-- (UITextField *)userAccountTF {
+- (JSLoginTextField *)userAccountTF {
     if (!_userAccountTF) {
-        _userAccountTF = [[UITextField alloc] init];
-        _userAccountTF.textColor = [UIColor whiteColor];
-        _userAccountTF.borderStyle = UITextBorderStyleNone;
-        _userAccountTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2*kMargin, 0)];
-        _userAccountTF.leftViewMode = UITextFieldViewModeAlways;
+        _userAccountTF = [[JSLoginTextField alloc] init];
         _userAccountTF.keyboardType = UIKeyboardTypeNumberPad;
-        _userAccountTF.clearButtonMode = UITextFieldViewModeAlways;
     }
     return _userAccountTF;
 }
 
-- (UITextField *)userPasswordTF {
+- (JSLoginTextField *)userPasswordTF {
     if (!_userPasswordTF) {
-        _userPasswordTF = [[UITextField alloc] init];
-        _userPasswordTF.textColor = [UIColor whiteColor];
-        _userPasswordTF.borderStyle = UITextBorderStyleNone;
-        _userPasswordTF.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 2*kMargin, 0)];
-        _userPasswordTF.leftViewMode = UITextFieldViewModeAlways;
+        _userPasswordTF = [[JSLoginTextField alloc] init];
         _userPasswordTF.secureTextEntry = YES;
-        _userPasswordTF.clearButtonMode = UITextFieldViewModeAlways;
     }
     return _userPasswordTF;
 }
