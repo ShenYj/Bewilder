@@ -13,7 +13,7 @@ static CGFloat const kBackgroundImgViewHeigth = 92.f;           // 背景图高�
 static CGFloat const kBackgroundImgViewWidth = 266.f;           // 背景图宽度
 static CGFloat const kMargin = 10.f;                            // 间距
 
-@interface JSCenterLoginView ()
+@interface JSCenterLoginView () <UITextFieldDelegate>
 
 @property (nonatomic,assign) JSCenterLoginViewMode centerViewMode;
 
@@ -22,6 +22,7 @@ static CGFloat const kMargin = 10.f;                            // 间距
 /** 帐号密码输入框 */
 @property (nonatomic,strong) JSLoginTextField *userAccountTF;
 @property (nonatomic,strong) JSLoginTextField *userPasswordTF;
+
 /** 登录按钮 */
 @property (nonatomic,strong) UIButton *loginBtn;
 /** 注册按钮 */
@@ -92,14 +93,15 @@ static CGFloat const kMargin = 10.f;                            // 间距
         }];
     }
     
-    self.userAccountTF.attributedPlaceholder = [self placeholderText:@"账号"];
-    self.userPasswordTF.attributedPlaceholder = [self placeholderText:@"密码"];
+    self.userAccountTF.attributedPlaceholder = [self placeholderText:@"账号" color:[UIColor lightGrayColor]];
+    self.userPasswordTF.attributedPlaceholder = [self placeholderText:@"密码" color:[UIColor lightGrayColor]];
+    
     
     
 }
 
 /** 设置占位文字 */
-- (NSMutableAttributedString *)placeholderText:(NSString *)text {
+- (NSMutableAttributedString *)placeholderText:(NSString *)text color:(UIColor *)textColor{
     
     NSMutableAttributedString *mAttriString = [[NSMutableAttributedString alloc] initWithString:text];
     if (self.centerViewMode == JSCenterLoginViewModeRegister) {
@@ -107,7 +109,7 @@ static CGFloat const kMargin = 10.f;                            // 间距
         [registerPrefixString appendAttributedString:mAttriString];
         mAttriString = registerPrefixString;
     }
-    [mAttriString addAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} range:NSMakeRange(0, mAttriString.length)];
+    [mAttriString addAttributes:@{NSForegroundColorAttributeName: textColor} range:NSMakeRange(0, mAttriString.length)];
     return mAttriString;
 }
 
@@ -127,6 +129,23 @@ static CGFloat const kMargin = 10.f;                            // 间距
 }
 
 #pragma mark
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(JSLoginTextField *)textField {
+    
+    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithAttributedString:textField.attributedPlaceholder];
+    [placeholderText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, placeholderText.length)];
+    textField.attributedPlaceholder = placeholderText;
+}
+
+- (void)textFieldDidEndEditing:(JSLoginTextField *)textField {
+
+    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithAttributedString:textField.attributedPlaceholder];
+    [placeholderText addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, placeholderText.length)];
+    textField.attributedPlaceholder = placeholderText;
+}
+
+#pragma mark
 #pragma mark - lazy
 
 - (UIImageView *)backgroundImgView {
@@ -140,6 +159,7 @@ static CGFloat const kMargin = 10.f;                            // 间距
     if (!_userAccountTF) {
         _userAccountTF = [[JSLoginTextField alloc] init];
         _userAccountTF.keyboardType = UIKeyboardTypeNumberPad;
+        _userAccountTF.delegate = self;
     }
     return _userAccountTF;
 }
@@ -148,6 +168,7 @@ static CGFloat const kMargin = 10.f;                            // 间距
     if (!_userPasswordTF) {
         _userPasswordTF = [[JSLoginTextField alloc] init];
         _userPasswordTF.secureTextEntry = YES;
+        _userPasswordTF.delegate = self;
     }
     return _userPasswordTF;
 }

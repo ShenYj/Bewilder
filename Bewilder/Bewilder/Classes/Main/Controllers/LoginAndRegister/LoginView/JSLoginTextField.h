@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JSLoginTextField : UITextField
+@interface JSLoginTextField : UITextField 
 
 @end

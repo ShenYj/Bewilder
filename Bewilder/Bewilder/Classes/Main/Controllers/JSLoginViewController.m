@@ -77,8 +77,7 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.centerLoginView endEditing:YES];
-    [self.centerRegistView endEditing:YES];
+    [self.view endEditing:YES];
 }
 
 
@@ -86,6 +85,7 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 #pragma mark - JSTopLoginViewCloseControllerDelegate
 
 - (void)closeLoginRegisterViewControllerWithTopLoginView:(JSTopLoginView *)topLoginView {
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -106,10 +106,10 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 - (void)centerLoginView:(JSCenterLoginView *)centerLoginView viewMode:(JSCenterLoginViewMode)mode {
     switch (mode) {
         case JSCenterLoginViewModeLoginIn:
-            
+            NSLog(@"登录");
             break;
         case JSCenterLoginViewModeRegister:
-            
+            NSLog(@"注册");
             break;
         default:
             break;
