@@ -106,6 +106,7 @@ static CGFloat const kMargin = 10.f;         // 顶部间距
     return _sinaBtn;
 
 }
+
 - (JSSSOBtn *)qqBtn {
     if (_qqBtn == nil) {
         _qqBtn = [JSSSOBtn buttonWithType:UIButtonTypeCustom];

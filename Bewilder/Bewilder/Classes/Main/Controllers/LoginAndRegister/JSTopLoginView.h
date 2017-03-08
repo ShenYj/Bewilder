@@ -13,6 +13,12 @@
 @property (nonatomic,weak) id <JSTopLoginViewCloseControllerDelegate> delegate;
 @end
 
+/**  dismiss 登录/注册 控制器
+ *
+ *  @parameter topLoginView 视图自身
+ */
 @protocol JSTopLoginViewCloseControllerDelegate <NSObject>
 - (void)closeLoginRegisterViewControllerWithTopLoginView:(JSTopLoginView *)topLoginView;
+- (void)registAccountWithTopLoginView:(JSTopLoginView *)topLoginView;
+
 @end

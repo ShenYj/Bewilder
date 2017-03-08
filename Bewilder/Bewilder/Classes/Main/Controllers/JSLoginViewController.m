@@ -63,6 +63,10 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)registAccountWithTopLoginView:(JSTopLoginView *)topLoginView {
+    NSLog(@"%s",__func__);
+}
+
 #pragma mark
 #pragma mark - lazy
 
