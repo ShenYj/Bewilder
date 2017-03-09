@@ -25,6 +25,15 @@ static CGFloat const kMargin = 10.f;  // 间距
     return self;
 }
 
-
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    if (self.isEditing) {
+        [self setValue:[UIColor whiteColor] forKeyPath:@"placeholderLabel.textColor"];
+    } else {
+        // KVC 修改 占位文字颜色
+        [self setValue:[UIColor lightGrayColor] forKeyPath:@"placeholderLabel.textColor"];
+    }
+}
 
 @end

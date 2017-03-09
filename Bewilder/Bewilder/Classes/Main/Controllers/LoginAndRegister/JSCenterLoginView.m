@@ -93,11 +93,22 @@ static CGFloat const kMargin = 10.f;                            // 间距
         }];
     }
     
-    self.userAccountTF.attributedPlaceholder = [self placeholderText:@"账号" color:[UIColor lightGrayColor]];
-    self.userPasswordTF.attributedPlaceholder = [self placeholderText:@"密码" color:[UIColor lightGrayColor]];
+    // 通过富文本设置占位文字及颜色
+    //self.userAccountTF.attributedPlaceholder = [self placeholderText:@"账号" color:[UIColor lightGrayColor]];
+    //self.userPasswordTF.attributedPlaceholder = [self placeholderText:@"密码" color:[UIColor lightGrayColor]];
     
+    // 通过 自定义textfield KVC方式设置占位label的文本颜色
+    self.userAccountTF.placeholder = [self placeholderText:@"账号"];
+    self.userPasswordTF.placeholder = [self placeholderText:@"密码"];
     
-    
+}
+
+/** 设置占位文字 */
+- (NSString *)placeholderText:(NSString *)text {
+    if (self.centerViewMode == JSCenterLoginViewModeRegister) {
+        return [NSString stringWithFormat:@"请输入%@",text];
+    }
+    return text;
 }
 
 /** 设置占位文字 */
@@ -129,20 +140,17 @@ static CGFloat const kMargin = 10.f;                            // 间距
 }
 
 #pragma mark
-#pragma mark - UITextFieldDelegate
-
+#pragma mark - UITextFieldDelegate (自定义textfield中,在layoutSubView中通过当前textfield状态设置占位label颜色)
 - (void)textFieldDidBeginEditing:(JSLoginTextField *)textField {
     
-    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithAttributedString:textField.attributedPlaceholder];
-    [placeholderText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, placeholderText.length)];
-    textField.attributedPlaceholder = placeholderText;
+//    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithAttributedString:textField.attributedPlaceholder];
+//    [placeholderText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, placeholderText.length)];
+//    textField.attributedPlaceholder = placeholderText;
 }
-
 - (void)textFieldDidEndEditing:(JSLoginTextField *)textField {
-
-    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithAttributedString:textField.attributedPlaceholder];
-    [placeholderText addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, placeholderText.length)];
-    textField.attributedPlaceholder = placeholderText;
+//    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithAttributedString:textField.attributedPlaceholder];
+//    [placeholderText addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, placeholderText.length)];
+//    textField.attributedPlaceholder = placeholderText;
 }
 
 #pragma mark
