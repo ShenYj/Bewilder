@@ -28,12 +28,26 @@ static CGFloat const kMargin = 10.f;  // 间距
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    if (self.isEditing) {
-        [self setValue:[UIColor whiteColor] forKeyPath:@"placeholderLabel.textColor"];
-    } else {
-        // KVC 修改 占位文字颜色
+    if (!self.isEditing) {
         [self setValue:[UIColor lightGrayColor] forKeyPath:@"placeholderLabel.textColor"];
     }
+//
+//    if (self.isEditing) {
+//        [self setValue:[UIColor whiteColor] forKeyPath:@"placeholderLabel.textColor"];
+//    } else {
+//        // KVC 修改 占位文字颜色
+//        [self setValue:[UIColor lightGrayColor] forKeyPath:@"placeholderLabel.textColor"];
+//    }
+}
+
+- (BOOL)becomeFirstResponder {
+    [self setValue:[UIColor whiteColor] forKeyPath:@"placeholderLabel.textColor"];
+    return [super becomeFirstResponder];
+}
+
+- (BOOL)resignFirstResponder {
+    [self setValue:[UIColor lightGrayColor] forKeyPath:@"placeholderLabel.textColor"];
+    return [super resignFirstResponder];
 }
 
 @end

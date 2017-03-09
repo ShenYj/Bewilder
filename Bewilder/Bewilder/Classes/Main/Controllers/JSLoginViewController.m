@@ -33,6 +33,7 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self prepareView];
+    
 }
 
 - (void)prepareView {
