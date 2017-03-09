@@ -13,7 +13,7 @@ static CGFloat const kBackgroundImgViewHeigth = 92.f;           // 背景图高�
 static CGFloat const kBackgroundImgViewWidth = 266.f;           // 背景图宽度
 static CGFloat const kMargin = 10.f;                            // 间距
 
-@interface JSCenterLoginView () <UITextFieldDelegate>
+@interface JSCenterLoginView ()
 
 @property (nonatomic,assign) JSCenterLoginViewMode centerViewMode;
 
@@ -30,7 +30,6 @@ static CGFloat const kMargin = 10.f;                            // 间距
 @end
 
 @implementation JSCenterLoginView
-
 
 - (instancetype)initWithCenterViewMode:(JSCenterLoginViewMode)mode {
     self = [super init];
@@ -93,10 +92,6 @@ static CGFloat const kMargin = 10.f;                            // 间距
         }];
     }
     
-    // 通过富文本设置占位文字及颜色
-    //self.userAccountTF.attributedPlaceholder = [self placeholderText:@"账号" color:[UIColor lightGrayColor]];
-    //self.userPasswordTF.attributedPlaceholder = [self placeholderText:@"密码" color:[UIColor lightGrayColor]];
-    
     // 通过 自定义textfield KVC方式设置占位label的文本颜色
     self.userAccountTF.placeholder = [self placeholderText:@"账号"];
     self.userPasswordTF.placeholder = [self placeholderText:@"密码"];
@@ -110,20 +105,6 @@ static CGFloat const kMargin = 10.f;                            // 间距
     }
     return text;
 }
-
-/** 设置占位文字 */
-- (NSMutableAttributedString *)placeholderText:(NSString *)text color:(UIColor *)textColor{
-    
-    NSMutableAttributedString *mAttriString = [[NSMutableAttributedString alloc] initWithString:text];
-    if (self.centerViewMode == JSCenterLoginViewModeRegister) {
-        NSMutableAttributedString *registerPrefixString = [[NSMutableAttributedString alloc] initWithString:@"请输入"];
-        [registerPrefixString appendAttributedString:mAttriString];
-        mAttriString = registerPrefixString;
-    }
-    [mAttriString addAttributes:@{NSForegroundColorAttributeName: textColor} range:NSMakeRange(0, mAttriString.length)];
-    return mAttriString;
-}
-
 
 #pragma mark
 #pragma mark - target
@@ -139,19 +120,6 @@ static CGFloat const kMargin = 10.f;                            // 间距
     
 }
 
-#pragma mark
-#pragma mark - UITextFieldDelegate (自定义textfield中,在layoutSubView中通过当前textfield状态设置占位label颜色)
-- (void)textFieldDidBeginEditing:(JSLoginTextField *)textField {
-    
-//    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithAttributedString:textField.attributedPlaceholder];
-//    [placeholderText addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, placeholderText.length)];
-//    textField.attributedPlaceholder = placeholderText;
-}
-- (void)textFieldDidEndEditing:(JSLoginTextField *)textField {
-//    NSMutableAttributedString *placeholderText = [[NSMutableAttributedString alloc] initWithAttributedString:textField.attributedPlaceholder];
-//    [placeholderText addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(0, placeholderText.length)];
-//    textField.attributedPlaceholder = placeholderText;
-}
 
 #pragma mark
 #pragma mark - lazy
@@ -167,7 +135,6 @@ static CGFloat const kMargin = 10.f;                            // 间距
     if (!_userAccountTF) {
         _userAccountTF = [[JSLoginTextField alloc] init];
         _userAccountTF.keyboardType = UIKeyboardTypeNumberPad;
-        _userAccountTF.delegate = self;
     }
     return _userAccountTF;
 }
@@ -176,7 +143,6 @@ static CGFloat const kMargin = 10.f;                            // 间距
     if (!_userPasswordTF) {
         _userPasswordTF = [[JSLoginTextField alloc] init];
         _userPasswordTF.secureTextEntry = YES;
-        _userPasswordTF.delegate = self;
     }
     return _userPasswordTF;
 }
