@@ -10,9 +10,12 @@
 #import "JSBaseNavigationController.h"
 
 static CGFloat const kNavigationBarHeight = 64.f;  /** 自定义导航条高度 */
+static CGFloat const kSectionHeaderHeigth = 10.f;           // 分组样式tableView的头间距
+static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式tableView的尾间距
 
 
-@interface JSBaseViewController () <UITableViewDataSource,UITableViewDelegate>
+
+@interface JSBaseViewController () 
 
 @end
 
@@ -63,6 +66,9 @@ static CGFloat const kNavigationBarHeight = 64.f;  /** 自定义导航条高度 
 /** 表格视图 */
 - (void)prepareTableView {
     [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, kSectionHeaderHeigth)];
+    self.tableView.sectionHeaderHeight = kSectionHeaderHeigth;
+    self.tableView.sectionFooterHeight = kSectionFooterHeight;
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
@@ -104,7 +110,7 @@ static CGFloat const kNavigationBarHeight = 64.f;  /** 自定义导航条高度 
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }

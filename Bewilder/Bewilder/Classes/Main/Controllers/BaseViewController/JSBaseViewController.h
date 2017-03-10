@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JSBaseNavBarButtonItem.h"
 
-@interface JSBaseViewController : UIViewController
+@interface JSBaseViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 
 /** 自定义导航条 */

@@ -45,7 +45,7 @@ static CGFloat const kMargin = 10.f;  // 间距
     return [super becomeFirstResponder];
 }
 
-- (BOOL)resignFirstResponder {
+- (BOOL)resignFirstResponderresignFirstResponder {
     [self setValue:[UIColor lightGrayColor] forKeyPath:@"placeholderLabel.textColor"];
     return [super resignFirstResponder];
 }

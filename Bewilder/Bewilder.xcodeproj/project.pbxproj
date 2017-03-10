@@ -29,6 +29,7 @@
 		F772DF771E6EED1900519692 /* JSTopLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF761E6EED1900519692 /* JSTopLoginView.m */; };
 		F772DF7A1E6FA6BC00519692 /* JSCenterLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF791E6FA6BC00519692 /* JSCenterLoginView.m */; };
 		F772DF7E1E6FDF7400519692 /* JSLoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF7D1E6FDF7400519692 /* JSLoginTextField.m */; };
+		F772DF811E723CE600519692 /* JSMineLastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF801E723CE600519692 /* JSMineLastTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,8 @@
 		F772DF791E6FA6BC00519692 /* JSCenterLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSCenterLoginView.m; path = ../JSCenterLoginView.m; sourceTree = "<group>"; };
 		F772DF7C1E6FDF7400519692 /* JSLoginTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoginTextField.h; sourceTree = "<group>"; };
 		F772DF7D1E6FDF7400519692 /* JSLoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoginTextField.m; sourceTree = "<group>"; };
+		F772DF7F1E723CE600519692 /* JSMineLastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineLastTableViewCell.h; sourceTree = "<group>"; };
+		F772DF801E723CE600519692 /* JSMineLastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineLastTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +306,8 @@
 		F704570D1E6853D200CCF791 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F772DF7F1E723CE600519692 /* JSMineLastTableViewCell.h */,
+				F772DF801E723CE600519692 /* JSMineLastTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */,
 				F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */,
 				F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */,
+				F772DF811E723CE600519692 /* JSMineLastTableViewCell.m in Sources */,
 				F772DF7E1E6FDF7400519692 /* JSLoginTextField.m in Sources */,
 				F704571E1E69BD8400CCF791 /* JSBaseNavigationController.m in Sources */,
 				F772DF7A1E6FA6BC00519692 /* JSCenterLoginView.m in Sources */,

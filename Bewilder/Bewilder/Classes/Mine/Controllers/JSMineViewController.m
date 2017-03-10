@@ -8,8 +8,13 @@
 
 #import "JSMineViewController.h"
 #import "JSSettingViewController.h"
+#import "JSMineLastTableViewCell.h"
 
+static NSInteger const kNumberOfSections = 3;               // 表格分组个数
+static NSInteger const kNumberOfRowsInSt = 1;               // 表格每组行数
+static CGFloat const kLastCellHeigth = 460.f;               // 最后一个Cell的高度
 static NSString * const reusedIdentifier = @"mineReusedIdentifier";
+static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell重用标识
 
 @interface JSMineViewController ()
 
@@ -36,7 +41,9 @@ static NSString * const reusedIdentifier = @"mineReusedIdentifier";
 
 - (void)prepareTableView {
     [super prepareTableView];
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reusedIdentifier];
+    [self.tableView registerClass:[JSMineLastTableViewCell class] forCellReuseIdentifier:lastCellReusedId];
 }
 
 #pragma mark 
@@ -49,20 +56,62 @@ static NSString * const reusedIdentifier = @"mineReusedIdentifier";
     [self.navigationController pushViewController:settingVC animated:YES];
 }
 
+#pragma mark
+#pragma mark - table view dataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return kNumberOfSections;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return kNumberOfRowsInSt;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    if (indexPath.section == kNumberOfSections - 1) {
+        JSMineLastTableViewCell *lastCell = [tableView dequeueReusableCellWithIdentifier:lastCellReusedId forIndexPath:indexPath];
+        lastCell.textLabel.text = @"自定义cell";
+        return lastCell;
+    }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reusedIdentifier forIndexPath:indexPath];
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"登录/注册";
+        cell.imageView.image = [UIImage imageNamed:@"setup-head-default"];
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = @"离线下载";
+        cell.imageView.image = nil;
+    }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    UIImage *image = [UIImage imageNamed:@"mainCellBackground"];
+    CGFloat inset = image.size.width * 0.5;
+    UIImage *newImg = [image resizableImageWithCapInsets:UIEdgeInsetsMake(inset, inset, inset, inset) resizingMode:UIImageResizingModeStretch];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:newImg];
+    return cell;
+}
+
+
+#pragma mark
+#pragma mark - table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == kNumberOfSections - 1) {
+        return kLastCellHeigth;
+    }
+    return 44;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
