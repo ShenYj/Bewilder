@@ -14,5 +14,6 @@ pod 'MBProgressHUD'
 pod 'YYModel'
 pod 'MJRefresh'
 pod 'pop'
+pod 'AFNetworking'
 
 end

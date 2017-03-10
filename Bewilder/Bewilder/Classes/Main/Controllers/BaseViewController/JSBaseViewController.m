@@ -9,7 +9,7 @@
 #import "JSBaseViewController.h"
 #import "JSBaseNavigationController.h"
 
-static CGFloat const kNavigationBarHeight = 64.f;  /** 自定义导航条高度 */
+static CGFloat const kNavigationBarHeight = 64.f;           /** 自定义导航条高度 */
 static CGFloat const kSectionHeaderHeigth = 10.f;           // 分组样式tableView的头间距
 static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式tableView的尾间距
 
