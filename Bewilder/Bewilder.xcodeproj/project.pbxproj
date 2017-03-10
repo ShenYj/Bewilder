@@ -80,8 +80,8 @@
 		F772DF7D1E6FDF7400519692 /* JSLoginTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoginTextField.m; sourceTree = "<group>"; };
 		F772DF7F1E723CE600519692 /* JSMineLastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineLastTableViewCell.h; sourceTree = "<group>"; };
 		F772DF801E723CE600519692 /* JSMineLastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineLastTableViewCell.m; sourceTree = "<group>"; };
-		F772DF821E72F45800519692 /* JSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNetworkManager.h; sourceTree = "<group>"; };
-		F772DF831E72F45800519692 /* JSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNetworkManager.m; sourceTree = "<group>"; };
+		F772DF821E72F45800519692 /* JSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSNetworkManager.h; path = ../JSNetworkManager.h; sourceTree = "<group>"; };
+		F772DF831E72F45800519692 /* JSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSNetworkManager.m; path = ../JSNetworkManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,8 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
-				F772DF821E72F45800519692 /* JSNetworkManager.h */,
-				F772DF831E72F45800519692 /* JSNetworkManager.m */,
+				F772DF851E73023C00519692 /* NetworkTool */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -389,6 +388,15 @@
 			);
 			name = LoginView;
 			path = ../Controllers/LoginAndRegister/LoginView;
+			sourceTree = "<group>";
+		};
+		F772DF851E73023C00519692 /* NetworkTool */ = {
+			isa = PBXGroup;
+			children = (
+				F772DF821E72F45800519692 /* JSNetworkManager.h */,
+				F772DF831E72F45800519692 /* JSNetworkManager.m */,
+			);
+			path = NetworkTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -27,7 +27,7 @@
 #import "YYModel.h"
 #import "YYWebImage.h"
 #import "Pop.h"
-
+#import "JSNetworkManager.h"
 
 
 #pragma mark = 宏定义
