@@ -14,7 +14,7 @@
 
 @implementation JSNetworkManager (JSMineDatas)
 
-- (void)loadDatasWithCompeletionHandler:(void(^)(JSMineModel *response, BOOL isOK))compeletionHandler {
+- (void)loadDatasWithCompletionHandler:(void(^)(JSMineModel *response ,BOOL isCompletion))completionHandler {
     
     NSString *urlString = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paras = @{
@@ -24,12 +24,14 @@
     [self GET:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
         
         JSMineModel *mineModel = [JSMineModel mineWithDict:responseObject];
-        mineModel != nil ? compeletionHandler(mineModel,YES) : compeletionHandler(nil,NO);
+        completionHandler(mineModel,YES);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
         if (error) {
             NSLog(@"请求失败(%s)-%@",__func__,error);
         }
+        completionHandler(nil,NO);
     }];
 }
 

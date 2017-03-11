@@ -38,10 +38,10 @@
     tabBar.tabBarDelegate = self;
     [self setValue:tabBar forKey:@"tabBar"];
     // 设置子控制器
+    [self addChildController:[[JSMineViewController alloc] init] withTitle:@"我" withImageName:@"me"];
     [self addChildController:[[JSEssenceController alloc] init] withTitle:@"精华" withImageName:@"essence"];
     [self addChildController:[[JSNewPostsController alloc] init] withTitle:@"新帖" withImageName:@"new"];
     [self addChildController:[[JSFollowViewController alloc] init] withTitle:@"关注" withImageName:@"friendTrends"];
-    [self addChildController:[[JSMineViewController alloc] init] withTitle:@"我" withImageName:@"me"];
     
 }
 

@@ -31,11 +31,11 @@
 		F772DF7E1E6FDF7400519692 /* JSLoginTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF7D1E6FDF7400519692 /* JSLoginTextField.m */; };
 		F772DF811E723CE600519692 /* JSMineLastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF801E723CE600519692 /* JSMineLastTableViewCell.m */; };
 		F772DF841E72F45800519692 /* JSNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF831E72F45800519692 /* JSNetworkManager.m */; };
-		F772DF881E73BF5400519692 /* JSLastCellCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF871E73BF5400519692 /* JSLastCellCollectionView.m */; };
 		F772DF8B1E73C58A00519692 /* JSNetworkManager+JSMineDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF8A1E73C58A00519692 /* JSNetworkManager+JSMineDatas.m */; };
 		F772DF8E1E73F12500519692 /* JSSquareListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF8D1E73F12500519692 /* JSSquareListModel.m */; };
 		F772DF911E73F28F00519692 /* JSTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF901E73F28F00519692 /* JSTagList.m */; };
 		F772DF941E73F2F300519692 /* JSMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF931E73F2F300519692 /* JSMineModel.m */; };
+		F772DF971E742FE700519692 /* JSMeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF961E742FE700519692 /* JSMeButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,8 +87,6 @@
 		F772DF801E723CE600519692 /* JSMineLastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineLastTableViewCell.m; sourceTree = "<group>"; };
 		F772DF821E72F45800519692 /* JSNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSNetworkManager.h; path = ../JSNetworkManager.h; sourceTree = "<group>"; };
 		F772DF831E72F45800519692 /* JSNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSNetworkManager.m; path = ../JSNetworkManager.m; sourceTree = "<group>"; };
-		F772DF861E73BF5400519692 /* JSLastCellCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLastCellCollectionView.h; sourceTree = "<group>"; };
-		F772DF871E73BF5400519692 /* JSLastCellCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLastCellCollectionView.m; sourceTree = "<group>"; };
 		F772DF891E73C58A00519692 /* JSNetworkManager+JSMineDatas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSNetworkManager+JSMineDatas.h"; sourceTree = "<group>"; };
 		F772DF8A1E73C58A00519692 /* JSNetworkManager+JSMineDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSNetworkManager+JSMineDatas.m"; sourceTree = "<group>"; };
 		F772DF8C1E73F12500519692 /* JSSquareListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSquareListModel.h; sourceTree = "<group>"; };
@@ -97,6 +95,8 @@
 		F772DF901E73F28F00519692 /* JSTagList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTagList.m; sourceTree = "<group>"; };
 		F772DF921E73F2F300519692 /* JSMineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineModel.h; sourceTree = "<group>"; };
 		F772DF931E73F2F300519692 /* JSMineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineModel.m; sourceTree = "<group>"; };
+		F772DF951E742FE700519692 /* JSMeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMeButton.h; sourceTree = "<group>"; };
+		F772DF961E742FE700519692 /* JSMeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMeButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,8 +333,8 @@
 			children = (
 				F772DF7F1E723CE600519692 /* JSMineLastTableViewCell.h */,
 				F772DF801E723CE600519692 /* JSMineLastTableViewCell.m */,
-				F772DF861E73BF5400519692 /* JSLastCellCollectionView.h */,
-				F772DF871E73BF5400519692 /* JSLastCellCollectionView.m */,
+				F772DF951E742FE700519692 /* JSMeButton.h */,
+				F772DF961E742FE700519692 /* JSMeButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -555,6 +555,7 @@
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
+				F772DF971E742FE700519692 /* JSMeButton.m in Sources */,
 				F70457141E695D0200CCF791 /* JSTabBar.m in Sources */,
 				F772DF941E73F2F300519692 /* JSMineModel.m in Sources */,
 				F772DF841E72F45800519692 /* JSNetworkManager.m in Sources */,
@@ -569,7 +570,6 @@
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
 				F772DF911E73F28F00519692 /* JSTagList.m in Sources */,
-				F772DF881E73BF5400519692 /* JSLastCellCollectionView.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 				F772DF771E6EED1900519692 /* JSTopLoginView.m in Sources */,
 				F772DF8E1E73F12500519692 /* JSSquareListModel.m in Sources */,

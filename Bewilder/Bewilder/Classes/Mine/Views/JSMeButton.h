@@ -1,5 +1,5 @@
 //
-//  JSLastCellCollectionView.h
+//  JSMeButton.h
 //  Bewilder
 //
 //  Created by ShenYj on 2017/3/11.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JSLastCellCollectionView : UICollectionView
+@interface JSMeButton : UIButton
 
 @end

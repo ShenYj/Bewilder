@@ -9,6 +9,11 @@
 #import "JSMineModel.h"
 #import "JSSquareListModel.h"
 #import "JSTagList.h"
+#import "JSNetworkManager+JSMineDatas.h"
+
+NSInteger const kColButtonCount = 4;     // 每行按钮个数
+CGFloat const kButtonMargin = 0.f;       // 按钮间的间距
+
 
 @implementation JSMineModel
 
@@ -25,7 +30,6 @@
 }
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-    
 }
 
 - (void)setSquare_list:(NSArray<JSSquareListModel *> *)square_list {
@@ -45,6 +49,13 @@
         [tempArr addObject:model];
     }
     _tag_list = tempArr;
+}
+
+- (CGFloat)lastCellHeight {
+    CGFloat buttonWidth = (SCREEN_WIDTH - (kColButtonCount - 1) * kButtonMargin) / kColButtonCount;
+    NSInteger maxRowIdx = (self.square_list.count - 1) / kColButtonCount;
+    CGFloat cellHeight = (maxRowIdx + 1) * buttonWidth + maxRowIdx * kButtonMargin;
+    return cellHeight;
 }
 
 - (NSString *)description {

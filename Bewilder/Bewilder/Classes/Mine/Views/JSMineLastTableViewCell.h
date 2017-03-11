@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class JSMineModel;
+
 @interface JSMineLastTableViewCell : UITableViewCell
-@property (nonatomic,strong) JSMineModel *mineVCDatas;
+
+@property (nonatomic,strong) JSMineModel *mineModel;
+
 @end
+
+

@@ -14,7 +14,6 @@
 
 static NSInteger const kNumberOfSections = 3;               // 表格分组个数
 static NSInteger const kNumberOfRowsInSt = 1;               // 表格每组行数
-static CGFloat const kLastCellHeigth = 460.f;               // 最后一个Cell的高度
 static NSString * const reusedIdentifier = @"mineReusedIdentifier";
 static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell重用标识
 
@@ -28,12 +27,17 @@ static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell�
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     __weak typeof(self) weakSelf = self;
-    [[JSNetworkManager sharedManager] loadDatasWithCompeletionHandler:^(JSMineModel *response ,BOOL isSuccess) {
-        if (isSuccess) {
+    [[JSNetworkManager sharedManager] loadDatasWithCompletionHandler:^(JSMineModel *response , BOOL isCompletion) {
+        if (isCompletion && response) {
             weakSelf.mineVCDatas = response;
             [weakSelf.tableView reloadData];
+        } else {
+            NSLog(@"模型数据异常,FIXME");
+            abort();
         }
+        
     }];
+    
 }
 
 - (void)setUpUI {
@@ -78,11 +82,9 @@ static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell�
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
     if (indexPath.section == kNumberOfSections - 1) {
         JSMineLastTableViewCell *lastCell = [tableView dequeueReusableCellWithIdentifier:lastCellReusedId forIndexPath:indexPath];
-        lastCell.textLabel.text = @"自定义cell";
-        lastCell.mineVCDatas = self.mineVCDatas;
+        lastCell.mineModel = self.mineVCDatas;
         return lastCell;
     }
     
@@ -112,7 +114,7 @@ static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell�
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kNumberOfSections - 1) {
-        return kLastCellHeigth;
+        return self.mineVCDatas.lastCellHeight;
     }
     return 44;
 }

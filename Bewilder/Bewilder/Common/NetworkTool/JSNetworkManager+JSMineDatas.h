@@ -11,6 +11,10 @@
 
 @interface JSNetworkManager (JSMineDatas)
 
-- (void)loadDatasWithCompeletionHandler:(void(^)(JSMineModel *response, BOOL isOK))compeletionHandler;
+/** completionHandler参数说明
+  * response        转换后的模型数据
+  * isCompletion    模型数据转换完成
+ */
+- (void)loadDatasWithCompletionHandler:(void(^)(JSMineModel *response ,BOOL isCompletion))completionHandler;
 
 @end
