@@ -9,6 +9,8 @@
 #import "JSMineViewController.h"
 #import "JSSettingViewController.h"
 #import "JSMineLastTableViewCell.h"
+#import "JSNetworkManager+JSMineDatas.h"
+#import "JSMineModel.h"
 
 static NSInteger const kNumberOfSections = 3;               // 表格分组个数
 static NSInteger const kNumberOfRowsInSt = 1;               // 表格每组行数
@@ -17,7 +19,7 @@ static NSString * const reusedIdentifier = @"mineReusedIdentifier";
 static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell重用标识
 
 @interface JSMineViewController ()
-
+@property (nonatomic,strong) JSMineModel *mineVCDatas;
 @end
 
 @implementation JSMineViewController
@@ -25,6 +27,13 @@ static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell�
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    __weak typeof(self) weakSelf = self;
+    [[JSNetworkManager sharedManager] loadDatasWithCompeletionHandler:^(JSMineModel *response ,BOOL isSuccess) {
+        if (isSuccess) {
+            weakSelf.mineVCDatas = response;
+            [weakSelf.tableView reloadData];
+        }
+    }];
 }
 
 - (void)setUpUI {
@@ -73,6 +82,7 @@ static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell�
     if (indexPath.section == kNumberOfSections - 1) {
         JSMineLastTableViewCell *lastCell = [tableView dequeueReusableCellWithIdentifier:lastCellReusedId forIndexPath:indexPath];
         lastCell.textLabel.text = @"自定义cell";
+        lastCell.mineVCDatas = self.mineVCDatas;
         return lastCell;
     }
     
