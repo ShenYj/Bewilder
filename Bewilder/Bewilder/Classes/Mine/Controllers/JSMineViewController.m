@@ -11,13 +11,16 @@
 #import "JSMineLastTableViewCell.h"
 #import "JSNetworkManager+JSMineDatas.h"
 #import "JSMineModel.h"
+#import "JSMeButton.h"
+#import "JSSquareListModel.h"
 
 static NSInteger const kNumberOfSections = 3;               // 表格分组个数
 static NSInteger const kNumberOfRowsInSt = 1;               // 表格每组行数
 static NSString * const reusedIdentifier = @"mineReusedIdentifier";
 static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell重用标识
+extern NSInteger const flag;                // tag值中间变量
 
-@interface JSMineViewController ()
+@interface JSMineViewController () <JSMineLastCellButonClickDelegate>
 @property (nonatomic,strong) JSMineModel *mineVCDatas;
 @end
 
@@ -85,6 +88,7 @@ static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell�
     if (indexPath.section == kNumberOfSections - 1) {
         JSMineLastTableViewCell *lastCell = [tableView dequeueReusableCellWithIdentifier:lastCellReusedId forIndexPath:indexPath];
         lastCell.mineModel = self.mineVCDatas;
+        lastCell.lastCellDelegate = self;
         return lastCell;
     }
     
@@ -117,6 +121,19 @@ static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell�
         return self.mineVCDatas.lastCellHeight;
     }
     return 44;
+}
+
+#pragma mark
+#pragma mark - JSMineLastCellButonClickDelegate
+
+- (void)lastCell:(JSMineLastTableViewCell *)lastCell clickedButton:(JSMeButton *)clickedButton {
+    NSArray *squareListArr = self.mineVCDatas.square_list;
+    NSInteger idx = clickedButton.tag - flag;
+    JSSquareListModel *squareList = squareListArr[idx];
+    NSString *urlString = squareList.url;
+    NSLog(@"%@",squareList);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

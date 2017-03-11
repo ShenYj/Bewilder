@@ -14,7 +14,7 @@
 
 @interface JSMineModel : NSObject
 
-@property (nonatomic,assign) CGFloat lastCellHeight;
+@property (nonatomic,assign,readonly) CGFloat lastCellHeight;
 
 @property (nonatomic,strong) NSArray <JSSquareListModel *> *square_list;
 @property (nonatomic,strong) NSArray <JSTagList *> *tag_list;

@@ -13,7 +13,8 @@
 #import "JSMeButton.h"
 
 extern NSInteger const kColButtonCount;     // 每行按钮个数
-extern CGFloat const kButtonMargin ;       // 按钮间的间距
+extern CGFloat const kButtonMargin ;        // 按钮间的间距
+NSInteger const flag = 1000;                // tag值中间变量
 
 
 @interface JSMineLastTableViewCell ()
@@ -31,18 +32,6 @@ extern CGFloat const kButtonMargin ;       // 按钮间的间距
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-//        __weak typeof(self) weakSelf = self;
-//        [[JSNetworkManager sharedManager] loadDatasWithCompletionHandler:^(JSMineModel *response , BOOL isCompletion) {
-//            if (isCompletion && response) {
-//                weakSelf.mineModel = response;
-//                [weakSelf creatButtonsWithDatas:response];
-//            } else {
-//                NSLog(@"模型数据异常,FIXME");
-//                abort();
-//            }
-//            isCompletion = isCompletion;
-//            
-//        }];
         
     }
     return self;
@@ -69,10 +58,11 @@ extern CGFloat const kButtonMargin ;       // 按钮间的间距
 
 - (void)creatButtonsWithDatas:(JSMineModel *)model {
     NSArray <JSSquareListModel *> *squareList = model.square_list;
-    
     [squareList enumerateObjectsUsingBlock:^(JSSquareListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         JSMeButton *button = [[JSMeButton alloc] init];
+        button.tag = 1000 + idx;
         [button setTitle:obj.name forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:button];
         [self.buttonsArr addObject:button];
     }];
@@ -83,6 +73,15 @@ extern CGFloat const kButtonMargin ;       // 按钮间的间距
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark 
+#pragma mark - target
+
+- (void)clickButton:(JSMeButton *)sender {
+    if ([self.lastCellDelegate respondsToSelector:@selector(lastCell:clickedButton:)]) {
+        [self.lastCellDelegate lastCell:self clickedButton:sender];
+    }
 }
 
 

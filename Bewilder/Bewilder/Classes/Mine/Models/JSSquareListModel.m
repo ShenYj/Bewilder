@@ -34,4 +34,9 @@
     
 }
 
+- (NSString *)description {
+    NSArray *keys = @[@"android",@"iphone",@"ipad",@"icon",@"id_squareList",@"market",@"name",@"url"];
+    return [self dictionaryWithValuesForKeys:keys].description;
+}
+
 @end

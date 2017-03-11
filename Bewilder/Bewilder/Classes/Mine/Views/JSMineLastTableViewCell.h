@@ -8,10 +8,20 @@
 
 #import <UIKit/UIKit.h>
 @class JSMineModel;
+@class JSMeButton;
+@protocol JSMineLastCellButonClickDelegate;
 
 @interface JSMineLastTableViewCell : UITableViewCell
 
 @property (nonatomic,strong) JSMineModel *mineModel;
+@property (nonatomic,weak) id <JSMineLastCellButonClickDelegate> lastCellDelegate;
+
+@end
+
+
+@protocol JSMineLastCellButonClickDelegate <NSObject>
+
+- (void)lastCell:(JSMineLastTableViewCell *)lastCell clickedButton:(JSMeButton *)clickedButton;
 
 @end
 

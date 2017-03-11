@@ -15,7 +15,7 @@ static CGFloat const kMargin = 5.f;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.titleLabel.font = [UIFont systemFontOfSize:15];
+        self.titleLabel.font = [UIFont systemFontOfSize:13];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     }
