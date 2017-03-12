@@ -32,7 +32,7 @@ NSInteger const flag = 1000;                // tag值中间变量
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -47,7 +47,7 @@ NSInteger const flag = 1000;                // tag值中间变量
         CGFloat col = idx % kColButtonCount;
         CGFloat coordinateX = col * kButtonMargin + col * buttonWidth;
         CGFloat coordinateY = row * kButtonMargin + row * buttonHeight;
-        obj.frame = CGRectMake(coordinateX, coordinateY, buttonWidth - 1, buttonHeight - 1);
+        obj.frame = CGRectMake(coordinateX, coordinateY, buttonWidth, buttonHeight);
     }];
 }
 

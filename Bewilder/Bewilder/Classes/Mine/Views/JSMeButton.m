@@ -26,6 +26,7 @@ CGFloat const kButtonImageSize = 44.f;           // 按钮图片尺寸
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.backgroundColor = [UIColor whiteColor];
+        [self setBackgroundImage:[UIImage imageNamed:@"mainCellBackground"] forState:UIControlStateNormal];
 //        self.layer.borderColor = [UIColor blackColor].CGColor;
 //        self.layer.borderWidth = 1;
     }
