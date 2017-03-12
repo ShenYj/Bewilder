@@ -137,7 +137,7 @@ extern NSInteger const flag;                                // tag值中间变�
     NSInteger idx = clickedButton.tag - flag;
     JSSquareListModel *squareList = squareListArr[idx];
     NSString *urlString = squareList.url;
-    NSLog(@"%@",squareList);
+    
     if ([urlString hasPrefix:@"http"]) {
         // webView加载
         JSMineSubViewController *mineSubVC = [[JSMineSubViewController alloc] init];

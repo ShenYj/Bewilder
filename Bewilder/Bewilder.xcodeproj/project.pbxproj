@@ -24,6 +24,7 @@
 		F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572E1E6CE30C00CCF791 /* JSMineViewController.m */; };
 		F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457341E6DA6C000CCF791 /* JSSettingViewController.m */; };
 		F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */; };
+		F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CE1E7570D000BC9D0B /* JSWebViewToolBar.m */; };
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
 		F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF701E6EDACA00519692 /* JSSSOLoginView.m */; };
 		F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF731E6EE3DF00519692 /* JSSSOBtn.m */; };
@@ -74,6 +75,8 @@
 		F70457341E6DA6C000CCF791 /* JSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSettingViewController.m; sourceTree = "<group>"; };
 		F770C4CA1E75651E00BC9D0B /* JSMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineSubViewController.h; sourceTree = "<group>"; };
 		F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineSubViewController.m; sourceTree = "<group>"; };
+		F770C4CD1E7570CF00BC9D0B /* JSWebViewToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSWebViewToolBar.h; sourceTree = "<group>"; };
+		F770C4CE1E7570D000BC9D0B /* JSWebViewToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSWebViewToolBar.m; sourceTree = "<group>"; };
 		F772DF6B1E6E903300519692 /* JSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSLoginViewController.h; path = ../JSLoginViewController.h; sourceTree = "<group>"; };
 		F772DF6C1E6E903300519692 /* JSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSLoginViewController.m; path = ../JSLoginViewController.m; sourceTree = "<group>"; };
 		F772DF6F1E6EDACA00519692 /* JSSSOLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSSSOLoginView.h; path = ../JSSSOLoginView.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 				F772DF801E723CE600519692 /* JSMineLastTableViewCell.m */,
 				F772DF951E742FE700519692 /* JSMeButton.h */,
 				F772DF961E742FE700519692 /* JSMeButton.m */,
+				F770C4CD1E7570CF00BC9D0B /* JSWebViewToolBar.h */,
+				F770C4CE1E7570D000BC9D0B /* JSWebViewToolBar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -561,6 +566,7 @@
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
+				F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */,
 				F772DF971E742FE700519692 /* JSMeButton.m in Sources */,
 				F70457141E695D0200CCF791 /* JSTabBar.m in Sources */,
 				F772DF941E73F2F300519692 /* JSMineModel.m in Sources */,
