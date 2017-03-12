@@ -13,6 +13,7 @@
 #import "JSMineModel.h"
 #import "JSMeButton.h"
 #import "JSSquareListModel.h"
+#import "JSLoginViewController.h"
 
 static NSInteger const kNumberOfSections = 3;               // 表格分组个数
 static NSInteger const kNumberOfRowsInSt = 1;               // 表格每组行数
@@ -100,6 +101,7 @@ extern NSInteger const flag;                                // tag值中间变�
         cell.textLabel.text = @"离线下载";
         cell.imageView.image = nil;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     UIImage *image = [UIImage imageNamed:@"mainCellBackground"];
     CGFloat inset = image.size.width * 0.5;
@@ -112,9 +114,12 @@ extern NSInteger const flag;                                // tag值中间变�
 #pragma mark
 #pragma mark - table view delegate
 
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        JSLoginViewController *loginViewController = [[JSLoginViewController alloc] init];
+        [self presentViewController:loginViewController animated:YES completion:nil];
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kNumberOfSections - 1) {

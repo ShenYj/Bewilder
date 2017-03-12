@@ -9,6 +9,9 @@
 #import "JSNetworkManager.h"
 @class JSMineModel;
 
+/** 
+ * 我的界面请求接口
+ */
 @interface JSNetworkManager (JSMineDatas)
 
 /** completionHandler参数说明

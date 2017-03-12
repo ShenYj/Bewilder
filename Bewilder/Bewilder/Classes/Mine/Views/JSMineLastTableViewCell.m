@@ -32,7 +32,7 @@ NSInteger const flag = 1000;                // tag值中间变量
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
+        self.backgroundColor = [UIColor lightGrayColor];
     }
     return self;
 }
@@ -47,7 +47,7 @@ NSInteger const flag = 1000;                // tag值中间变量
         CGFloat col = idx % kColButtonCount;
         CGFloat coordinateX = col * kButtonMargin + col * buttonWidth;
         CGFloat coordinateY = row * kButtonMargin + row * buttonHeight;
-        obj.frame = CGRectMake(coordinateX, coordinateY, buttonWidth, buttonHeight);
+        obj.frame = CGRectMake(coordinateX, coordinateY, buttonWidth - 1, buttonHeight - 1);
     }];
 }
 
@@ -62,7 +62,7 @@ NSInteger const flag = 1000;                // tag值中间变量
         JSMeButton *button = [[JSMeButton alloc] init];
         button.tag = 1000 + idx;
         [button setTitle:obj.name forState:UIControlStateNormal];
-        [button yy_setImageWithURL:[NSURL URLWithString:obj.icon] forState:UIControlStateNormal options:YYWebImageOptionShowNetworkActivity];        
+        [button yy_setImageWithURL:[NSURL URLWithString:obj.icon] forState:UIControlStateNormal options:YYWebImageOptionShowNetworkActivity];
         [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:button];
         [self.buttonsArr addObject:button];

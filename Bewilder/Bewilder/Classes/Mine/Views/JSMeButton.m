@@ -25,8 +25,9 @@ CGFloat const kButtonImageSize = 44.f;           // 按钮图片尺寸
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
-        self.layer.borderColor = [UIColor blackColor].CGColor;
-        self.layer.borderWidth = 1;
+        self.backgroundColor = [UIColor whiteColor];
+//        self.layer.borderColor = [UIColor blackColor].CGColor;
+//        self.layer.borderWidth = 1;
     }
     return self;
 }
