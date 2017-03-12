@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "JSMainController.h"
-
+#import "AFNetworkActivityIndicatorManager.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 网络指示器
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    // 监听网络
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     // 初始化Window
     self.window = [[UIWindow alloc] initWithFrame:SCREEN_BOUNDS];
     // 设置根控制器

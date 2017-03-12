@@ -8,37 +8,48 @@
 
 #import "JSMeButton.h"
 
-static CGFloat const kMargin = 5.f;
+extern NSInteger const kColButtonCount;     // 每行按钮个数
+CGFloat const kButtonImageSize = 44.f;           // 按钮图片尺寸
+
+@interface JSMeButton ()
+@property (nonatomic,assign) CGFloat buttonWidth;
+@end
 
 @implementation JSMeButton
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.titleLabel.font = [UIFont systemFontOfSize:13];
+        self.titleLabel.font = [UIFont systemFontOfSize:11];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.layer.borderColor = [UIColor blackColor].CGColor;
+        self.layer.borderWidth = 1;
     }
     return self;
 }
 
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-//    CGRect imageVFrame = self.imageView.frame;
-//    CGRect labelFrame = self.titleLabel.frame;
-//    
-//    imageVFrame.origin.x = kMargin;
-//    imageVFrame.origin.y = 0;
-//    
-//    labelFrame.origin.x = 0;
-//    labelFrame.origin.y = imageVFrame.size.height + kMargin;
-//    labelFrame.size.width = self.bounds.size.width;
-//    
-//    self.imageView.frame = imageVFrame;
-//    self.titleLabel.frame = labelFrame;
-//    
-//    self.bounds = CGRectMake(0, 0, imageVFrame.size.width + 2*kMargin, imageVFrame.size.height + labelFrame.size.height + kMargin);
+    CGRect imageVFrame = self.imageView.frame;
+    CGRect labelFrame = self.titleLabel.frame;
+
+    imageVFrame.size = CGSizeMake(kButtonImageSize, kButtonImageSize);
+    CGFloat margin = (self.bounds.size.height - imageVFrame.size.height - labelFrame.size.height) / 3;
+    imageVFrame.origin.x = (self.bounds.size.width - imageVFrame.size.width) * 0.5;
+    imageVFrame.origin.y = margin;
+    
+    labelFrame.origin.x = 0;
+    labelFrame.origin.y = margin +imageVFrame.size.height + margin;
+    labelFrame.size.width = self.bounds.size.width;
+    
+    self.imageView.frame = imageVFrame;
+    self.titleLabel.frame = labelFrame;
+
 }
 
 @end

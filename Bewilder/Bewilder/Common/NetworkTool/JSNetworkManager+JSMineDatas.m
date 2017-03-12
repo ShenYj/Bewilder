@@ -22,7 +22,6 @@
                             @"c": @"topic"
                             };
     [self GET:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
-        
         JSMineModel *mineModel = [JSMineModel mineWithDict:responseObject];
         completionHandler(mineModel,YES);
         

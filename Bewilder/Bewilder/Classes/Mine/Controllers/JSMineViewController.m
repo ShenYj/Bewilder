@@ -18,7 +18,7 @@ static NSInteger const kNumberOfSections = 3;               // 表格分组个�
 static NSInteger const kNumberOfRowsInSt = 1;               // 表格每组行数
 static NSString * const reusedIdentifier = @"mineReusedIdentifier";
 static NSString * const lastCellReusedId = @"lastCell";     // 最后一个cell重用标识
-extern NSInteger const flag;                // tag值中间变量
+extern NSInteger const flag;                                // tag值中间变量
 
 @interface JSMineViewController () <JSMineLastCellButonClickDelegate>
 @property (nonatomic,strong) JSMineModel *mineVCDatas;
@@ -112,9 +112,9 @@ extern NSInteger const flag;                // tag值中间变量
 #pragma mark
 #pragma mark - table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == kNumberOfSections - 1) {

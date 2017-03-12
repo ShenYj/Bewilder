@@ -62,6 +62,7 @@ NSInteger const flag = 1000;                // tag值中间变量
         JSMeButton *button = [[JSMeButton alloc] init];
         button.tag = 1000 + idx;
         [button setTitle:obj.name forState:UIControlStateNormal];
+        [button yy_setImageWithURL:[NSURL URLWithString:obj.icon] forState:UIControlStateNormal options:YYWebImageOptionShowNetworkActivity];        
         [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:button];
         [self.buttonsArr addObject:button];

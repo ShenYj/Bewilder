@@ -12,7 +12,7 @@
 #import "JSNetworkManager+JSMineDatas.h"
 
 NSInteger const kColButtonCount = 4;     // 每行按钮个数
-CGFloat const kButtonMargin = 0.f;       // 按钮间的间距
+CGFloat const kButtonMargin = 2.f;       // 按钮间的间距
 
 
 @implementation JSMineModel
