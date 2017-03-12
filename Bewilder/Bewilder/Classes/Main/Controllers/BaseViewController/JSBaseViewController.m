@@ -69,7 +69,7 @@ static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式table
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, kSectionHeaderHeigth)];
     self.tableView.sectionHeaderHeight = kSectionHeaderHeigth;
     self.tableView.sectionFooterHeight = kSectionFooterHeight;
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 49 - 20, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
 

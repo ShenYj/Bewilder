@@ -107,6 +107,7 @@ static CGFloat const kSubViewMargin = 20.f;                             // å†…éƒ
     }
     return _center_Label;
 }
+
 - (UIButton *)bottom_LoginBtn {
     if (_bottom_LoginBtn == nil) {
         _bottom_LoginBtn = [UIButton buttonWithType:UIButtonTypeCustom];

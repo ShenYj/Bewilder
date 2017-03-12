@@ -23,6 +23,7 @@
 		F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572B1E6CE30300CCF791 /* JSFollowViewController.m */; };
 		F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572E1E6CE30C00CCF791 /* JSMineViewController.m */; };
 		F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457341E6DA6C000CCF791 /* JSSettingViewController.m */; };
+		F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */; };
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
 		F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF701E6EDACA00519692 /* JSSSOLoginView.m */; };
 		F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF731E6EE3DF00519692 /* JSSSOBtn.m */; };
@@ -71,6 +72,8 @@
 		F704572E1E6CE30C00CCF791 /* JSMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineViewController.m; sourceTree = "<group>"; };
 		F70457331E6DA6C000CCF791 /* JSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSettingViewController.h; sourceTree = "<group>"; };
 		F70457341E6DA6C000CCF791 /* JSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSettingViewController.m; sourceTree = "<group>"; };
+		F770C4CA1E75651E00BC9D0B /* JSMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineSubViewController.h; sourceTree = "<group>"; };
+		F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineSubViewController.m; sourceTree = "<group>"; };
 		F772DF6B1E6E903300519692 /* JSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSLoginViewController.h; path = ../JSLoginViewController.h; sourceTree = "<group>"; };
 		F772DF6C1E6E903300519692 /* JSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSLoginViewController.m; path = ../JSLoginViewController.m; sourceTree = "<group>"; };
 		F772DF6F1E6EDACA00519692 /* JSSSOLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSSSOLoginView.h; path = ../JSSSOLoginView.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 			children = (
 				F704572D1E6CE30C00CCF791 /* JSMineViewController.h */,
 				F704572E1E6CE30C00CCF791 /* JSMineViewController.m */,
+				F770C4CA1E75651E00BC9D0B /* JSMineSubViewController.h */,
+				F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */,
 				F70457331E6DA6C000CCF791 /* JSSettingViewController.h */,
 				F70457341E6DA6C000CCF791 /* JSSettingViewController.m */,
 			);
@@ -549,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */,
+				F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */,
 				F772DF8B1E73C58A00519692 /* JSNetworkManager+JSMineDatas.m in Sources */,
 				F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */,
 				F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */,

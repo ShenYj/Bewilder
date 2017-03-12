@@ -14,6 +14,7 @@
 #import "JSMeButton.h"
 #import "JSSquareListModel.h"
 #import "JSLoginViewController.h"
+#import "JSMineSubViewController.h"
 
 static NSInteger const kNumberOfSections = 3;               // 表格分组个数
 static NSInteger const kNumberOfRowsInSt = 1;               // 表格每组行数
@@ -137,7 +138,27 @@ extern NSInteger const flag;                                // tag值中间变�
     JSSquareListModel *squareList = squareListArr[idx];
     NSString *urlString = squareList.url;
     NSLog(@"%@",squareList);
-    
+    if ([urlString hasPrefix:@"http"]) {
+        // webView加载
+        JSMineSubViewController *mineSubVC = [[JSMineSubViewController alloc] init];
+        mineSubVC.urlString = urlString;
+        mineSubVC.js_navigationItem.title = squareList.name;
+        [self.navigationController pushViewController:mineSubVC animated:YES];
+        
+    } else if ([urlString hasPrefix:@"mod"]) {
+        
+        if ([urlString hasSuffix:@"BDJ_To_Check"]) {
+            // 审帖
+            NSLog(@"跳转到审帖界面");
+        } else if ([urlString hasSuffix:@"BDJ_To_RecentHot"]){
+            NSLog(@"跳转到'每日排行'界面");
+        } else {
+            NSLog(@"跳转到其他界面");
+        }
+        
+    } else {
+        NSLog(@"不是http或mod协议");
+    }
     
 }
 
