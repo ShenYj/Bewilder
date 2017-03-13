@@ -11,6 +11,8 @@
 #import "JSWebViewToolBar.h"
 @class JSWebViewToolBarItem;
 
+static NSString * const kEstimatedProgress = @"estimatedProgress";
+
 @interface JSMineSubViewController () <JSWebViewToolBarItemDelegate,WKNavigationDelegate>
 
 @property (nonatomic,strong) UIProgressView *progressView;
@@ -47,6 +49,8 @@
         make.left.right.top.mas_equalTo(self.webView);
         make.height.mas_equalTo(2);
     }];
+    
+    
 }
 
 - (void)goBackToParentController:(JSBaseNavBarButtonItem *)sender {
@@ -69,6 +73,14 @@
             [self.progressView setProgress:newprogress animated:YES];
         }
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if ([self.webView isLoading]) {
+        [self.webView stopLoading];
+    }
+    [self.webView removeObserver:self forKeyPath:kEstimatedProgress context:nil];
 }
 
 - (void)dealloc {
@@ -122,22 +134,22 @@
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
-    // 添加观察者
-    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+//    // 添加观察者
+//    [self.webView addObserver:self forKeyPath:kEstimatedProgress options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     self.bottomToolBar.canGoBack = [self.webView canGoBack];
     self.bottomToolBar.canGoForward = [self.webView canGoForward];
     // 移除观察者
-    [self.webView removeObserver:self forKeyPath:@"estimatedProgress" context:nil];
+//    [self.webView removeObserver:self forKeyPath:kEstimatedProgress context:nil];
     
 }
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
     if (error) {
         NSLog(@"加载失败:%@",error);
     }
-    [self.webView removeObserver:self forKeyPath:@"estimatedProgress" context:nil];
+//    [self.webView removeObserver:self forKeyPath:kEstimatedProgress context:nil];
 }
 
 
@@ -158,6 +170,8 @@
         _webView = [[WKWebView alloc] init];
         _webView.backgroundColor = [UIColor lightGrayColor];
         _webView.navigationDelegate = self;
+        // 添加观察者
+        [_webView addObserver:self forKeyPath:kEstimatedProgress options:NSKeyValueObservingOptionNew context:nil];
     }
     return _webView;
 }
