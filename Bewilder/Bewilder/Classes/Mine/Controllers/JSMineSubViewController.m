@@ -72,6 +72,8 @@ static NSString * const kEstimatedProgress = @"estimatedProgress";
             self.progressView.hidden = NO;
             [self.progressView setProgress:newprogress animated:YES];
         }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
@@ -81,6 +83,7 @@ static NSString * const kEstimatedProgress = @"estimatedProgress";
         [self.webView stopLoading];
     }
     [self.webView removeObserver:self forKeyPath:kEstimatedProgress context:nil];
+    self.webView.navigationDelegate = nil;
 }
 
 - (void)dealloc {
