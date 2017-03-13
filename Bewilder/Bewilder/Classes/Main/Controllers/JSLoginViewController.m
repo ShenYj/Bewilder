@@ -92,7 +92,7 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 
 - (void)registAccountWithTopLoginView:(JSTopLoginView *)topLoginView {
     [self.view endEditing:YES];
-    [UIView animateWithDuration:0.5 delay:0.25 usingSpringWithDamping:0.5 initialSpringVelocity:1.0 options:0 animations:^{
+    [UIView animateWithDuration:0.5 delay:0.25 usingSpringWithDamping:0.8 initialSpringVelocity:1.0 options:0 animations:^{
         self.centerViewOffset *= -1;
         self.centerLoginView.transform = CGAffineTransformTranslate(self.centerLoginView.transform, self.centerViewOffset, 0);
         self.centerRegistView.transform = CGAffineTransformTranslate(self.centerRegistView.transform, self.centerViewOffset, 0);

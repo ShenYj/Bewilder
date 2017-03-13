@@ -7,8 +7,12 @@
 //
 
 #import "JSSettingViewController.h"
+#import "JSSettingTableViewCell.h"
+#import "JSClearTableViewCell.h"
 
-static NSString * const kReuseIdentifier = @"kREuseIdentifier";
+
+static NSString * const kReuseIdentifier = @"kReuseIdentifier";
+static NSString * const kClearIdentifier = @"kClearIdentifier";
 
 @interface JSSettingViewController ()
 
@@ -19,12 +23,13 @@ static NSString * const kReuseIdentifier = @"kREuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    NSLog(@"%@",NSHomeDirectory());
 }
 
 - (void)prepareTableView {
     [super prepareTableView];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kReuseIdentifier];
+    [self.tableView registerClass:[JSSettingTableViewCell class] forCellReuseIdentifier:kReuseIdentifier];
+    [self.tableView registerClass:[JSClearTableViewCell class] forCellReuseIdentifier:kClearIdentifier];
     [self.tableView setContentOffset:CGPointMake(0, -64) animated:NO];
     
 }
@@ -32,29 +37,6 @@ static NSString * const kReuseIdentifier = @"kREuseIdentifier";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSString *)getLocalFileSize {
-    unsigned long long fileSize = 0;
-    // 拼接沙盒路径 library/caches/com.ibireme.yykit/images
-    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"com.ibireme.yykit/images"];
-    // 文件管理者
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    // 取出该路径下(library/caches/com.ibireme.yykit/images)的所有子文件/子文件夹路径集合
-    NSArray <NSString *>*subPaths = [fileManager subpathsAtPath:cachePath];
-    // 遍历子路径,累加文件大小
-    for (NSString *subPath in subPaths) {
-        // 拼接全路径
-        NSString *fullPath = [cachePath stringByAppendingPathComponent:subPath];
-        NSError *error = nil;
-        NSDictionary *attrs = [fileManager attributesOfItemAtPath:fullPath error:&error];
-        if (error) {
-            NSLog(@"%@",error);
-        }
-        fileSize += attrs.fileSize;
-        
-    }
-    return [NSString stringWithFormat:@"%llu M",fileSize / (1000 * 1000)];
 }
 
 #pragma mark
@@ -65,31 +47,20 @@ static NSString * const kReuseIdentifier = @"kREuseIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    }
     return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier forIndexPath:indexPath];
+    
     if (indexPath.section == 0 && indexPath.row == 0) {
-        
-        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        [activityView startAnimating];
-        cell.accessoryView = activityView;
-        
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            
-            NSString *fileSize = [self getLocalFileSize];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                cell.textLabel.text = fileSize;
-                cell.accessoryView = nil;
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            });
-        });
-        
+        JSClearTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kClearIdentifier forIndexPath:indexPath];
         return cell;
     }
+    
+    JSSettingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kReuseIdentifier forIndexPath:indexPath];
     cell.textLabel.text = @(indexPath.row).description;
     return cell;
 }
@@ -100,24 +71,49 @@ static NSString * const kReuseIdentifier = @"kREuseIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
         
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSString *yykitPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"com.ibireme.yykit/images/data"];
+        NSString *webkitPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"com.ShenYj.Bewilder/WebKit/NetworkCache"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
         
-        NSLog(@"%@",NSHomeDirectory());
+        dispatch_group_t group = dispatch_group_create();
+        dispatch_group_enter(group);
+        // 删除文件 & 重新生成目录
+        dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+            // 1.删除文件
+            sleep(3);
+            NSError *error = nil;
+            [fileManager removeItemAtPath:yykitPath error:&error];
+            [fileManager removeItemAtPath:webkitPath error:&error];
+            if (error) {
+                NSLog(@"清理失败:%@",error);
+            }
+            NSLog(@"清理完成");
+            
+            error = nil;
+            // 2.将文件夹重新创建出来
+            [fileManager createDirectoryAtPath:yykitPath withIntermediateDirectories:YES attributes:nil error:&error];
+            [fileManager createDirectoryAtPath:webkitPath withIntermediateDirectories:YES attributes:nil error:&error];
+            if (error) {
+                NSLog(@"创建目录失败!%@",error);
+            }
+            NSLog(@"重新创建目录");
+            dispatch_group_leave(group);
+        });
+        dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+            // 操作完成刷新表格
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            NSLog(@"操作完成");
+        });
     }
+    
     
 }
 
 - (void)dealloc {
-    NSLog(@"%s",__func__);
+    JSLOG
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

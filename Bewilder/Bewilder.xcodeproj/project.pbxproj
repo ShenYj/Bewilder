@@ -38,6 +38,8 @@
 		F772DF911E73F28F00519692 /* JSTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF901E73F28F00519692 /* JSTagList.m */; };
 		F772DF941E73F2F300519692 /* JSMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF931E73F2F300519692 /* JSMineModel.m */; };
 		F772DF971E742FE700519692 /* JSMeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF961E742FE700519692 /* JSMeButton.m */; };
+		F7E63B8E1E7684DA005FAB0F /* JSSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B8D1E7684DA005FAB0F /* JSSettingTableViewCell.m */; };
+		F7E63B911E768539005FAB0F /* JSClearTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B901E768539005FAB0F /* JSClearTableViewCell.m */; };
 		F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +106,10 @@
 		F772DF931E73F2F300519692 /* JSMineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineModel.m; sourceTree = "<group>"; };
 		F772DF951E742FE700519692 /* JSMeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMeButton.h; sourceTree = "<group>"; };
 		F772DF961E742FE700519692 /* JSMeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMeButton.m; sourceTree = "<group>"; };
+		F7E63B8C1E7684DA005FAB0F /* JSSettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSettingTableViewCell.h; sourceTree = "<group>"; };
+		F7E63B8D1E7684DA005FAB0F /* JSSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSettingTableViewCell.m; sourceTree = "<group>"; };
+		F7E63B8F1E768539005FAB0F /* JSClearTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSClearTableViewCell.h; sourceTree = "<group>"; };
+		F7E63B901E768539005FAB0F /* JSClearTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSClearTableViewCell.m; sourceTree = "<group>"; };
 		F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSFileSize.h"; sourceTree = "<group>"; };
 		F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSFileSize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -350,6 +356,10 @@
 				F772DF961E742FE700519692 /* JSMeButton.m */,
 				F770C4CD1E7570CF00BC9D0B /* JSWebViewToolBar.h */,
 				F770C4CE1E7570D000BC9D0B /* JSWebViewToolBar.m */,
+				F7E63B8C1E7684DA005FAB0F /* JSSettingTableViewCell.h */,
+				F7E63B8D1E7684DA005FAB0F /* JSSettingTableViewCell.m */,
+				F7E63B8F1E768539005FAB0F /* JSClearTableViewCell.h */,
+				F7E63B901E768539005FAB0F /* JSClearTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -575,6 +585,8 @@
 				F772DF971E742FE700519692 /* JSMeButton.m in Sources */,
 				F70457141E695D0200CCF791 /* JSTabBar.m in Sources */,
 				F772DF941E73F2F300519692 /* JSMineModel.m in Sources */,
+				F7E63B911E768539005FAB0F /* JSClearTableViewCell.m in Sources */,
+				F7E63B8E1E7684DA005FAB0F /* JSSettingTableViewCell.m in Sources */,
 				F772DF841E72F45800519692 /* JSNetworkManager.m in Sources */,
 				F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */,
 				F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */,

@@ -87,8 +87,7 @@ static NSString * const kEstimatedProgress = @"estimatedProgress";
 }
 
 - (void)dealloc {
-    NSLog(@"%s",__FUNCTION__);
-    
+    JSLOG
 }
 
 - (void)prepareTableView {/*空实现父类方法*/}
@@ -137,22 +136,17 @@ static NSString * const kEstimatedProgress = @"estimatedProgress";
 #pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
-//    // 添加观察者
-//    [self.webView addObserver:self forKeyPath:kEstimatedProgress options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     self.bottomToolBar.canGoBack = [self.webView canGoBack];
     self.bottomToolBar.canGoForward = [self.webView canGoForward];
-    // 移除观察者
-//    [self.webView removeObserver:self forKeyPath:kEstimatedProgress context:nil];
-    
 }
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
     if (error) {
         NSLog(@"加载失败:%@",error);
     }
-//    [self.webView removeObserver:self forKeyPath:kEstimatedProgress context:nil];
+    
 }
 
 
@@ -186,14 +180,6 @@ static NSString * const kEstimatedProgress = @"estimatedProgress";
     }
     return _bottomToolBar;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

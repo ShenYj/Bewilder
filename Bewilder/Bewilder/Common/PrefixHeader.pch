@@ -30,9 +30,11 @@
 //#import "UIButton+WebCache.h"
 #import "Pop.h"
 #import "JSNetworkManager.h"
-
+#import "NSString+JSFileSize.h"
 
 #pragma mark = 宏定义
+
+#define JSLOG NSLog(@"%s",__func__);
 
 #define SCREEN_BOUNDS [UIScreen mainScreen].bounds
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
