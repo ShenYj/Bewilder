@@ -38,6 +38,7 @@
 		F772DF911E73F28F00519692 /* JSTagList.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF901E73F28F00519692 /* JSTagList.m */; };
 		F772DF941E73F2F300519692 /* JSMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF931E73F2F300519692 /* JSMineModel.m */; };
 		F772DF971E742FE700519692 /* JSMeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF961E742FE700519692 /* JSMeButton.m */; };
+		F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,8 @@
 		F772DF931E73F2F300519692 /* JSMineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineModel.m; sourceTree = "<group>"; };
 		F772DF951E742FE700519692 /* JSMeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMeButton.h; sourceTree = "<group>"; };
 		F772DF961E742FE700519692 /* JSMeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMeButton.m; sourceTree = "<group>"; };
+		F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSFileSize.h"; sourceTree = "<group>"; };
+		F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSFileSize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
+				F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */,
+				F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */,
 				F772DF851E73023C00519692 /* NetworkTool */,
 			);
 			path = Common;
@@ -581,6 +586,7 @@
 				F704571D1E69BD8400CCF791 /* JSBaseNavBarButtonItem.m in Sources */,
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
+				F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */,
 				F772DF911E73F28F00519692 /* JSTagList.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 				F772DF771E6EED1900519692 /* JSTopLoginView.m in Sources */,
