@@ -67,7 +67,6 @@ static NSInteger const kFLagValue = 1100;             // tag值的中间变量
     [self tapGesture:self.gesturesArr.firstObject];
 }
 
-
 - (void)selectedIdex:(NSInteger)index {
     
     [self tapGesture:self.gesturesArr[index]];
@@ -83,10 +82,11 @@ static NSInteger const kFLagValue = 1100;             // tag值的中间变量
     // 设置指示条
     [self.centerX uninstall];
     [self.width uninstall];
-    CGRect bounds = [label.text boundingRectWithSize:CGSizeMake(label.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]} context:nil];
+    //CGRect bounds = [label.text boundingRectWithSize:CGSizeMake(label.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]} context:nil];     // 计算字体宽度,此方式支持换行
     [self.indicatorView mas_updateConstraints:^(MASConstraintMaker *make) {
         self.centerX = make.centerX.mas_equalTo(label);
-        self.width = make.width.mas_equalTo(bounds.size.width);
+        self.width = make.width.mas_equalTo([label.text sizeWithAttributes:@{NSFontAttributeName: label.font}]);
+        //self.width = make.width.mas_equalTo(bounds.size.width);
     }];
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1.0 options:UIViewAnimationOptionLayoutSubviews animations:^{
         [self layoutIfNeeded];
