@@ -16,7 +16,7 @@
 static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifier";
 static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
-@interface JSEssenceController () <UICollectionViewDataSource,UICollectionViewDelegate,JSEssenceMenuViewIndexDelegate>
+@interface JSEssenceController () <UICollectionViewDataSource,UICollectionViewDelegate,JSEssenceMenuViewIndexDelegate,JSEssenceMenuViewDataSource>
 /** 导航区 */
 @property (nonatomic,strong) JSEssenceMenuView *menuView;
 /** 内容区 */
@@ -99,24 +99,25 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
     
     NSInteger idx = scrollView.contentOffset.x / SCREEN_WIDTH;
     [self.menuView selectedIdex:idx];
-    JSLOG
 }
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    JSLOG
-}
-
 
 
 #pragma mark
 #pragma mark - JSEssenceMenuViewIndexDelegate
 
-- (void)essenceMenuiew:(JSEssenceMenuView *)menuView index:(NSInteger)index {
+- (void)essenceMenuView:(JSEssenceMenuView *)menuView index:(NSInteger)index {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-    
 //    CGFloat x = index * SCREEN_WIDTH;
 //    [self.collectionView setContentOffset:CGPointMake(x, 0) animated:YES];
+}
+
+#pragma mark
+#pragma mark - JSEssenceMenuViewDataSource
+
+- (void)loadDatasEssenceMenuView:(JSEssenceMenuView *)menuView index:(NSInteger)index {
+    // 发起网络请求
+    JSLOG
 }
 
 
@@ -132,6 +133,7 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
     if (!_menuView) {
         _menuView = [[JSEssenceMenuView alloc] init];
         _menuView.delegate = self;
+        _menuView.dataSource = self;
     }
     return _menuView;
 }

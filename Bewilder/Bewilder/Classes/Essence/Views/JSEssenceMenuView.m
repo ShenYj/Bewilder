@@ -88,7 +88,12 @@ static NSInteger const kFLagValue = 1100;             // tag值的中间变量
         self.width = make.width.mas_equalTo([label.text sizeWithAttributes:@{NSFontAttributeName: label.font}].width + 8);
         //self.width = make.width.mas_equalTo(bounds.size.width);
     }];
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1.0 options:UIViewAnimationOptionLayoutSubviews animations:^{
+    [UIView animateWithDuration:0.5
+                          delay:0
+         usingSpringWithDamping:0.4
+          initialSpringVelocity:1.0
+                        options:UIViewAnimationOptionLayoutSubviews
+                     animations:^{
         [self layoutIfNeeded];
     } completion:^(BOOL finished) {
         
@@ -101,11 +106,15 @@ static NSInteger const kFLagValue = 1100;             // tag值的中间变量
     label.scale = 1;
     self.selectedLabel = label;
     
-    if ([self.delegate respondsToSelector:@selector(essenceMenuiew:index:)]) {
-        [self.delegate essenceMenuiew:self index:idx];
+    // 设置联动
+    if ([self.delegate respondsToSelector:@selector(essenceMenuView:index:)]) {
+        [self.delegate essenceMenuView:self index:idx];
     }
     
     // 请求数据
+    if ([self.dataSource respondsToSelector:@selector(loadDatasEssenceMenuView:index:)]) {
+        [self.dataSource loadDatasEssenceMenuView:self index:idx];
+    }
 }
 
 
