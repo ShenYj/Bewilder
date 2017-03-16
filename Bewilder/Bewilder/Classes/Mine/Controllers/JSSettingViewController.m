@@ -50,7 +50,7 @@ static NSString * const kClearIdentifier = @"kClearIdentifier";
     if (section == 0) {
         return 1;
     }
-    return 5;
+    return 15;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

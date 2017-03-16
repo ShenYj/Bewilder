@@ -19,8 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    // 网络指示器
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    // 网络指示器(AFN的网络指示器)
+    //[AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     // 监听网络
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     // 初始化Window

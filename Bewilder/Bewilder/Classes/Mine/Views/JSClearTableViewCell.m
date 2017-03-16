@@ -86,7 +86,6 @@
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         
         // 操作完成刷新表格
-        //[self.superview reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
         [MBProgressHUD hideHUDForView:self.superview animated:YES];
         self.textLabel.text = @"清除缓存(0B)";
         NSLog(@"操作完成");

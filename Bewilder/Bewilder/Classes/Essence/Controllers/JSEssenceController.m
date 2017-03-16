@@ -7,9 +7,17 @@
 //
 
 #import "JSEssenceController.h"
-static NSString * const reusedIdentifier = @"EssenceReusedIdentifier";
+#import "JSEssenceMenuView.h"
+#import "JSEssenceCollectionView.h"
 
-@interface JSEssenceController ()
+
+static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifier";
+
+@interface JSEssenceController () <UICollectionViewDataSource>
+/** 导航区 */
+@property (nonatomic,strong) JSEssenceMenuView *menuView;
+/** 内容区 */
+@property (nonatomic,strong) JSEssenceCollectionView *collectionView;
 
 @end
 
@@ -21,13 +29,7 @@ static NSString * const reusedIdentifier = @"EssenceReusedIdentifier";
 }
 
 - (void)prepareTableView {
-    [super prepareTableView];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reusedIdentifier];
-}
-
-- (void)setUpUI {
-    [super setUpUI];
-    [self prepareNavigationBar];
+    //[super prepareTableView];
 }
 
 - (void)prepareNavigationBar {
@@ -36,23 +38,68 @@ static NSString * const reusedIdentifier = @"EssenceReusedIdentifier";
     
 }
 
+- (void)setUpUI {
+    [super setUpUI];
+    [self prepareNavigationBar];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reusedIdentifier];
+    
+    [self.view insertSubview:self.collectionView belowSubview:self.js_NavigationBar];
+    [self.view addSubview:self.menuView];
+
+    [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(self.view);
+        make.top.mas_equalTo(self.js_NavigationBar.mas_bottom);
+    }];
+}
+
+
+
 - (void)clickLeftNavigationBarItem:(JSBaseNavBarButtonItem *)sender {
     NSLog(@"%s",__func__);
 }
+
+
+#pragma mark
+#pragma mark - collection view dataScoure
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusedIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor greenColor];
+    return cell;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark 
+#pragma mark - lazy
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (JSEssenceMenuView *)menuView {
+    if (!_menuView) {
+        _menuView = [[JSEssenceMenuView alloc] init];
+    }
+    return _menuView;
 }
-*/
+
+- (JSEssenceCollectionView *)collectionView {
+    if(!_collectionView){
+        _collectionView = [[JSEssenceCollectionView alloc] initWithFrame:self.view.bounds];
+        _collectionView.dataSource = self;
+    }
+    return _collectionView;
+}
+
 
 @end

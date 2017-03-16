@@ -40,6 +40,9 @@
 		F772DF971E742FE700519692 /* JSMeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF961E742FE700519692 /* JSMeButton.m */; };
 		F7E63B8E1E7684DA005FAB0F /* JSSettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B8D1E7684DA005FAB0F /* JSSettingTableViewCell.m */; };
 		F7E63B911E768539005FAB0F /* JSClearTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B901E768539005FAB0F /* JSClearTableViewCell.m */; };
+		F7E63B941E7A5629005FAB0F /* JSEssenceCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B931E7A5629005FAB0F /* JSEssenceCollectionView.m */; };
+		F7E63B971E7A5901005FAB0F /* JSEssenceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B961E7A5901005FAB0F /* JSEssenceFlowLayout.m */; };
+		F7E63B9A1E7A5ACB005FAB0F /* JSEssenceMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B991E7A5ACB005FAB0F /* JSEssenceMenuView.m */; };
 		F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +113,12 @@
 		F7E63B8D1E7684DA005FAB0F /* JSSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSettingTableViewCell.m; sourceTree = "<group>"; };
 		F7E63B8F1E768539005FAB0F /* JSClearTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSClearTableViewCell.h; sourceTree = "<group>"; };
 		F7E63B901E768539005FAB0F /* JSClearTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSClearTableViewCell.m; sourceTree = "<group>"; };
+		F7E63B921E7A5629005FAB0F /* JSEssenceCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceCollectionView.h; sourceTree = "<group>"; };
+		F7E63B931E7A5629005FAB0F /* JSEssenceCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceCollectionView.m; sourceTree = "<group>"; };
+		F7E63B951E7A5901005FAB0F /* JSEssenceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceFlowLayout.h; sourceTree = "<group>"; };
+		F7E63B961E7A5901005FAB0F /* JSEssenceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceFlowLayout.m; sourceTree = "<group>"; };
+		F7E63B981E7A5ACB005FAB0F /* JSEssenceMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceMenuView.h; sourceTree = "<group>"; };
+		F7E63B991E7A5ACB005FAB0F /* JSEssenceMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceMenuView.m; sourceTree = "<group>"; };
 		F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSFileSize.h"; sourceTree = "<group>"; };
 		F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSFileSize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,6 +283,12 @@
 		F70457051E6853D200CCF791 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F7E63B921E7A5629005FAB0F /* JSEssenceCollectionView.h */,
+				F7E63B931E7A5629005FAB0F /* JSEssenceCollectionView.m */,
+				F7E63B951E7A5901005FAB0F /* JSEssenceFlowLayout.h */,
+				F7E63B961E7A5901005FAB0F /* JSEssenceFlowLayout.m */,
+				F7E63B981E7A5ACB005FAB0F /* JSEssenceMenuView.h */,
+				F7E63B991E7A5ACB005FAB0F /* JSEssenceMenuView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -400,12 +415,12 @@
 		F70457151E69BD8400CCF791 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F704571A1E69BD8400CCF791 /* JSBaseViewController.h */,
+				F704571B1E69BD8400CCF791 /* JSBaseViewController.m */,
 				F70457161E69BD8400CCF791 /* JSBaseNavBarButtonItem.h */,
 				F70457171E69BD8400CCF791 /* JSBaseNavBarButtonItem.m */,
 				F70457181E69BD8400CCF791 /* JSBaseNavigationController.h */,
 				F70457191E69BD8400CCF791 /* JSBaseNavigationController.m */,
-				F704571A1E69BD8400CCF791 /* JSBaseViewController.h */,
-				F704571B1E69BD8400CCF791 /* JSBaseViewController.m */,
 				F704571C1E69BD8400CCF791 /* v2_goback@2x.png */,
 			);
 			path = BaseViewController;
@@ -579,9 +594,11 @@
 				F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */,
 				F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */,
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
+				F7E63B9A1E7A5ACB005FAB0F /* JSEssenceMenuView.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
 				F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */,
+				F7E63B971E7A5901005FAB0F /* JSEssenceFlowLayout.m in Sources */,
 				F772DF971E742FE700519692 /* JSMeButton.m in Sources */,
 				F70457141E695D0200CCF791 /* JSTabBar.m in Sources */,
 				F772DF941E73F2F300519692 /* JSMineModel.m in Sources */,
@@ -599,6 +616,7 @@
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
 				F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */,
+				F7E63B941E7A5629005FAB0F /* JSEssenceCollectionView.m in Sources */,
 				F772DF911E73F28F00519692 /* JSTagList.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 				F772DF771E6EED1900519692 /* JSTopLoginView.m in Sources */,
