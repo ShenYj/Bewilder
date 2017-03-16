@@ -85,7 +85,7 @@ static NSInteger const kFLagValue = 1100;             // tag值的中间变量
     //CGRect bounds = [label.text boundingRectWithSize:CGSizeMake(label.bounds.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14]} context:nil];     // 计算字体宽度,此方式支持换行
     [self.indicatorView mas_updateConstraints:^(MASConstraintMaker *make) {
         self.centerX = make.centerX.mas_equalTo(label);
-        self.width = make.width.mas_equalTo([label.text sizeWithAttributes:@{NSFontAttributeName: label.font}]);
+        self.width = make.width.mas_equalTo([label.text sizeWithAttributes:@{NSFontAttributeName: label.font}].width + 8);
         //self.width = make.width.mas_equalTo(bounds.size.width);
     }];
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1.0 options:UIViewAnimationOptionLayoutSubviews animations:^{
