@@ -17,6 +17,9 @@
     self.itemSize = self.collectionView.bounds.size;
     self.minimumLineSpacing = 0;
     self.minimumInteritemSpacing = 0;
+    self.collectionView.showsVerticalScrollIndicator = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    self.collectionView.pagingEnabled = YES;
 }
 
 @end

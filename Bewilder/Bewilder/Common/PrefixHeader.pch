@@ -30,6 +30,7 @@
 //#import "UIButton+WebCache.h"
 #import "Pop.h"
 #import "JSNetworkManager.h"
+#import "MJRefresh.h"
 #import "NSString+JSFileSize.h"
 
 #pragma mark = 宏定义

@@ -9,6 +9,7 @@
 #import "JSEssenceCollectionView.h"
 #import "JSEssenceFlowLayout.h"
 
+
 @implementation JSEssenceCollectionView
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
@@ -20,7 +21,7 @@
 }
 
 - (void)prepareCollectionView {
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 @end

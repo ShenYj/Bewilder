@@ -9,11 +9,14 @@
 #import "JSEssenceController.h"
 #import "JSEssenceMenuView.h"
 #import "JSEssenceCollectionView.h"
+#import "JSEssenceCollectionViewCell.h"
+#import "JSMenuLabel.h"
 
 
 static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifier";
+static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
-@interface JSEssenceController () <UICollectionViewDataSource>
+@interface JSEssenceController () <UICollectionViewDataSource,UICollectionViewDelegate,JSEssenceMenuViewIndexDelegate>
 /** 导航区 */
 @property (nonatomic,strong) JSEssenceMenuView *menuView;
 /** 内容区 */
@@ -41,7 +44,7 @@ static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifi
 - (void)setUpUI {
     [super setUpUI];
     [self prepareNavigationBar];
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reusedIdentifier];
+    [self.collectionView registerClass:[JSEssenceCollectionViewCell class] forCellWithReuseIdentifier:reusedIdentifier];
     
     [self.view insertSubview:self.collectionView belowSubview:self.js_NavigationBar];
     [self.view addSubview:self.menuView];
@@ -67,15 +70,54 @@ static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifi
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 20;
+    return kNumberOfItemsInSection;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusedIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor greenColor];
+    JSEssenceCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusedIdentifier forIndexPath:indexPath];
     return cell;
 }
 
+#pragma mark
+#pragma mark - collection view delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat contentOffsetX = scrollView.contentOffset.x;
+    NSInteger leftIdx = (NSInteger)contentOffsetX / SCREEN_WIDTH;
+    CGFloat rightCellScale = contentOffsetX / SCREEN_WIDTH - leftIdx;
+    
+    // 设置Channel视图Label缩放、颜色
+    //JSMenuLabel *leftLabel = self.menuView.menuLabels[leftIdx];
+    self.menuView.menuLabels[leftIdx].scale = 1 - rightCellScale;
+    if (leftIdx + 1 > self.menuView.menuLabels.count) {
+        return;
+    }
+    self.menuView.menuLabels[leftIdx + 1].scale = rightCellScale;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    NSInteger idx = scrollView.contentOffset.x / SCREEN_WIDTH;
+    [self.menuView selectedIdex:idx];
+    JSLOG
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    JSLOG
+}
+
+
+
+#pragma mark
+#pragma mark - JSEssenceMenuViewIndexDelegate
+
+- (void)essenceMenuiew:(JSEssenceMenuView *)menuView index:(NSInteger)index {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
+    
+//    CGFloat x = index * SCREEN_WIDTH;
+//    [self.collectionView setContentOffset:CGPointMake(x, 0) animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +131,7 @@ static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifi
 - (JSEssenceMenuView *)menuView {
     if (!_menuView) {
         _menuView = [[JSEssenceMenuView alloc] init];
+        _menuView.delegate = self;
     }
     return _menuView;
 }
@@ -97,6 +140,7 @@ static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifi
     if(!_collectionView){
         _collectionView = [[JSEssenceCollectionView alloc] initWithFrame:self.view.bounds];
         _collectionView.dataSource = self;
+        _collectionView.delegate = self;
     }
     return _collectionView;
 }

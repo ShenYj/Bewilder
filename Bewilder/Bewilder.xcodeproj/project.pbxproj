@@ -43,6 +43,8 @@
 		F7E63B941E7A5629005FAB0F /* JSEssenceCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B931E7A5629005FAB0F /* JSEssenceCollectionView.m */; };
 		F7E63B971E7A5901005FAB0F /* JSEssenceFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B961E7A5901005FAB0F /* JSEssenceFlowLayout.m */; };
 		F7E63B9A1E7A5ACB005FAB0F /* JSEssenceMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B991E7A5ACB005FAB0F /* JSEssenceMenuView.m */; };
+		F7E63B9D1E7A7141005FAB0F /* JSMenuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63B9C1E7A7141005FAB0F /* JSMenuLabel.m */; };
+		F7E63BA21E7A7593005FAB0F /* JSEssenceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BA11E7A7593005FAB0F /* JSEssenceCollectionViewCell.m */; };
 		F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */; };
 /* End PBXBuildFile section */
 
@@ -113,12 +115,16 @@
 		F7E63B8D1E7684DA005FAB0F /* JSSettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSettingTableViewCell.m; sourceTree = "<group>"; };
 		F7E63B8F1E768539005FAB0F /* JSClearTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSClearTableViewCell.h; sourceTree = "<group>"; };
 		F7E63B901E768539005FAB0F /* JSClearTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSClearTableViewCell.m; sourceTree = "<group>"; };
-		F7E63B921E7A5629005FAB0F /* JSEssenceCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceCollectionView.h; sourceTree = "<group>"; };
-		F7E63B931E7A5629005FAB0F /* JSEssenceCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceCollectionView.m; sourceTree = "<group>"; };
-		F7E63B951E7A5901005FAB0F /* JSEssenceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceFlowLayout.h; sourceTree = "<group>"; };
-		F7E63B961E7A5901005FAB0F /* JSEssenceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceFlowLayout.m; sourceTree = "<group>"; };
-		F7E63B981E7A5ACB005FAB0F /* JSEssenceMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceMenuView.h; sourceTree = "<group>"; };
-		F7E63B991E7A5ACB005FAB0F /* JSEssenceMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceMenuView.m; sourceTree = "<group>"; };
+		F7E63B921E7A5629005FAB0F /* JSEssenceCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSEssenceCollectionView.h; path = ../JSEssenceCollectionView.h; sourceTree = "<group>"; };
+		F7E63B931E7A5629005FAB0F /* JSEssenceCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSEssenceCollectionView.m; path = ../JSEssenceCollectionView.m; sourceTree = "<group>"; };
+		F7E63B951E7A5901005FAB0F /* JSEssenceFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSEssenceFlowLayout.h; path = ../JSEssenceFlowLayout.h; sourceTree = "<group>"; };
+		F7E63B961E7A5901005FAB0F /* JSEssenceFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSEssenceFlowLayout.m; path = ../JSEssenceFlowLayout.m; sourceTree = "<group>"; };
+		F7E63B981E7A5ACB005FAB0F /* JSEssenceMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSEssenceMenuView.h; path = ../JSEssenceMenuView.h; sourceTree = "<group>"; };
+		F7E63B991E7A5ACB005FAB0F /* JSEssenceMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSEssenceMenuView.m; path = ../JSEssenceMenuView.m; sourceTree = "<group>"; };
+		F7E63B9B1E7A7141005FAB0F /* JSMenuLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSMenuLabel.h; path = ../JSMenuLabel.h; sourceTree = "<group>"; };
+		F7E63B9C1E7A7141005FAB0F /* JSMenuLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSMenuLabel.m; path = ../JSMenuLabel.m; sourceTree = "<group>"; };
+		F7E63BA01E7A7593005FAB0F /* JSEssenceCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceCollectionViewCell.h; sourceTree = "<group>"; };
+		F7E63BA11E7A7593005FAB0F /* JSEssenceCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceCollectionViewCell.m; sourceTree = "<group>"; };
 		F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSFileSize.h"; sourceTree = "<group>"; };
 		F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSFileSize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,12 +289,8 @@
 		F70457051E6853D200CCF791 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F7E63B921E7A5629005FAB0F /* JSEssenceCollectionView.h */,
-				F7E63B931E7A5629005FAB0F /* JSEssenceCollectionView.m */,
-				F7E63B951E7A5901005FAB0F /* JSEssenceFlowLayout.h */,
-				F7E63B961E7A5901005FAB0F /* JSEssenceFlowLayout.m */,
-				F7E63B981E7A5ACB005FAB0F /* JSEssenceMenuView.h */,
-				F7E63B991E7A5ACB005FAB0F /* JSEssenceMenuView.m */,
+				F7E63B9F1E7A756A005FAB0F /* Essence_Content_View */,
+				F7E63B9E1E7A7545005FAB0F /* Essence_Menu_View */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -464,6 +466,30 @@
 			path = NetworkTool;
 			sourceTree = "<group>";
 		};
+		F7E63B9E1E7A7545005FAB0F /* Essence_Menu_View */ = {
+			isa = PBXGroup;
+			children = (
+				F7E63B981E7A5ACB005FAB0F /* JSEssenceMenuView.h */,
+				F7E63B991E7A5ACB005FAB0F /* JSEssenceMenuView.m */,
+				F7E63B9B1E7A7141005FAB0F /* JSMenuLabel.h */,
+				F7E63B9C1E7A7141005FAB0F /* JSMenuLabel.m */,
+			);
+			path = Essence_Menu_View;
+			sourceTree = "<group>";
+		};
+		F7E63B9F1E7A756A005FAB0F /* Essence_Content_View */ = {
+			isa = PBXGroup;
+			children = (
+				F7E63B921E7A5629005FAB0F /* JSEssenceCollectionView.h */,
+				F7E63B931E7A5629005FAB0F /* JSEssenceCollectionView.m */,
+				F7E63B951E7A5901005FAB0F /* JSEssenceFlowLayout.h */,
+				F7E63B961E7A5901005FAB0F /* JSEssenceFlowLayout.m */,
+				F7E63BA01E7A7593005FAB0F /* JSEssenceCollectionViewCell.h */,
+				F7E63BA11E7A7593005FAB0F /* JSEssenceCollectionViewCell.m */,
+			);
+			path = Essence_Content_View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -590,10 +616,12 @@
 			files = (
 				F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */,
 				F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */,
+				F7E63B9D1E7A7141005FAB0F /* JSMenuLabel.m in Sources */,
 				F772DF8B1E73C58A00519692 /* JSNetworkManager+JSMineDatas.m in Sources */,
 				F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */,
 				F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */,
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
+				F7E63BA21E7A7593005FAB0F /* JSEssenceCollectionViewCell.m in Sources */,
 				F7E63B9A1E7A5ACB005FAB0F /* JSEssenceMenuView.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
