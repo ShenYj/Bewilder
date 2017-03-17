@@ -49,6 +49,9 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
     [self.view insertSubview:self.collectionView belowSubview:self.js_NavigationBar];
     [self.view addSubview:self.menuView];
 
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(self.view);
+    }];
     [self.menuView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.mas_equalTo(self.view);
         make.top.mas_equalTo(self.js_NavigationBar.mas_bottom);

@@ -27,13 +27,14 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 }
 
 - (void)prepareView {
-    self.backgroundColor = [UIColor redColor];
+    self.backgroundColor = [UIColor whiteColor];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kTableViewReusedIdentifier];
     [self.contentView addSubview:self.tableView];
-    //self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
+
+    self.tableView.contentInset = UIEdgeInsetsMake(64+44, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.tableHeaderView = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDatas)];
+    //self.tableView.tableHeaderView = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDatas)];
     //self.tableView.mj_header.ignoredScrollViewContentInsetTop = 64;
     //[self.tableView.mj_header beginRefreshing];
     
@@ -62,7 +63,7 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewReusedIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor purpleColor];
+    cell.backgroundColor = [UIColor whiteColor];
     cell.textLabel.text = @(indexPath.row).description;
     return cell;
 }
