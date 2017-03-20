@@ -35,17 +35,26 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 
     self.tableView.contentInset = UIEdgeInsetsMake(64+44, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    //self.tableView.tableHeaderView = [MJRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDatas)];
-    //self.tableView.mj_header.ignoredScrollViewContentInsetTop = 64;
-    //[self.tableView.mj_header beginRefreshing];
     
+    // 设置刷新控件
+    [self setupRefresh];
+}
+
+/** 设置刷新控件 */
+- (void)setupRefresh {
+    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDatas)];
+    //根据拖拽比例自动切换透明度
+    mj_header.automaticallyChangeAlpha = YES;
+    // 隐藏最后更新时间
+    mj_header.lastUpdatedTimeLabel.hidden = YES;
+    self.tableView.mj_header = mj_header;
 }
 
 /** 下拉刷新 */
 - (void)loadNewDatas {
     
-    [self.tableView.mj_header endRefreshing];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_header endRefreshing];
     });
 }
 
@@ -65,7 +74,8 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewReusedIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    cell.textLabel.text = @(indexPath.row).description;
+    JSTopicModel *topic = self.topicLists[indexPath.item];
+    cell.textLabel.text = topic.name;
     return cell;
 }
 

@@ -12,15 +12,19 @@
 #import "JSEssenceCollectionViewCell.h"
 #import "JSMenuLabel.h"
 #import "JSNetworkManager+JSEssenceDatas.h"
+#import "JSTopicModel.h"
 
 static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifier";
 static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
 @interface JSEssenceController () <UICollectionViewDataSource,UICollectionViewDelegate,JSEssenceMenuViewIndexDelegate,JSEssenceMenuViewDataSource>
+
 /** 导航区 */
 @property (nonatomic,strong) JSEssenceMenuView *menuView;
 /** 内容区 */
 @property (nonatomic,strong) JSEssenceCollectionView *collectionView;
+/** 数据 */
+@property (nonatomic,strong) NSArray <JSTopicModel *>*topicLists;
 
 @end
 
@@ -29,9 +33,7 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[JSNetworkManager sharedManager] loadEssenceDatasWithCompletionHandler:^(id response, BOOL isCompletion) {
-        NSLog(@"%@",response);
-    }];
+    
 }
 
 - (void)prepareTableView {
@@ -81,6 +83,7 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JSEssenceCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusedIdentifier forIndexPath:indexPath];
+    cell.topicLists = self.topicLists;
     return cell;
 }
 
@@ -123,6 +126,11 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
 - (void)loadDatasEssenceMenuView:(JSEssenceMenuView *)menuView index:(NSInteger)index {
     // 发起网络请求
+    __weak typeof(self) weakSelf = self;
+    [[JSNetworkManager sharedManager] loadEssenceDatasWithCompletionHandler:^(NSArray <JSTopicModel *>*response, BOOL isCompletion) {
+        weakSelf.topicLists = response;
+        [weakSelf.collectionView reloadData];
+    }];
     JSLOG
 }
 
