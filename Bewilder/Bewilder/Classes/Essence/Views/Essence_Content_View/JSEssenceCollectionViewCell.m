@@ -9,15 +9,18 @@
 #import "JSEssenceCollectionViewCell.h"
 #import "JSEssenceTableView.h"
 #import "JSNetworkManager+JSEssenceDatas.h"
+#import "JSTopicInfo.h"
 
 static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifier";
 
 @interface JSEssenceCollectionViewCell () <UITableViewDataSource,UITableViewDelegate>
 
 /** 数据 */
-@property (nonatomic,strong) NSArray <JSTopicModel *>*topicLists;
+@property (nonatomic,strong) NSMutableArray <JSTopicModel *>*topicLists;
 /** 表格 */
 @property (nonatomic,strong) JSEssenceTableView *tableView;
+/** 最大ID标识 */
+@property (nonatomic,copy) NSString *currentMaxID;
 
 @end
 
@@ -58,12 +61,17 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     __weak typeof(self) weakSelf = self;
     [self.tableView.mj_footer endRefreshing];
     [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
-    [[JSNetworkManager sharedManager] pullDatasWithCompletionHandler:^(NSArray<JSTopicModel *> *response, BOOL isCompletion) {
-        weakSelf.topicLists = response;
-        weakSelf.tableView.topicLists = response;
-        [weakSelf.tableView reloadData];
+    [[JSNetworkManager sharedManager] pullDatasWithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
+        if (isCompletion) {
+            weakSelf.topicLists = [NSMutableArray arrayWithArray:response];
+            weakSelf.tableView.topicLists = response;
+            [weakSelf.tableView reloadData];
+        }
+        NSLog(@"%@,%zd",topicInfo.maxtime,weakSelf.topicLists.count);
+        weakSelf.currentMaxID = topicInfo.maxtime;
         [weakSelf.tableView.mj_header endRefreshing];
     }];
+
 }
 /** 上拉刷新 */
 - (void)loadMoreDatas {
@@ -71,11 +79,14 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     __weak typeof(self) weakSelf = self;
     [self.tableView.mj_header endRefreshing];
     [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
-    [[JSNetworkManager sharedManager] loadMoreDatasWithMaxID:@"" WithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
-        NSMutableArray *tempArr = [NSMutableArray arrayWithArray:weakSelf.topicLists];
-        [tempArr addObjectsFromArray:response];
-        weakSelf.tableView.topicLists = tempArr.copy;
-        [weakSelf.tableView reloadData];
+    [[JSNetworkManager sharedManager] loadMoreDatasWithMaxTime:self.currentMaxID WithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
+        if (isCompletion) {
+            [weakSelf.topicLists addObjectsFromArray:response];
+            weakSelf.tableView.topicLists = weakSelf.topicLists.copy;
+            weakSelf.currentMaxID = topicInfo.maxtime;
+            [weakSelf.tableView reloadData];
+        }
+        NSLog(@"%@,%zd",topicInfo.maxtime,weakSelf.topicLists.count);
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }

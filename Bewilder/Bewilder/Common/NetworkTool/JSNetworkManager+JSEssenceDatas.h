@@ -13,8 +13,8 @@
 @interface JSNetworkManager (JSEssenceDatas)
 
 /** 下拉刷新 */
-- (void)pullDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,BOOL isCompletion))completionHandler;
+- (void)pullDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response , JSTopicInfo *topicInfo,BOOL isCompletion))completionHandler;
 /** 上拉加载更多 */
-- (void)loadMoreDatasWithMaxID:(NSString *)maxID WithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response , JSTopicInfo *topicInfo,BOOL isCompletion))completionHandler;
+- (void)loadMoreDatasWithMaxTime:(NSString *)maxTime WithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response , JSTopicInfo *topicInfo,BOOL isCompletion))completionHandler;
 
 @end

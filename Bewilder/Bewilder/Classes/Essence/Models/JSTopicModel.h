@@ -26,6 +26,8 @@
 @property (nonatomic,copy) NSString *repost;
 /** 评论数量 */
 @property (nonatomic,copy) NSString *commnet;
+/** topic ID */
+@property (nonatomic,strong) NSNumber *t;
 
 - (instancetype)initWithTopicDict:(NSDictionary *)dict;
 + (instancetype)topicWithDict:(NSDictionary *)dict;

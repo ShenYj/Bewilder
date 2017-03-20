@@ -12,7 +12,7 @@
 
 @implementation JSNetworkManager (JSEssenceDatas)
 
-- (void)pullDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,BOOL isCompletion))completionHandler {
+- (void)pullDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,JSTopicInfo *topicInfo,BOOL isCompletion))completionHandler {
     NSString *urlString = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paras = @{
                             @"a": @"list",
@@ -24,7 +24,7 @@
     [self requestMethod:RequestMethodGet urlString:urlString parameters:paras compeletionHandler:^(NSDictionary * res, NSError *error) {
         if (error || !res) {
             NSLog(@"请求失败:%@",error);
-            completionHandler(nil,NO);
+            completionHandler(nil,nil,NO);
             return ;
         }
         
@@ -34,18 +34,21 @@
             JSTopicModel *model = [JSTopicModel topicWithDict:dict];
             [tempArr addObject:model];
         }
-        completionHandler(tempArr.copy,YES);
+        NSDictionary *info = res[@"info"];
+        JSTopicInfo *topicInfo = [JSTopicInfo infoWithDict:info];
+        
+        completionHandler(tempArr.copy,topicInfo,YES);
         
     }];
     
 }
 
-- (void)loadMoreDatasWithMaxID:(NSString *)maxID WithCompletionHandler:(void (^)(NSArray<JSTopicModel *> *, JSTopicInfo *, BOOL))completionHandler {
+- (void)loadMoreDatasWithMaxTime:(NSString *)maxTime WithCompletionHandler:(void (^)(NSArray<JSTopicModel *> *, JSTopicInfo *, BOOL))completionHandler {
     NSString *urlString = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paras = @{
                             @"a": @"list",
                             @"c": @"data",
-                            @"maxtime": maxID
+                            @"maxtime": maxTime
                             };
     // 取消上一个请求
     [self.tasks makeObjectsPerformSelector:@selector(cancel)];

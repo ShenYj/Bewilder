@@ -10,8 +10,8 @@
 
 @interface JSTopicInfo : NSObject
 
-/** 帖子最大id */
 @property (nonatomic,copy) NSString *maxid;
+/** 帖子最大id : 用于上拉加载更多数据使用*/
 @property (nonatomic,copy) NSString *maxtime;
 @property (nonatomic,copy) NSString *vendor;
 @property (nonatomic,strong) NSNumber *count;

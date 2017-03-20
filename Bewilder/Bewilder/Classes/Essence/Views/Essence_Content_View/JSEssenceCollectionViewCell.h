@@ -11,5 +11,7 @@
 
 @interface JSEssenceCollectionViewCell : UICollectionViewCell
 
+/** 下拉刷新 */
+- (void)loadNewDatas;
 
 @end
