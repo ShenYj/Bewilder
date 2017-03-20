@@ -8,9 +8,13 @@
 
 #import "JSNetworkManager.h"
 @class JSTopicModel;
+@class JSTopicInfo;
 
 @interface JSNetworkManager (JSEssenceDatas)
 
-- (void)loadEssenceDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,BOOL isCompletion))completionHandler;
+/** 下拉刷新 */
+- (void)pullDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,BOOL isCompletion))completionHandler;
+/** 上拉加载更多 */
+- (void)loadMoreDatasWithMaxID:(NSString *)maxID WithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response , JSTopicInfo *topicInfo,BOOL isCompletion))completionHandler;
 
 @end

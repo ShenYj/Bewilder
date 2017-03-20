@@ -10,7 +10,6 @@
 #import "JSTopicModel.h"
 
 @interface JSEssenceCollectionViewCell : UICollectionViewCell
-/** 数据 */
-@property (nonatomic,strong) NSArray <JSTopicModel *>*topicLists;
+
 
 @end

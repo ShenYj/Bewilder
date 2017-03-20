@@ -11,8 +11,7 @@
 #import "JSEssenceCollectionView.h"
 #import "JSEssenceCollectionViewCell.h"
 #import "JSMenuLabel.h"
-#import "JSNetworkManager+JSEssenceDatas.h"
-#import "JSTopicModel.h"
+
 
 static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifier";
 static NSInteger const kNumberOfItemsInSection = 5;             // item个数
@@ -24,7 +23,7 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 /** 内容区 */
 @property (nonatomic,strong) JSEssenceCollectionView *collectionView;
 /** 数据 */
-@property (nonatomic,strong) NSArray <JSTopicModel *>*topicLists;
+//@property (nonatomic,strong) NSArray <JSTopicModel *>*topicLists;
 
 @end
 
@@ -83,7 +82,7 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JSEssenceCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusedIdentifier forIndexPath:indexPath];
-    cell.topicLists = self.topicLists;
+    //cell.topicLists = self.topicLists;
     return cell;
 }
 
@@ -117,8 +116,6 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 - (void)essenceMenuView:(JSEssenceMenuView *)menuView index:(NSInteger)index {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
     [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-//    CGFloat x = index * SCREEN_WIDTH;
-//    [self.collectionView setContentOffset:CGPointMake(x, 0) animated:YES];
 }
 
 #pragma mark
@@ -127,10 +124,6 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 - (void)loadDatasEssenceMenuView:(JSEssenceMenuView *)menuView index:(NSInteger)index {
     // 发起网络请求
     __weak typeof(self) weakSelf = self;
-    [[JSNetworkManager sharedManager] loadEssenceDatasWithCompletionHandler:^(NSArray <JSTopicModel *>*response, BOOL isCompletion) {
-        weakSelf.topicLists = response;
-        [weakSelf.collectionView reloadData];
-    }];
     JSLOG
 }
 

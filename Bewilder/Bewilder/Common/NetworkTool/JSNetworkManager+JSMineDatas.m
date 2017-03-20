@@ -21,16 +21,16 @@
                             @"a": @"square",
                             @"c": @"topic"
                             };
-    [self GET:urlString parameters:paras progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
-        JSMineModel *mineModel = [JSMineModel mineWithDict:responseObject];
+    
+    [self requestMethod:RequestMethodGet urlString:urlString parameters:paras compeletionHandler:^(NSDictionary *res, NSError *error) {
+        if (error || !res) {
+            NSLog(@"请求失败(%s)-%@",__func__,error);
+            completionHandler(nil,NO);
+            return ;
+        }
+        JSMineModel *mineModel = [JSMineModel mineWithDict:res];
         completionHandler(mineModel,YES);
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-        if (error) {
-            NSLog(@"请求失败(%s)-%@",__func__,error);
-        }
-        completionHandler(nil,NO);
     }];
 }
 

@@ -7,13 +7,17 @@
 //
 
 #import "JSEssenceCollectionViewCell.h"
-
+#import "JSEssenceTableView.h"
+#import "JSNetworkManager+JSEssenceDatas.h"
 
 static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifier";
 
 @interface JSEssenceCollectionViewCell () <UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic,strong) UITableView *tableView;
+/** 数据 */
+@property (nonatomic,strong) NSArray <JSTopicModel *>*topicLists;
+/** 表格 */
+@property (nonatomic,strong) JSEssenceTableView *tableView;
 
 @end
 
@@ -42,23 +46,39 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 
 /** 设置刷新控件 */
 - (void)setupRefresh {
-    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDatas)];
-    //根据拖拽比例自动切换透明度
-    mj_header.automaticallyChangeAlpha = YES;
-    // 隐藏最后更新时间
-    mj_header.lastUpdatedTimeLabel.hidden = YES;
+    JSRefreshNormalHeader *mj_header = [JSRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDatas)];
     self.tableView.mj_header = mj_header;
+    self.tableView.mj_footer = [JSRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreDatas)];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 /** 下拉刷新 */
 - (void)loadNewDatas {
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView.mj_header endRefreshing];
-    });
+    // 取消之前的下载任务
+    __weak typeof(self) weakSelf = self;
+    [self.tableView.mj_footer endRefreshing];
+    [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
+    [[JSNetworkManager sharedManager] pullDatasWithCompletionHandler:^(NSArray<JSTopicModel *> *response, BOOL isCompletion) {
+        weakSelf.topicLists = response;
+        weakSelf.tableView.topicLists = response;
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
 }
-
-
+/** 上拉刷新 */
+- (void)loadMoreDatas {
+    // 取消之前的下载任务
+    __weak typeof(self) weakSelf = self;
+    [self.tableView.mj_header endRefreshing];
+    [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
+    [[JSNetworkManager sharedManager] loadMoreDatasWithMaxID:@"" WithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
+        NSMutableArray *tempArr = [NSMutableArray arrayWithArray:weakSelf.topicLists];
+        [tempArr addObjectsFromArray:response];
+        weakSelf.tableView.topicLists = tempArr.copy;
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_footer endRefreshing];
+    }];
+}
 
 #pragma mark
 #pragma mark - table view dataSource
@@ -68,7 +88,7 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.topicLists.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,10 +109,10 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 #pragma mark
 #pragma mark - lazy
 
-- (UITableView *)tableView {
+- (JSEssenceTableView *)tableView {
     if (!_tableView) {
         //CGRectMake(0, 64, SCREEN_WIDTH, self.bounds.size.height)
-        _tableView = [[UITableView alloc] initWithFrame:self.bounds];
+        _tableView = [[JSEssenceTableView alloc] initWithFrame:self.bounds];
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }

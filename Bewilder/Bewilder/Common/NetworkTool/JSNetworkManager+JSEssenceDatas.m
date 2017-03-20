@@ -8,24 +8,26 @@
 
 #import "JSNetworkManager+JSEssenceDatas.h"
 #import "JSTopicModel.h"
+#import "JSTopicInfo.h"
 
 @implementation JSNetworkManager (JSEssenceDatas)
 
-- (void)loadEssenceDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,BOOL isCompletion))completionHandler {
+- (void)pullDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,BOOL isCompletion))completionHandler {
     NSString *urlString = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paras = @{
                             @"a": @"list",
-                            @"c": @"data",
-                            @"maxtime": @""
+                            @"c": @"data"
                             };
+    // 取消上一个请求
+    [self.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
     [self requestMethod:RequestMethodGet urlString:urlString parameters:paras compeletionHandler:^(NSDictionary * res, NSError *error) {
         if (error || !res) {
             NSLog(@"请求失败:%@",error);
             completionHandler(nil,NO);
+            return ;
         }
-        //NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"essence.plist"];
-        //NSLog(@"%@",filePath);
-        //[res writeToFile:filePath atomically:YES];
+        
         NSArray *lists = res[@"list"];
         NSMutableArray *tempArr = [NSMutableArray array];
         for (NSDictionary *dict in lists) {
@@ -36,6 +38,33 @@
         
     }];
     
+}
+
+- (void)loadMoreDatasWithMaxID:(NSString *)maxID WithCompletionHandler:(void (^)(NSArray<JSTopicModel *> *, JSTopicInfo *, BOOL))completionHandler {
+    NSString *urlString = @"http://api.budejie.com/api/api_open.php";
+    NSDictionary *paras = @{
+                            @"a": @"list",
+                            @"c": @"data",
+                            @"maxtime": maxID
+                            };
+    // 取消上一个请求
+    [self.tasks makeObjectsPerformSelector:@selector(cancel)];
+    [self requestMethod:RequestMethodGet urlString:urlString parameters:paras compeletionHandler:^(NSDictionary *  res, NSError *error) {
+        if (error || !res) {
+            NSLog(@"请求失败:%@",error);
+            completionHandler(nil,nil,NO);
+            return ;
+        }
+        NSArray *lists = res[@"list"];
+        NSMutableArray *tempArr = [NSMutableArray array];
+        for (NSDictionary *dict in lists) {
+            JSTopicModel *model = [JSTopicModel topicWithDict:dict];
+            [tempArr addObject:model];
+        }
+        NSDictionary *info = res[@"info"];
+        JSTopicInfo *topicInfo = [JSTopicInfo infoWithDict:info];
+        completionHandler(tempArr.copy,topicInfo,YES);
+    }];
 }
 
 @end

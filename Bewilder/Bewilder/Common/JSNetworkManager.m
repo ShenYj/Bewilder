@@ -8,6 +8,7 @@
 
 #import "JSNetworkManager.h"
 
+
 static JSNetworkManager *_instanceType = nil;
 
 @implementation JSNetworkManager
@@ -26,19 +27,23 @@ static JSNetworkManager *_instanceType = nil;
    compeletionHandler:(void(^)(id res,NSError *error))compeletionHandler {
     
     if (requestMethod == RequestMethodGet) {
-        [self GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [self GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             compeletionHandler(responseObject,nil);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             compeletionHandler(nil,error);
         }];
+        
     } else {
-        [self POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
-            
-        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [self POST:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             compeletionHandler(responseObject,nil);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            if (error.code == NSURLErrorCancelled) {
+                NSLog(@"取消下载");
+            } else if (error.code == NSURLErrorTimedOut) {
+                NSLog(@"请求超时");
+            }
             compeletionHandler(nil,error);
         }];
     }

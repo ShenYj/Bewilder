@@ -30,8 +30,10 @@
 //#import "UIButton+WebCache.h"
 #import "Pop.h"
 #import "JSNetworkManager.h"
-#import "MJRefresh.h"
 #import "NSString+JSFileSize.h"
+#import "JSRefreshNormalHeader.h"
+#import "JSRefreshAutoFooter.h"
+
 
 #pragma mark = 宏定义
 
@@ -40,6 +42,10 @@
 #define SCREEN_BOUNDS [UIScreen mainScreen].bounds
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+/** 写入沙盒 Library/cache */
+#define JSWriteToFile(data,filePath) [data writeToFile:[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",filePath]] atomically:YES];
+
 
 /** RGB宏 */
 #define JS_RGB_Color(r,g,b) [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
