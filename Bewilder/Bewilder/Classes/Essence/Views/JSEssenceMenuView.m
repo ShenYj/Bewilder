@@ -37,7 +37,7 @@ static NSInteger const kFLagValue = 1100;             // tag值的中间变量
 }
 
 - (void)prepareMenuView {
-    self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+    self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.7];
     
     NSArray *titles = @[@"全部",@"视频",@"声音",@"图片",@"段子"];
     CGFloat labelWidth = SCREEN_WIDTH / titles.count;

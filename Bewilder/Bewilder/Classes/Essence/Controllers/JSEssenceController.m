@@ -11,7 +11,7 @@
 #import "JSEssenceCollectionView.h"
 #import "JSEssenceCollectionViewCell.h"
 #import "JSMenuLabel.h"
-
+#import "JSNetworkManager+JSEssenceDatas.h"
 
 static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifier";
 static NSInteger const kNumberOfItemsInSection = 5;             // item个数
@@ -29,6 +29,9 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[JSNetworkManager sharedManager] loadEssenceDatasWithCompletionHandler:^(id response, BOOL isCompletion) {
+        NSLog(@"%@",response);
+    }];
 }
 
 - (void)prepareTableView {

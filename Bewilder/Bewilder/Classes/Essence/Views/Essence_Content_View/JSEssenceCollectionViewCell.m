@@ -8,6 +8,7 @@
 
 #import "JSEssenceCollectionViewCell.h"
 
+
 static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifier";
 
 @interface JSEssenceCollectionViewCell () <UITableViewDataSource,UITableViewDelegate>
