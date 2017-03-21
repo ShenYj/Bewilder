@@ -18,8 +18,6 @@
 @property (nonatomic,strong) UILabel *nickNameLabel;
 /** 内容 */
 @property (nonatomic,strong) UILabel *contentLabel;
-/** 记录底部约束 */
-@property (nonatomic,strong) MASConstraint *contentHeightConstraint;
 
 @end
 
@@ -49,12 +47,13 @@
         make.centerY.mas_equalTo(self.iconImageView);
         make.right.mas_equalTo(self).mas_offset(-kMargin);
     }];
+    
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.iconImageView.mas_bottom).mas_offset(kMargin);
         make.left.mas_equalTo(self).mas_offset(kMargin);
         make.right.mas_equalTo(self).mas_offset(-kMargin);
-        self.contentHeightConstraint = make.height.mas_equalTo(44);
     }];
+    
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.contentLabel).mas_offset(kMargin);
     }];
@@ -66,12 +65,11 @@
     self.nickNameLabel.text = topicModel.name;
     self.contentLabel.text = topicModel.text;
     
-    CGRect bounds = [self.contentLabel.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 2*kMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:11]} context:nil];
-    [self.contentHeightConstraint uninstall];
-    [self.contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-        self.contentHeightConstraint = make.height.mas_equalTo(bounds.size.height);
-    }];
-    
+//    CGRect bounds = [self.contentLabel.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 2*kMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:11]} context:nil];
+//    [self.contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(bounds.size.height);
+//    }];
+//
 }
 
 #pragma mark
@@ -100,6 +98,7 @@
         _contentLabel.textColor = [UIColor blackColor];
         _contentLabel.font = [UIFont systemFontOfSize:11];
         _contentLabel.numberOfLines = 0;
+        _contentLabel.backgroundColor = [UIColor whiteColor];
     }
     return _contentLabel;
 }

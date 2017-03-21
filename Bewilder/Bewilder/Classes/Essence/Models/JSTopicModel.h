@@ -29,6 +29,8 @@
 /** topic ID */
 @property (nonatomic,strong) NSNumber *t;
 
+@property (nonatomic,assign,readonly) CGFloat topicCellRowHeight;
+
 - (instancetype)initWithTopicDict:(NSDictionary *)dict;
 + (instancetype)topicWithDict:(NSDictionary *)dict;
 

@@ -9,6 +9,18 @@
 #import "JSBaseBottom.h"
 #import "JSBaseConst.h"
 
+@interface JSBaseBottom ()
+/** 按钮 */
+@property (nonatomic,strong) UIButton *button1;
+/** 按钮 */
+@property (nonatomic,strong) UIButton *button2;
+/** 按钮 */
+@property (nonatomic,strong) UIButton *button3;
+/** 按钮 */
+@property (nonatomic,strong) UIButton *button4;
+
+@end
+
 @implementation JSBaseBottom
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -21,6 +33,10 @@
 
 - (void)prepareBaseBottomView {
     self.backgroundColor = [UIColor redColor];
+    
+    [self mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(kBottomToolBarHeigth);
+    }];
 }
 
 @end

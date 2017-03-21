@@ -18,6 +18,7 @@
 @property (nonatomic,strong) JSBaseTop      *topic_top_status;
 /** 底部toolbar */
 @property (nonatomic,strong) JSBaseBottom   *topic_bottom_toolbar;
+@property (nonatomic,strong) MASConstraint  *contentViewBottomConstraint;
 
 @end
 
@@ -32,7 +33,7 @@
 }
 
 - (void)prepareBaseCellView {
-    self.backgroundColor = JS_Gray_Color(206);
+    self.backgroundColor = JS_Gray_Color(236);
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [self.contentView addSubview:self.topic_top_status];
@@ -43,15 +44,14 @@
     }];
     
     [self.topic_bottom_toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.topic_top_status.mas_bottom).mas_offset(kMargin);
+        make.top.mas_equalTo(self.topic_top_status.mas_bottom);
         make.left.right.mas_equalTo(self.contentView);
-        make.height.mas_equalTo(kBottomToolBarHeigth);
     }];
-    
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.mas_equalTo(self);
         make.bottom.mas_equalTo(self.topic_bottom_toolbar).mas_offset(kMargin);
     }];
+    
 }
 
 - (void)setTopicModel:(JSTopicModel *)topicModel {
@@ -59,6 +59,7 @@
     
     self.topic_top_status.topicModel = topicModel;
     self.topic_bottom_toolbar.topicModel = topicModel;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
