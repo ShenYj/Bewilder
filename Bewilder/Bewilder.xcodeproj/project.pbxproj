@@ -23,6 +23,10 @@
 		F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572B1E6CE30300CCF791 /* JSFollowViewController.m */; };
 		F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F704572E1E6CE30C00CCF791 /* JSMineViewController.m */; };
 		F70457351E6DA6C000CCF791 /* JSSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F70457341E6DA6C000CCF791 /* JSSettingViewController.m */; };
+		F734B2D61E80BEC70049C114 /* JSTopicBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2D51E80BEC70049C114 /* JSTopicBaseCell.m */; };
+		F734B2DA1E80CF120049C114 /* JSBaseTop.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2D91E80CF120049C114 /* JSBaseTop.m */; };
+		F734B2DD1E80CF560049C114 /* JSBaseBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2DC1E80CF560049C114 /* JSBaseBottom.m */; };
+		F734B2E01E80D1F50049C114 /* JSBaseConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2DF1E80D1F50049C114 /* JSBaseConst.m */; };
 		F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */; };
 		F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CE1E7570D000BC9D0B /* JSWebViewToolBar.m */; };
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
@@ -87,6 +91,14 @@
 		F704572E1E6CE30C00CCF791 /* JSMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineViewController.m; sourceTree = "<group>"; };
 		F70457331E6DA6C000CCF791 /* JSSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSettingViewController.h; sourceTree = "<group>"; };
 		F70457341E6DA6C000CCF791 /* JSSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSettingViewController.m; sourceTree = "<group>"; };
+		F734B2D41E80BEC70049C114 /* JSTopicBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSTopicBaseCell.h; path = ../JSTopicBaseCell.h; sourceTree = "<group>"; };
+		F734B2D51E80BEC70049C114 /* JSTopicBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSTopicBaseCell.m; path = ../JSTopicBaseCell.m; sourceTree = "<group>"; };
+		F734B2D81E80CF120049C114 /* JSBaseTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBaseTop.h; sourceTree = "<group>"; };
+		F734B2D91E80CF120049C114 /* JSBaseTop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseTop.m; sourceTree = "<group>"; };
+		F734B2DB1E80CF560049C114 /* JSBaseBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBaseBottom.h; sourceTree = "<group>"; };
+		F734B2DC1E80CF560049C114 /* JSBaseBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseBottom.m; sourceTree = "<group>"; };
+		F734B2DE1E80D1F50049C114 /* JSBaseConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBaseConst.h; sourceTree = "<group>"; };
+		F734B2DF1E80D1F50049C114 /* JSBaseConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseConst.m; sourceTree = "<group>"; };
 		F770C4CA1E75651E00BC9D0B /* JSMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineSubViewController.h; sourceTree = "<group>"; };
 		F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineSubViewController.m; sourceTree = "<group>"; };
 		F770C4CD1E7570CF00BC9D0B /* JSWebViewToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSWebViewToolBar.h; sourceTree = "<group>"; };
@@ -451,6 +463,21 @@
 			path = BaseViewController;
 			sourceTree = "<group>";
 		};
+		F734B2D71E80CEF70049C114 /* BaseCell */ = {
+			isa = PBXGroup;
+			children = (
+				F734B2D41E80BEC70049C114 /* JSTopicBaseCell.h */,
+				F734B2D51E80BEC70049C114 /* JSTopicBaseCell.m */,
+				F734B2D81E80CF120049C114 /* JSBaseTop.h */,
+				F734B2D91E80CF120049C114 /* JSBaseTop.m */,
+				F734B2DB1E80CF560049C114 /* JSBaseBottom.h */,
+				F734B2DC1E80CF560049C114 /* JSBaseBottom.m */,
+				F734B2DE1E80D1F50049C114 /* JSBaseConst.h */,
+				F734B2DF1E80D1F50049C114 /* JSBaseConst.m */,
+			);
+			path = BaseCell;
+			sourceTree = "<group>";
+		};
 		F772DF6E1E6EDA8900519692 /* LoginAndRegister */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +548,7 @@
 			children = (
 				F7E63BB41E800217005FAB0F /* JSEssenceTableView.h */,
 				F7E63BB51E800217005FAB0F /* JSEssenceTableView.m */,
+				F734B2D71E80CEF70049C114 /* BaseCell */,
 			);
 			path = EssenceItem;
 			sourceTree = "<group>";
@@ -670,6 +698,7 @@
 				F7E63BA21E7A7593005FAB0F /* JSEssenceCollectionViewCell.m in Sources */,
 				F7E63B9A1E7A5ACB005FAB0F /* JSEssenceMenuView.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
+				F734B2DD1E80CF560049C114 /* JSBaseBottom.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
 				F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */,
 				F7E63B971E7A5901005FAB0F /* JSEssenceFlowLayout.m in Sources */,
@@ -681,6 +710,8 @@
 				F7E63BAF1E7F837E005FAB0F /* JSRefreshNormalHeader.m in Sources */,
 				F7E63BB91E800A7D005FAB0F /* JSTopicInfo.m in Sources */,
 				F772DF841E72F45800519692 /* JSNetworkManager.m in Sources */,
+				F734B2E01E80D1F50049C114 /* JSBaseConst.m in Sources */,
+				F734B2D61E80BEC70049C114 /* JSTopicBaseCell.m in Sources */,
 				F7E63BA91E7F5DC8005FAB0F /* JSNetworkManager+JSEssenceDatas.m in Sources */,
 				F704572C1E6CE30300CCF791 /* JSFollowViewController.m in Sources */,
 				F7E63BAC1E7F61A7005FAB0F /* JSTopicModel.m in Sources */,
@@ -695,6 +726,7 @@
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
 				F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */,
+				F734B2DA1E80CF120049C114 /* JSBaseTop.m in Sources */,
 				F7E63B941E7A5629005FAB0F /* JSEssenceCollectionView.m in Sources */,
 				F772DF911E73F28F00519692 /* JSTagList.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,

@@ -10,6 +10,7 @@
 #import "JSEssenceTableView.h"
 #import "JSNetworkManager+JSEssenceDatas.h"
 #import "JSTopicInfo.h"
+#import "JSTopicBaseCell.h"
 
 static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifier";
 
@@ -37,12 +38,14 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 - (void)prepareView {
     self.backgroundColor = [UIColor whiteColor];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kTableViewReusedIdentifier];
+    [self.tableView registerClass:[JSTopicBaseCell class] forCellReuseIdentifier:kTableViewReusedIdentifier];
     [self.contentView addSubview:self.tableView];
 
+    self.tableView.estimatedRowHeight = 180;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     self.tableView.contentInset = UIEdgeInsetsMake(64+44, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    
     // 设置刷新控件
     [self setupRefresh];
 }
@@ -64,11 +67,9 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     [[JSNetworkManager sharedManager] pullDatasWithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
         if (isCompletion) {
             weakSelf.topicLists = [NSMutableArray arrayWithArray:response];
-            weakSelf.tableView.topicLists = response;
+            weakSelf.currentMaxID = topicInfo.maxtime;
             [weakSelf.tableView reloadData];
         }
-        NSLog(@"%@,%zd",topicInfo.maxtime,weakSelf.topicLists.count);
-        weakSelf.currentMaxID = topicInfo.maxtime;
         [weakSelf.tableView.mj_header endRefreshing];
     }];
 
@@ -82,11 +83,9 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     [[JSNetworkManager sharedManager] loadMoreDatasWithMaxTime:self.currentMaxID WithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
         if (isCompletion) {
             [weakSelf.topicLists addObjectsFromArray:response];
-            weakSelf.tableView.topicLists = weakSelf.topicLists.copy;
             weakSelf.currentMaxID = topicInfo.maxtime;
             [weakSelf.tableView reloadData];
         }
-        NSLog(@"%@,%zd",topicInfo.maxtime,weakSelf.topicLists.count);
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }
@@ -103,18 +102,21 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewReusedIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
+    JSTopicBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewReusedIdentifier forIndexPath:indexPath];
     JSTopicModel *topic = self.topicLists[indexPath.item];
-    cell.textLabel.text = topic.name;
+    cell.topicModel = topic;
     return cell;
 }
 
 #pragma mark
 #pragma mark - table view delegate
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 180;
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    JSLOG
+    
 }
 
 #pragma mark

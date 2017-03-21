@@ -10,7 +10,7 @@
 #import "JSTopicModel.h"
 
 @interface JSEssenceTableView : UITableView
-/** 数据 */
-@property (nonatomic,strong) NSArray <JSTopicModel *>*topicLists;
+
+
 
 @end

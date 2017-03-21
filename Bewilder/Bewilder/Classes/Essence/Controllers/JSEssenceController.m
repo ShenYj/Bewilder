@@ -42,7 +42,6 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 - (void)prepareNavigationBar {
     self.js_navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     self.js_navigationItem.leftBarButtonItem = [[JSBaseNavBarButtonItem alloc] initWithNormalImgName:@"MainTagSubIcon" withHighlightedImgName:@"MainTagSubIconClick" withTarget:self withAction:@selector(clickLeftNavigationBarItem:)];
-    
 }
 
 - (void)setUpUI {
@@ -62,8 +61,6 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
     }];
 }
 
-
-
 - (void)clickLeftNavigationBarItem:(JSBaseNavBarButtonItem *)sender {
     NSLog(@"%s",__func__);
 }
@@ -82,7 +79,6 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JSEssenceCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusedIdentifier forIndexPath:indexPath];
-    //cell.topicLists = self.topicLists;
     return cell;
 }
 
@@ -123,7 +119,6 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
 - (void)loadDatasEssenceMenuView:(JSEssenceMenuView *)menuView index:(NSInteger)index {
     // 发起网络请求
-    __weak typeof(self) weakSelf = self;
     JSLOG
 }
 
