@@ -32,6 +32,19 @@
     return [self getWeiBoFormatterDateString:self.created_at];
 }
 
+- (NSString *)ding_string {
+    return [self transformDisplayContentByNSNumber:self.ding withTitle:@"赞"];
+}
+- (NSString *)cai_string {
+    return [self transformDisplayContentByNSNumber:self.cai withTitle:@"踩"];
+}
+- (NSString *)repost_string {
+    return [self transformDisplayContentByNSNumber:self.repost withTitle:@"分享"];
+}
+- (NSString *)comment_string {
+    return [self transformDisplayContentByNSNumber:self.comment withTitle:@"评论"];
+}
+
 - (NSString *)transformDisplayContentByNSNumber:(NSNumber *)aNumber withTitle:(NSString *)title {
     
     /*

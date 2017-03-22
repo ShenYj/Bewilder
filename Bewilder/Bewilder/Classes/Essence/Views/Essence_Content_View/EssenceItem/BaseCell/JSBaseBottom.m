@@ -58,10 +58,13 @@
 - (void)setTopicModel:(JSTopicModel *)topicModel {
     _topicModel = topicModel;
     //[NSString stringWithFormat:@"赞:%zd",topicModel.ding]
-    [self.favour setTitle:topicModel.ding.description forState:UIControlStateNormal];
-    [self.oppose setTitle:[NSString stringWithFormat:@"踩:%zd",topicModel.cai] forState:UIControlStateNormal];
-    [self.share setTitle:[NSString stringWithFormat:@"分享:%zd",topicModel.repost] forState:UIControlStateNormal];
-    [self.comment setTitle:[NSString stringWithFormat:@"评论:%zd",topicModel.comment] forState:UIControlStateNormal];
+    [self.favour setTitle:topicModel.ding_string forState:UIControlStateNormal];
+    //[NSString stringWithFormat:@"踩:%zd",topicModel.cai]
+    [self.oppose setTitle:topicModel.cai_string forState:UIControlStateNormal];
+    //[NSString stringWithFormat:@"分享:%zd",topicModel.repost]
+    [self.share setTitle:topicModel.repost_string forState:UIControlStateNormal];
+    //[NSString stringWithFormat:@"评论:%zd",topicModel.comment]
+    [self.comment setTitle:topicModel.comment_string forState:UIControlStateNormal];
 }
 
 #pragma mark 

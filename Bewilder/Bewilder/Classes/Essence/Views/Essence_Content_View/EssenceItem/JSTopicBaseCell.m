@@ -57,7 +57,6 @@
     _topicModel = topicModel;
     self.topic_top_status.topicModel = topicModel;
     self.topic_bottom_toolbar.topicModel = topicModel;
-    
 }
 
 

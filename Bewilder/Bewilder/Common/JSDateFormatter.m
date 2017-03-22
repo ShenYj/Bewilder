@@ -17,8 +17,8 @@ static JSDateFormatter *_instanceType = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _instanceType = [[self alloc] init];
-        // 设置地区 (不设置真机下可能出现时间不准确,模拟器不受影响)
-        _instanceType.locale = [NSLocale localeWithLocaleIdentifier:@"en_US"];
+        // 设置地区 (不设置真机下可能出现时间不准确,模拟器不受影响)  en_US
+        _instanceType.locale = [NSLocale localeWithLocaleIdentifier:@"zh-Hans"];
     });
     return _instanceType;
 }
