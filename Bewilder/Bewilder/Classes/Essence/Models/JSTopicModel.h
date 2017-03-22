@@ -18,8 +18,10 @@
 @property (nonatomic,copy) NSString *text;
 /** 帖子审核通过的时间 */
 @property (nonatomic,copy) NSString *created_at;
+@property (nonatomic,copy) NSString *create_at_formatter;
 /** 帖子创建的时间 */
 @property (nonatomic,copy) NSString *create_time;
+
 /** 顶数量 */
 @property (nonatomic,strong) NSNumber *ding;
 /** 踩数量 */

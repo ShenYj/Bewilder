@@ -28,6 +28,10 @@
     
 }
 
+- (NSString *)create_at_formatter {
+    return [self getWeiBoFormatterDateString:self.created_at];
+}
+
 - (NSString *)transformDisplayContentByNSNumber:(NSNumber *)aNumber withTitle:(NSString *)title {
     
     /*
@@ -64,7 +68,7 @@
 - (NSString *)getWeiBoFormatterDateString:(NSString *)created_atSourceString {
     
     /*
-     - 微博时间业务逻辑需求
+     - 时间业务逻辑需求
      - 如果是今年
      - 如果是今天
      -  如果小于60秒 显示格式: 刚刚
@@ -77,8 +81,8 @@
      - 如果不是今年
      - 2015-05-05 10:10:10 显示格式: 2015年05月05日 10:10
      */
-    [JSDateFormatter sharedDateFormatterManager].dateFormat = @"EEE MMM dd HH:mm:ss z yyyy";
-    
+    //[JSDateFormatter sharedDateFormatterManager].dateFormat = @"EEE MMM dd HH:mm:ss z yyyy";
+    [JSDateFormatter sharedDateFormatterManager].dateFormat = @"yyyy-MM-dd HH:mm:ss";
     // 将新浪微博返回时间字符串转回NSDate格式
     NSDate *weiboSourceDate = [[JSDateFormatter sharedDateFormatterManager] dateFromString:created_atSourceString];
     

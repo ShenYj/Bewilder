@@ -10,6 +10,7 @@
 #import "JSBaseConst.h"
 #import "JSTopicModel.h"
 
+
 @interface JSBaseTop ()
 
 /** 用户头像 */
@@ -81,7 +82,7 @@
     
     [self.iconImageView yy_setImageWithURL:[NSURL URLWithString:topicModel.profile_image] placeholder:[UIImage imageNamed:@"defaultUserIcon"]];
     self.nickNameLabel.text = topicModel.name;
-    self.created_atLabel.text = topicModel.created_at;
+    self.created_atLabel.text = topicModel.create_at_formatter;
     self.contentLabel.text = topicModel.text;
     
 }
