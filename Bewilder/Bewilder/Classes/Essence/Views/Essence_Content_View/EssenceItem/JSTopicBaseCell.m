@@ -18,7 +18,6 @@
 @property (nonatomic,strong) JSBaseTop      *topic_top_status;
 /** 底部toolbar */
 @property (nonatomic,strong) JSBaseBottom   *topic_bottom_toolbar;
-@property (nonatomic,strong) MASConstraint  *contentViewBottomConstraint;
 
 @end
 
@@ -34,6 +33,8 @@
 
 - (void)prepareBaseCellView {
     self.backgroundColor = JS_Gray_Color(236);
+    //self.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"mainCellBackground"].CGImage);
+    //self.layer.contentsScale = [UIScreen mainScreen].scale;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     [self.contentView addSubview:self.topic_top_status];
@@ -42,30 +43,21 @@
     [self.topic_top_status mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(self.contentView);
     }];
-    
     [self.topic_bottom_toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.topic_top_status.mas_bottom);
         make.left.right.mas_equalTo(self.contentView);
     }];
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.mas_equalTo(self);
+        make.top.left.right.mas_equalTo(self);
         make.bottom.mas_equalTo(self.topic_bottom_toolbar).mas_offset(kMargin);
     }];
-    
 }
 
 - (void)setTopicModel:(JSTopicModel *)topicModel {
     _topicModel = topicModel;
-    
     self.topic_top_status.topicModel = topicModel;
     self.topic_bottom_toolbar.topicModel = topicModel;
-
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    
 }
 
 

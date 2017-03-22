@@ -27,6 +27,9 @@
 		F734B2DA1E80CF120049C114 /* JSBaseTop.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2D91E80CF120049C114 /* JSBaseTop.m */; };
 		F734B2DD1E80CF560049C114 /* JSBaseBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2DC1E80CF560049C114 /* JSBaseBottom.m */; };
 		F734B2E01E80D1F50049C114 /* JSBaseConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2DF1E80D1F50049C114 /* JSBaseConst.m */; };
+		F734B2E31E8123600049C114 /* JSToolBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2E21E8123600049C114 /* JSToolBarButton.m */; };
+		F734B2E61E820D4A0049C114 /* NSDate+JSIsThisYear.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2E51E820D4A0049C114 /* NSDate+JSIsThisYear.m */; };
+		F734B2E91E8213360049C114 /* JSDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2E81E8213360049C114 /* JSDateFormatter.m */; };
 		F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */; };
 		F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CE1E7570D000BC9D0B /* JSWebViewToolBar.m */; };
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
@@ -99,6 +102,12 @@
 		F734B2DC1E80CF560049C114 /* JSBaseBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseBottom.m; sourceTree = "<group>"; };
 		F734B2DE1E80D1F50049C114 /* JSBaseConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBaseConst.h; sourceTree = "<group>"; };
 		F734B2DF1E80D1F50049C114 /* JSBaseConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBaseConst.m; sourceTree = "<group>"; };
+		F734B2E11E8123600049C114 /* JSToolBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSToolBarButton.h; sourceTree = "<group>"; };
+		F734B2E21E8123600049C114 /* JSToolBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSToolBarButton.m; sourceTree = "<group>"; };
+		F734B2E41E820D4A0049C114 /* NSDate+JSIsThisYear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSIsThisYear.h"; sourceTree = "<group>"; };
+		F734B2E51E820D4A0049C114 /* NSDate+JSIsThisYear.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSIsThisYear.m"; sourceTree = "<group>"; };
+		F734B2E71E8213360049C114 /* JSDateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDateFormatter.h; sourceTree = "<group>"; };
+		F734B2E81E8213360049C114 /* JSDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDateFormatter.m; sourceTree = "<group>"; };
 		F770C4CA1E75651E00BC9D0B /* JSMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineSubViewController.h; sourceTree = "<group>"; };
 		F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineSubViewController.m; sourceTree = "<group>"; };
 		F770C4CD1E7570CF00BC9D0B /* JSWebViewToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSWebViewToolBar.h; sourceTree = "<group>"; };
@@ -282,6 +291,10 @@
 		F70457001E68504E00CCF791 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F734B2E71E8213360049C114 /* JSDateFormatter.h */,
+				F734B2E81E8213360049C114 /* JSDateFormatter.m */,
+				F734B2E41E820D4A0049C114 /* NSDate+JSIsThisYear.h */,
+				F734B2E51E820D4A0049C114 /* NSDate+JSIsThisYear.m */,
 				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
 				F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */,
 				F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */,
@@ -472,6 +485,8 @@
 				F734B2D91E80CF120049C114 /* JSBaseTop.m */,
 				F734B2DB1E80CF560049C114 /* JSBaseBottom.h */,
 				F734B2DC1E80CF560049C114 /* JSBaseBottom.m */,
+				F734B2E11E8123600049C114 /* JSToolBarButton.h */,
+				F734B2E21E8123600049C114 /* JSToolBarButton.m */,
 				F734B2DE1E80D1F50049C114 /* JSBaseConst.h */,
 				F734B2DF1E80D1F50049C114 /* JSBaseConst.m */,
 			);
@@ -699,6 +714,7 @@
 				F7E63B9A1E7A5ACB005FAB0F /* JSEssenceMenuView.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F734B2DD1E80CF560049C114 /* JSBaseBottom.m in Sources */,
+				F734B2E91E8213360049C114 /* JSDateFormatter.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
 				F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */,
 				F7E63B971E7A5901005FAB0F /* JSEssenceFlowLayout.m in Sources */,
@@ -722,6 +738,7 @@
 				F704571E1E69BD8400CCF791 /* JSBaseNavigationController.m in Sources */,
 				F772DF7A1E6FA6BC00519692 /* JSCenterLoginView.m in Sources */,
 				F704571D1E69BD8400CCF791 /* JSBaseNavBarButtonItem.m in Sources */,
+				F734B2E31E8123600049C114 /* JSToolBarButton.m in Sources */,
 				F7E63BB21E7FAB89005FAB0F /* JSRefreshAutoFooter.m in Sources */,
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
@@ -732,6 +749,7 @@
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 				F7E63BB61E800217005FAB0F /* JSEssenceTableView.m in Sources */,
 				F772DF771E6EED1900519692 /* JSTopLoginView.m in Sources */,
+				F734B2E61E820D4A0049C114 /* NSDate+JSIsThisYear.m in Sources */,
 				F772DF8E1E73F12500519692 /* JSSquareListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,16 +18,18 @@
 @property (nonatomic,copy) NSString *text;
 /** 帖子审核通过的时间 */
 @property (nonatomic,copy) NSString *created_at;
+/** 帖子创建的时间 */
+@property (nonatomic,copy) NSString *create_time;
 /** 顶数量 */
-@property (nonatomic,copy) NSString *ding;
+@property (nonatomic,strong) NSNumber *ding;
 /** 踩数量 */
-@property (nonatomic,copy) NSString *cai;
+@property (nonatomic,assign) NSInteger cai;
 /** 转发\分享 数量 */
-@property (nonatomic,copy) NSString *repost;
+@property (nonatomic,assign) NSInteger repost;
 /** 评论数量 */
-@property (nonatomic,copy) NSString *commnet;
+@property (nonatomic,assign) NSInteger comment;
 /** topic ID */
-@property (nonatomic,strong) NSNumber *t;
+//@property (nonatomic,strong) NSNumber *t;
 
 @property (nonatomic,assign,readonly) CGFloat topicCellRowHeight;
 

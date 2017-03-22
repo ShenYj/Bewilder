@@ -11,6 +11,4 @@
 
 @interface JSEssenceTableView : UITableView
 
-
-
 @end

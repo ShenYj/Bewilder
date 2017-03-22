@@ -21,7 +21,7 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 /** 表格 */
 @property (nonatomic,strong) JSEssenceTableView *tableView;
 /** 最大ID标识 */
-@property (nonatomic,copy) NSString *currentMaxID;
+@property (nonatomic,copy) NSString *currentMaxTime;
 
 @end
 
@@ -41,8 +41,9 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     [self.tableView registerClass:[JSTopicBaseCell class] forCellReuseIdentifier:kTableViewReusedIdentifier];
     [self.contentView addSubview:self.tableView];
 
-    self.tableView.estimatedRowHeight = 180;
+    self.tableView.estimatedRowHeight = 190;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.rowHeight = 190;
     
     self.tableView.contentInset = UIEdgeInsetsMake(64+44, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
@@ -63,11 +64,13 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     // 取消之前的下载任务
     __weak typeof(self) weakSelf = self;
     [self.tableView.mj_footer endRefreshing];
-    [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
+    if ([JSNetworkManager sharedManager].tasks.count > 0) {
+        [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
+    }
     [[JSNetworkManager sharedManager] pullDatasWithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
         if (isCompletion) {
             weakSelf.topicLists = [NSMutableArray arrayWithArray:response];
-            weakSelf.currentMaxID = topicInfo.maxtime;
+            weakSelf.currentMaxTime = topicInfo.maxtime;
             [weakSelf.tableView reloadData];
         }
         [weakSelf.tableView.mj_header endRefreshing];
@@ -79,11 +82,13 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     // 取消之前的下载任务
     __weak typeof(self) weakSelf = self;
     [self.tableView.mj_header endRefreshing];
-    [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
-    [[JSNetworkManager sharedManager] loadMoreDatasWithMaxTime:self.currentMaxID WithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
+    if ([JSNetworkManager sharedManager].tasks.count > 0) {
+        [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
+    }
+    [[JSNetworkManager sharedManager] loadMoreDatasWithMaxTime:self.currentMaxTime WithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
         if (isCompletion) {
             [weakSelf.topicLists addObjectsFromArray:response];
-            weakSelf.currentMaxID = topicInfo.maxtime;
+            weakSelf.currentMaxTime = topicInfo.maxtime;
             [weakSelf.tableView reloadData];
         }
         [weakSelf.tableView.mj_footer endRefreshing];
