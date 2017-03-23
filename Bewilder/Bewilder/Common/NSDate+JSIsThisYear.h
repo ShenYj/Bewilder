@@ -13,6 +13,10 @@
  *判断date是否是昨天
  */
 - (BOOL)isYesterday;
+/** 
+ *判断date是否为明天
+ */
+- (BOOL)isTomorrow;
 /**
  *判断date是否是今年
  */
