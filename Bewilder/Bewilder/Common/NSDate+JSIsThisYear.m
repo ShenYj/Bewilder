@@ -33,6 +33,27 @@
     
 }
 
+- (BOOL)isYesterday {
+    /** 忽略掉时分秒的干扰,只取年月日,将date转换成只包含年月日的字符串,再转成回NSDate,进行比较 */
+    [JSDateFormatter sharedDateFormatterManager].dateFormat = @"yyyyMMdd";
+    NSString *selfString = [[JSDateFormatter sharedDateFormatterManager] stringFromDate:self];
+    NSString *nowString = [[JSDateFormatter sharedDateFormatterManager] stringFromDate:[NSDate date]];
+    
+    NSDate *selfDate = [[JSDateFormatter sharedDateFormatterManager] dateFromString:selfString];
+    NSDate *nowDate = [[JSDateFormatter sharedDateFormatterManager] dateFromString:nowString];
+    
+    NSCalendar *calendar = nil;
+    if ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0) {
+        calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+    } else {
+        calendar = [NSCalendar currentCalendar];
+    }
+    NSCalendarUnit unit = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+    NSDateComponents *cmps = [calendar components:unit fromDate:selfDate toDate:nowDate options:0];
+    
+    return cmps.year == 0 && cmps.month == 0 && cmps.day == 1;
+}
+
 // 将当前date转换为特定格式的字符串date
 - (NSString *)dateformatterString:(NSString *)dateformatter {
     

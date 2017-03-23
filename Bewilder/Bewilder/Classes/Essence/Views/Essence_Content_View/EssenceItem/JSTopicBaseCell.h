@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @class JSTopicModel;
+@class JSBaseTop;
+@class JSBaseBottom;
 
 @interface JSTopicBaseCell : UITableViewCell
 
@@ -16,6 +18,11 @@
 
 /** 模型数据 */
 @property (nonatomic,strong) JSTopicModel *topicModel;
-
+/** 顶部视图 */
+@property (nonatomic,strong) JSBaseTop *topic_top_status;
+/** 底部toolbar */
+@property (nonatomic,strong) JSBaseBottom *topic_bottom_toolbar;
+/** 底部toolbar的顶部约束 */
+@property (nonatomic,strong) MASConstraint *topic_bottom_toolbar_top_constraint;
 
 @end

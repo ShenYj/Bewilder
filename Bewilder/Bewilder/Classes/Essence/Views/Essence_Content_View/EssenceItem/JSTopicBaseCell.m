@@ -13,12 +13,6 @@
 
 
 @interface JSTopicBaseCell ()
-
-/** 顶部视图 */
-@property (nonatomic,strong) JSBaseTop      *topic_top_status;
-/** 底部toolbar */
-@property (nonatomic,strong) JSBaseBottom   *topic_bottom_toolbar;
-
 @end
 
 @implementation JSTopicBaseCell
@@ -44,7 +38,7 @@
         make.top.left.right.mas_equalTo(self.contentView);
     }];
     [self.topic_bottom_toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.topic_top_status.mas_bottom);
+        self.topic_bottom_toolbar_top_constraint = make.top.mas_equalTo(self.topic_top_status.mas_bottom);
         make.left.right.mas_equalTo(self.contentView);
     }];
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {

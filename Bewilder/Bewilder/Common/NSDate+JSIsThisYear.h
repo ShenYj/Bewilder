@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (JSIsThisYear)
-
+/** 
+ *判断date是否是昨天
+ */
+- (BOOL)isYesterday;
 /**
  *判断date是否是今年
  */
