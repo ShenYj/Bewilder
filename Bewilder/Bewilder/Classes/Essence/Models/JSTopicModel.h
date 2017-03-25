@@ -7,8 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+@class JSTopCmtModel;
+
+/** 帖子Cell类型 */
+typedef NS_ENUM(NSUInteger, TopicCellStyle) {
+    TopicCellStyleDefault   = 1,    // 全部 默认
+    TopicCellStylePicture   = 10,   // 图片
+    TopicCellStyleText      = 29,   // 段子
+    TopicCellStyleVoice     = 31,   // 音频
+    TopicCellStyleVideo     = 41    // 视频
+};
 
 @interface JSTopicModel : NSObject
+
+/** Cell类型: 1-全部;10-图片;29-段子;31-音频;41-视频;默认为1  */
+@property (nonatomic,assign) TopicCellStyle type;
 
 /** 用户的名字 */
 @property (nonatomic,copy) NSString *name;
@@ -36,6 +49,9 @@
 @property (nonatomic,copy,readonly) NSString *comment_string;
 /** topic ID */
 //@property (nonatomic,strong) NSNumber *t;
+
+/** 最热评论 */
+@property (nonatomic,strong) NSArray <JSTopCmtModel *>*top_cmt;
 
 @property (nonatomic,assign,readonly) CGFloat topicCellRowHeight;
 

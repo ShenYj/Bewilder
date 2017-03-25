@@ -110,6 +110,26 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     JSTopicBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:kTableViewReusedIdentifier forIndexPath:indexPath];
     JSTopicModel *topic = self.topicLists[indexPath.item];
     cell.topicModel = topic;
+    
+    switch (topic.type) {
+        case TopicCellStyleDefault:
+            NSLog(@"TopicCellStyleDefault");
+            break;
+        case TopicCellStyleText:
+            NSLog(@"TopicCellStyleText");
+            break;
+        case TopicCellStyleVoice:
+            NSLog(@"TopicCellStyleVoice");
+            break;
+        case TopicCellStylePicture:
+            NSLog(@"TopicCellStylePicture");
+            break;
+        case TopicCellStyleVideo:
+            NSLog(@"TopicCellStyleVideo");
+            break;
+        default:
+            break;
+    }
     return cell;
 }
 

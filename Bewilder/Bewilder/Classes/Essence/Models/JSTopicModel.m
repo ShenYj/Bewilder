@@ -9,6 +9,7 @@
 #import "JSTopicModel.h"
 #import "NSDate+JSIsThisYear.h"
 #import "JSDateFormatter.h"
+#import "JSTopCmtModel.h"
 
 @implementation JSTopicModel
 
@@ -24,8 +25,44 @@
     return [[self alloc] initWithTopicDict:dict];
 }
 
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-    
+
+- (void)setValue:(id)value forKey:(NSString *)key {
+    if ([key isEqualToString:@"type"]) {
+        NSString *type = (NSString *)value;
+        switch (type.integerValue) {
+            case 1:
+                self.type = TopicCellStyleDefault;
+                break;
+            case 10:
+                self.type = TopicCellStylePicture;
+                break;
+            case 29:
+                self.type = TopicCellStyleText;
+                break;
+            case 31:
+                self.type = TopicCellStyleVoice;
+                break;
+            case 41:
+                self.type = TopicCellStyleVideo;
+                break;
+            default:
+                self.type = TopicCellStyleDefault;
+                break;
+        }
+    } else {
+        [super setValue:value forKey:key];
+    }
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {}
+
+- (void)setTop_cmt:(NSArray<JSTopCmtModel *> *)top_cmt {
+    NSMutableArray *tempArr = [NSMutableArray array];
+    for (NSDictionary *ditc in top_cmt) {
+        JSTopCmtModel *model = [JSTopCmtModel topcmtWithDict:ditc];
+        [tempArr addObject:model];
+    }
+    _top_cmt = tempArr.copy;
 }
 
 - (NSString *)create_at_formatter {

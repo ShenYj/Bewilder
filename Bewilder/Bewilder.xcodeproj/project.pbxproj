@@ -59,6 +59,9 @@
 		F7E63BB21E7FAB89005FAB0F /* JSRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BB11E7FAB89005FAB0F /* JSRefreshAutoFooter.m */; };
 		F7E63BB61E800217005FAB0F /* JSEssenceTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BB51E800217005FAB0F /* JSEssenceTableView.m */; };
 		F7E63BB91E800A7D005FAB0F /* JSTopicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BB81E800A7D005FAB0F /* JSTopicInfo.m */; };
+		F7EF10D91E84F8D60056A8C3 /* JSTopCmtModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EF10D81E84F8D60056A8C3 /* JSTopCmtModel.m */; };
+		F7EF10DC1E84FDEE0056A8C3 /* JSTopCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EF10DB1E84FDEE0056A8C3 /* JSTopCommentView.m */; };
+		F7EF10DF1E85117F0056A8C3 /* JSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EF10DE1E85117F0056A8C3 /* JSUserModel.m */; };
 		F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +170,12 @@
 		F7E63BB51E800217005FAB0F /* JSEssenceTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceTableView.m; sourceTree = "<group>"; };
 		F7E63BB71E800A7D005FAB0F /* JSTopicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTopicInfo.h; sourceTree = "<group>"; };
 		F7E63BB81E800A7D005FAB0F /* JSTopicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTopicInfo.m; sourceTree = "<group>"; };
+		F7EF10D71E84F8D60056A8C3 /* JSTopCmtModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTopCmtModel.h; sourceTree = "<group>"; };
+		F7EF10D81E84F8D60056A8C3 /* JSTopCmtModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTopCmtModel.m; sourceTree = "<group>"; };
+		F7EF10DA1E84FDEE0056A8C3 /* JSTopCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTopCommentView.h; sourceTree = "<group>"; };
+		F7EF10DB1E84FDEE0056A8C3 /* JSTopCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTopCommentView.m; sourceTree = "<group>"; };
+		F7EF10DD1E85117F0056A8C3 /* JSUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSUserModel.h; sourceTree = "<group>"; };
+		F7EF10DE1E85117F0056A8C3 /* JSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSUserModel.m; sourceTree = "<group>"; };
 		F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSFileSize.h"; sourceTree = "<group>"; };
 		F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSFileSize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,11 +303,11 @@
 		F70457001E68504E00CCF791 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
 				F734B2E71E8213360049C114 /* JSDateFormatter.h */,
 				F734B2E81E8213360049C114 /* JSDateFormatter.m */,
 				F734B2E41E820D4A0049C114 /* NSDate+JSIsThisYear.h */,
 				F734B2E51E820D4A0049C114 /* NSDate+JSIsThisYear.m */,
-				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
 				F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */,
 				F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */,
 				F7E63BB31E7FAC2A005FAB0F /* RefreshControl */,
@@ -331,6 +340,10 @@
 			children = (
 				F7E63BAA1E7F61A7005FAB0F /* JSTopicModel.h */,
 				F7E63BAB1E7F61A7005FAB0F /* JSTopicModel.m */,
+				F7EF10D71E84F8D60056A8C3 /* JSTopCmtModel.h */,
+				F7EF10D81E84F8D60056A8C3 /* JSTopCmtModel.m */,
+				F7EF10DD1E85117F0056A8C3 /* JSUserModel.h */,
+				F7EF10DE1E85117F0056A8C3 /* JSUserModel.m */,
 				F7E63BB71E800A7D005FAB0F /* JSTopicInfo.h */,
 				F7E63BB81E800A7D005FAB0F /* JSTopicInfo.m */,
 			);
@@ -486,6 +499,8 @@
 				F734B2D51E80BEC70049C114 /* JSTopicBaseCell.m */,
 				F734B2D81E80CF120049C114 /* JSBaseTop.h */,
 				F734B2D91E80CF120049C114 /* JSBaseTop.m */,
+				F7EF10DA1E84FDEE0056A8C3 /* JSTopCommentView.h */,
+				F7EF10DB1E84FDEE0056A8C3 /* JSTopCommentView.m */,
 				F734B2DB1E80CF560049C114 /* JSBaseBottom.h */,
 				F734B2DC1E80CF560049C114 /* JSBaseBottom.m */,
 				F734B2E11E8123600049C114 /* JSToolBarButton.h */,
@@ -715,10 +730,12 @@
 				F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */,
 				F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */,
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
+				F7EF10DF1E85117F0056A8C3 /* JSUserModel.m in Sources */,
 				F7E63BA21E7A7593005FAB0F /* JSEssenceCollectionViewCell.m in Sources */,
 				F7E63B9A1E7A5ACB005FAB0F /* JSEssenceMenuView.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F734B2DD1E80CF560049C114 /* JSBaseBottom.m in Sources */,
+				F7EF10D91E84F8D60056A8C3 /* JSTopCmtModel.m in Sources */,
 				F734B2E91E8213360049C114 /* JSDateFormatter.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
 				F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */,
@@ -751,6 +768,7 @@
 				F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */,
 				F734B2DA1E80CF120049C114 /* JSBaseTop.m in Sources */,
 				F7E63B941E7A5629005FAB0F /* JSEssenceCollectionView.m in Sources */,
+				F7EF10DC1E84FDEE0056A8C3 /* JSTopCommentView.m in Sources */,
 				F772DF911E73F28F00519692 /* JSTagList.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 				F7E63BB61E800217005FAB0F /* JSEssenceTableView.m in Sources */,

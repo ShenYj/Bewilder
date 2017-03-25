@@ -10,11 +10,11 @@
 
 @interface NSDate (JSIsThisYear)
 /** 
- *判断date是否是昨天
+ *判断date是否是昨天 (供iOS 8以前版本使用)
  */
 - (BOOL)isYesterday;
 /** 
- *判断date是否为明天
+ *判断date是否为明天 (供iOS 8以前版本使用)
  */
 - (BOOL)isTomorrow;
 /**

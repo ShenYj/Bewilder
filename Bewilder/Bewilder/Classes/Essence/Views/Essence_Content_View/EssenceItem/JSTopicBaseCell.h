@@ -10,6 +10,7 @@
 @class JSTopicModel;
 @class JSBaseTop;
 @class JSBaseBottom;
+@class JSTopCommentView;
 
 @interface JSTopicBaseCell : UITableViewCell
 
@@ -20,6 +21,8 @@
 @property (nonatomic,strong) JSTopicModel *topicModel;
 /** 顶部视图 */
 @property (nonatomic,strong) JSBaseTop *topic_top_status;
+/** 最热评论 */
+@property (nonatomic,strong) JSTopCommentView *topic_comment_view;
 /** 底部toolbar */
 @property (nonatomic,strong) JSBaseBottom *topic_bottom_toolbar;
 /** 底部toolbar的顶部约束 */

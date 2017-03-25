@@ -10,6 +10,9 @@
 #import "JSBaseTop.h"
 #import "JSBaseBottom.h"
 #import "JSBaseConst.h"
+#import "JSTopicModel.h"
+#import "JSTopCmtModel.h"
+#import "JSTopCommentView.h"
 
 
 @interface JSTopicBaseCell ()
@@ -33,12 +36,17 @@
     
     [self.contentView addSubview:self.topic_top_status];
     [self.contentView addSubview:self.topic_bottom_toolbar];
+    [self.contentView addSubview:self.topic_comment_view];
     
     [self.topic_top_status mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(self.contentView);
     }];
+    [self.topic_comment_view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.topic_top_status.mas_bottom);
+        make.left.right.mas_equalTo(self.contentView);
+    }];
     [self.topic_bottom_toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
-        self.topic_bottom_toolbar_top_constraint = make.top.mas_equalTo(self.topic_top_status.mas_bottom);
+        self.topic_bottom_toolbar_top_constraint = make.top.mas_equalTo(self.topic_comment_view.mas_bottom);
         make.left.right.mas_equalTo(self.contentView);
     }];
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -51,6 +59,22 @@
     _topicModel = topicModel;
     self.topic_top_status.topicModel = topicModel;
     self.topic_bottom_toolbar.topicModel = topicModel;
+    [self.topic_bottom_toolbar_top_constraint uninstall];
+    if (topicModel.top_cmt.count > 0) {
+        JSLOG
+        self.topic_comment_view.hidden = NO;
+        self.topic_comment_view.topCmtModel = topicModel.top_cmt.firstObject;
+        [self.topic_bottom_toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+            self.topic_bottom_toolbar_top_constraint = make.top.mas_equalTo(self.topic_comment_view.mas_bottom);
+        }];
+    } else {
+        self.topic_comment_view.hidden = YES;
+        self.topic_comment_view.topCmtModel = nil;
+        [self.topic_bottom_toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
+            self.topic_bottom_toolbar_top_constraint = make.top.mas_equalTo(self.topic_top_status.mas_bottom);
+        }];
+    }
+
 }
 
 
@@ -69,6 +93,13 @@
         _topic_bottom_toolbar = [[JSBaseBottom alloc] init];
     }
     return _topic_bottom_toolbar;
+}
+
+- (JSTopCommentView *)topic_comment_view {
+    if (!_topic_comment_view) {
+        _topic_comment_view = [[JSTopCommentView alloc] init];
+    }
+    return _topic_comment_view;
 }
 
 @end

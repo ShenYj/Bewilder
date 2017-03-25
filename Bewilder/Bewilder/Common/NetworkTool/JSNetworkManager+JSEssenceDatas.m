@@ -16,7 +16,8 @@
     NSString *urlString = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paras = @{
                             @"a": @"list",
-                            @"c": @"data"
+                            @"c": @"data",
+                            @"type": @"29"
                             };
     // 取消上一个请求
     [self.tasks makeObjectsPerformSelector:@selector(cancel)];
@@ -48,7 +49,8 @@
     NSDictionary *paras = @{
                             @"a": @"list",
                             @"c": @"data",
-                            @"maxtime": maxTime
+                            @"maxtime": maxTime,
+                            @"type": @"29"
                             };
     // 取消上一个请求
     [self.tasks makeObjectsPerformSelector:@selector(cancel)];
