@@ -20,9 +20,24 @@ typedef NS_ENUM(NSUInteger, TopicCellStyle) {
 
 @interface JSTopicModel : NSObject
 
+#pragma mark - extension property
 /** Cell类型: 1-全部;10-图片;29-段子;31-音频;41-视频;默认为1  */
 @property (nonatomic,assign) TopicCellStyle type;
+/** Cell行高 */
+@property (nonatomic,assign,readonly) CGFloat topicCellRowHeight;
+/** 发布时间 */
+@property (nonatomic,copy,readonly) NSString *create_at_formatter;
+/** 顶贴数量 */
+@property (nonatomic,copy,readonly) NSString *ding_string;
+/** 踩贴数量 */
+@property (nonatomic,copy,readonly) NSString *cai_string;
+/** 分享数量 */
+@property (nonatomic,copy,readonly) NSString *repost_string;
+/** 评论数量 */
+@property (nonatomic,copy,readonly) NSString *comment_string;
 
+
+#pragma mark - original property
 /** 用户的名字 */
 @property (nonatomic,copy) NSString *name;
 /** 用户的头像 */
@@ -31,30 +46,22 @@ typedef NS_ENUM(NSUInteger, TopicCellStyle) {
 @property (nonatomic,copy) NSString *text;
 /** 帖子审核通过的时间 */
 @property (nonatomic,copy) NSString *created_at;
-@property (nonatomic,copy,readonly) NSString *create_at_formatter;
 /** 帖子创建的时间 */
 @property (nonatomic,copy) NSString *create_time;
-
 /** 顶数量 */
 @property (nonatomic,strong) NSNumber *ding;
-@property (nonatomic,copy,readonly) NSString *ding_string;
 /** 踩数量 */
 @property (nonatomic,strong) NSNumber *cai;
-@property (nonatomic,copy,readonly) NSString *cai_string;
 /** 转发\分享 数量 */
 @property (nonatomic,strong) NSNumber *repost;
-@property (nonatomic,copy,readonly) NSString *repost_string;
 /** 评论数量 */
 @property (nonatomic,strong) NSNumber *comment;
-@property (nonatomic,copy,readonly) NSString *comment_string;
+/** 最热评论 */
+@property (nonatomic,strong) NSArray <JSTopCmtModel *>*top_cmt;
 /** topic ID */
 //@property (nonatomic,strong) NSNumber *t;
 
-/** 最热评论 */
-@property (nonatomic,strong) NSArray <JSTopCmtModel *>*top_cmt;
-
-@property (nonatomic,assign,readonly) CGFloat topicCellRowHeight;
-
+#pragma mark - method
 - (instancetype)initWithTopicDict:(NSDictionary *)dict;
 + (instancetype)topicWithDict:(NSDictionary *)dict;
 

@@ -8,6 +8,8 @@
 
 #import "JSTopCommentView.h"
 #import "JSTopCmtModel.h"
+#import "JSBaseConst.h"
+#import "JSUserModel.h"
 
 @interface JSTopCommentView ()
 
@@ -33,11 +35,12 @@
     
     [self.userName_Label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.mas_equalTo(self);
-        make.height.mas_equalTo(20);
+        //make.height.mas_equalTo(20);
     }];
     [self.content_label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.userName_Label.mas_bottom);
-        make.left.right.mas_equalTo(self);
+        make.left.mas_equalTo(self).mas_offset(kMargin);
+        make.right.mas_equalTo(self).mas_offset(-kMargin);
     }];
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.content_label);
@@ -46,8 +49,7 @@
 
 - (void)setTopCmtModel:(JSTopCmtModel *)topCmtModel {
     _topCmtModel = topCmtModel;
-    
-    self.userName_Label.text = @"一只耳";
+    self.userName_Label.text = [NSString stringWithFormat:@"最热评论: %@",topCmtModel.user.username];
     self.content_label.text = topCmtModel.content;
 }
 
@@ -58,8 +60,8 @@
     if (!_content_label) {
         _content_label = [[UILabel alloc] init];
         _content_label.textColor = [UIColor purpleColor];
-        _content_label.font = [UIFont systemFontOfSize:12];
-        _content_label.textAlignment = NSTextAlignmentLeft;
+        _content_label.font = [UIFont systemFontOfSize:kTopCommentViewContentLabelFontSize];
+        _content_label.textAlignment = NSTextAlignmentCenter;
         _content_label.numberOfLines = 0;
     }
     return _content_label;
@@ -69,7 +71,7 @@
     if (!_userName_Label) {
         _userName_Label = [[UILabel alloc] init];
         _userName_Label.textColor = [UIColor purpleColor];
-        _userName_Label.font = [UIFont systemFontOfSize:13];
+        _userName_Label.font = [UIFont systemFontOfSize:kTopCommentViewUserNameLabelFontSize];
         _userName_Label.textAlignment = NSTextAlignmentLeft;
     }
     return _userName_Label;

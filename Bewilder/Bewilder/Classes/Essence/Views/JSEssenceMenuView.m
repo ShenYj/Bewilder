@@ -10,7 +10,7 @@
 #import "JSMenuLabel.h"
 
 static CGFloat const kMenuViewHeight = 44.f;          // 菜单视图自身的高度
-static NSInteger const kFLagValue = 1100;             // tag值的中间变量
+NSInteger const kFLagValue = 1100;             // tag值的中间变量
 
 @interface JSEssenceMenuView ()
 

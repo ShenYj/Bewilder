@@ -10,7 +10,8 @@
 
 @interface JSUserModel : NSObject
 
-
+/** 用户昵称 */
+@property (nonatomic,copy) NSString *username;
 
 
 - (instancetype)initWithDict:(NSDictionary *)dict;

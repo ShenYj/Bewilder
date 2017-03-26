@@ -14,6 +14,7 @@
     self = [super initWithFrame:frame style:style];
     if (self) {
         self.backgroundColor = JS_Gray_Color(236);
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }

@@ -7,20 +7,22 @@
 //
 
 #import "JSNetworkManager+JSEssenceDatas.h"
-#import "JSTopicModel.h"
 #import "JSTopicInfo.h"
+
 
 @implementation JSNetworkManager (JSEssenceDatas)
 
-- (void)pullDatasWithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,JSTopicInfo *topicInfo,BOOL isCompletion))completionHandler {
+- (void)pullDatasWithStyle:(TopicCellStyle)style CompletionHandler:(void(^)(NSArray <JSTopicModel *> *response ,JSTopicInfo *topicInfo,BOOL isCompletion))completionHandler {
     NSString *urlString = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paras = @{
                             @"a": @"list",
                             @"c": @"data",
-                            @"type": @"29"
+                            @"type": @(style).description
                             };
     // 取消上一个请求
-    [self.tasks makeObjectsPerformSelector:@selector(cancel)];
+    if (self.tasks.count > 0) {
+        [self.tasks makeObjectsPerformSelector:@selector(cancel)];
+    }
     
     [self requestMethod:RequestMethodGet urlString:urlString parameters:paras compeletionHandler:^(NSDictionary * res, NSError *error) {
         if (error || !res) {
@@ -44,16 +46,18 @@
     
 }
 
-- (void)loadMoreDatasWithMaxTime:(NSString *)maxTime WithCompletionHandler:(void (^)(NSArray<JSTopicModel *> *, JSTopicInfo *, BOOL))completionHandler {
+- (void)loadMoreDatasWithMaxTime:(NSString *)maxTime Style:(TopicCellStyle)style WithCompletionHandler:(void (^)(NSArray<JSTopicModel *> *, JSTopicInfo *, BOOL))completionHandler {
     NSString *urlString = @"http://api.budejie.com/api/api_open.php";
     NSDictionary *paras = @{
                             @"a": @"list",
                             @"c": @"data",
                             @"maxtime": maxTime,
-                            @"type": @"29"
+                            @"type": @(style).description
                             };
     // 取消上一个请求
-    [self.tasks makeObjectsPerformSelector:@selector(cancel)];
+    if (self.tasks.count > 0) {
+        [self.tasks makeObjectsPerformSelector:@selector(cancel)];
+    }
     [self requestMethod:RequestMethodGet urlString:urlString parameters:paras compeletionHandler:^(NSDictionary *  res, NSError *error) {
         if (error || !res) {
             NSLog(@"请求失败:%@",error);
@@ -70,6 +74,9 @@
         JSTopicInfo *topicInfo = [JSTopicInfo infoWithDict:info];
         completionHandler(tempArr.copy,topicInfo,YES);
     }];
+}
+
+- (void)loadMoreDatasWithMaxTime:(NSString *)maxTime WithCompletionHandler:(void(^)(NSArray <JSTopicModel *> *response , JSTopicInfo *topicInfo,BOOL isCompletion))completionHandler{
 }
 
 @end

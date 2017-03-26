@@ -11,6 +11,7 @@
 #import "JSEssenceCollectionView.h"
 #import "JSEssenceCollectionViewCell.h"
 #import "JSMenuLabel.h"
+extern NSInteger const kFLagValue;             // tag值的中间变量
 
 
 static NSString * const reusedIdentifier = @"EssenceCollectionViewReusedIdentifier";
@@ -79,6 +80,31 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     JSEssenceCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reusedIdentifier forIndexPath:indexPath];
+    
+    switch (indexPath.item) {
+        case 1:
+            // 请求视频数据
+            cell.type = TopicCellStyleVideo;
+            break;
+        case 2:
+            // 请求声音数据
+            cell.type = TopicCellStyleVoice;
+            break;
+        case 3:
+            // 请求图片数据
+            cell.type = TopicCellStylePicture;
+            break;
+        case 4:
+            // 请求段子数据
+            cell.type = TopicCellStyleText;
+            break;
+        case 0:
+        default:
+            // 请求全部数据
+            cell.type = TopicCellStyleDefault;
+            break;
+    }
+    
     return cell;
 }
 
@@ -119,7 +145,28 @@ static NSInteger const kNumberOfItemsInSection = 5;             // item个数
 
 - (void)loadDatasEssenceMenuView:(JSEssenceMenuView *)menuView index:(NSInteger)index {
     // 发起网络请求
-    JSLOG
+    switch (index - kFLagValue) {
+        case 1:
+            // 请求视频数据
+            break;
+        case 2:
+            // 请求声音数据
+            
+            break;
+        case 3:
+            // 请求图片数据
+
+            break;
+        case 4:
+            // 请求段子数据
+            break;
+        case 0:
+        default:
+            // 请求全部数据
+            break;
+    }
+    [self.collectionView reloadData];
+    
 }
 
 

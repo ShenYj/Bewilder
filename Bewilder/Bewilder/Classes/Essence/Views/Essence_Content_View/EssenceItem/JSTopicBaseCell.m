@@ -61,7 +61,6 @@
     self.topic_bottom_toolbar.topicModel = topicModel;
     [self.topic_bottom_toolbar_top_constraint uninstall];
     if (topicModel.top_cmt.count > 0) {
-        JSLOG
         self.topic_comment_view.hidden = NO;
         self.topic_comment_view.topCmtModel = topicModel.top_cmt.firstObject;
         [self.topic_bottom_toolbar mas_makeConstraints:^(MASConstraintMaker *make) {

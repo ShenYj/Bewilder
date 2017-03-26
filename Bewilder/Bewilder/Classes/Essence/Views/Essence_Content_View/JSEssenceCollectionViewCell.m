@@ -11,6 +11,7 @@
 #import "JSNetworkManager+JSEssenceDatas.h"
 #import "JSTopicInfo.h"
 #import "JSTopicBaseCell.h"
+#import "JSTopicModel.h"
 
 static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifier";
 
@@ -41,8 +42,8 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     [self.tableView registerClass:[JSTopicBaseCell class] forCellReuseIdentifier:kTableViewReusedIdentifier];
     [self.contentView addSubview:self.tableView];
 
-    self.tableView.estimatedRowHeight = 190;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.estimatedRowHeight = 190;
+    //self.tableView.rowHeight = UITableViewAutomaticDimension;
     //self.tableView.rowHeight = 190;
     
     self.tableView.contentInset = UIEdgeInsetsMake(64+44, 0, 49, 0);
@@ -53,27 +54,33 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 
 /** 设置刷新控件 */
 - (void)setupRefresh {
+    
     JSRefreshNormalHeader *mj_header = [JSRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewDatas)];
     self.tableView.mj_header = mj_header;
     self.tableView.mj_footer = [JSRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreDatas)];
     [self.tableView.mj_header beginRefreshing];
 }
 
-/** 下拉刷新 */
 - (void)loadNewDatas {
+    [self loadNewDatasWithStyle:self.type];
+}
+/** 下拉刷新 */
+- (void)loadNewDatasWithStyle:(TopicCellStyle)cellStyle {
+    
     // 取消之前的下载任务
     __weak typeof(self) weakSelf = self;
     [self.tableView.mj_footer endRefreshing];
     if ([JSNetworkManager sharedManager].tasks.count > 0) {
         [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
     }
-    [[JSNetworkManager sharedManager] pullDatasWithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
+    [[JSNetworkManager sharedManager] pullDatasWithStyle:cellStyle CompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
         if (isCompletion) {
             weakSelf.topicLists = [NSMutableArray arrayWithArray:response];
             weakSelf.currentMaxTime = topicInfo.maxtime;
             [weakSelf.tableView reloadData];
         }
         [weakSelf.tableView.mj_header endRefreshing];
+        
     }];
 
 }
@@ -85,7 +92,8 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     if ([JSNetworkManager sharedManager].tasks.count > 0) {
         [[JSNetworkManager sharedManager].tasks makeObjectsPerformSelector:@selector(cancel)];
     }
-    [[JSNetworkManager sharedManager] loadMoreDatasWithMaxTime:self.currentMaxTime WithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
+    [[JSNetworkManager sharedManager] loadMoreDatasWithMaxTime:self.currentMaxTime Style:self.type WithCompletionHandler:^(NSArray<JSTopicModel *> *response, JSTopicInfo *topicInfo, BOOL isCompletion) {
+        
         if (isCompletion) {
             [weakSelf.topicLists addObjectsFromArray:response];
             weakSelf.currentMaxTime = topicInfo.maxtime;
@@ -93,6 +101,7 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
         }
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
+    
 }
 
 #pragma mark
@@ -111,34 +120,17 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     JSTopicModel *topic = self.topicLists[indexPath.item];
     cell.topicModel = topic;
     
-    switch (topic.type) {
-        case TopicCellStyleDefault:
-            NSLog(@"TopicCellStyleDefault");
-            break;
-        case TopicCellStyleText:
-            NSLog(@"TopicCellStyleText");
-            break;
-        case TopicCellStyleVoice:
-            NSLog(@"TopicCellStyleVoice");
-            break;
-        case TopicCellStylePicture:
-            NSLog(@"TopicCellStylePicture");
-            break;
-        case TopicCellStyleVideo:
-            NSLog(@"TopicCellStyleVideo");
-            break;
-        default:
-            break;
-    }
+    NSLog(@"%zd",topic.type);
     return cell;
 }
 
 #pragma mark
 #pragma mark - table view delegate
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 180;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    JSTopicModel *topicModel = self.topicLists[indexPath.row];
+    return topicModel.topicCellRowHeight;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     

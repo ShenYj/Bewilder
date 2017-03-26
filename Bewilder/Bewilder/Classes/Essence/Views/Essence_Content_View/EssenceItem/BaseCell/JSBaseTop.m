@@ -120,7 +120,7 @@
     if (!_contentLabel) {
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.textColor = [UIColor blackColor];
-        _contentLabel.font = [UIFont systemFontOfSize:11];
+        _contentLabel.font = [UIFont systemFontOfSize:kBaseTopViewContentLabelFontSize];
         _contentLabel.numberOfLines = 0;
         _contentLabel.backgroundColor = [UIColor whiteColor];
     }

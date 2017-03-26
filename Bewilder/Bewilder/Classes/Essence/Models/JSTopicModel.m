@@ -10,6 +10,8 @@
 #import "NSDate+JSIsThisYear.h"
 #import "JSDateFormatter.h"
 #import "JSTopCmtModel.h"
+#import "JSBaseConst.h"
+#import "JSUserModel.h"
 
 @implementation JSTopicModel
 
@@ -64,6 +66,55 @@
     }
     _top_cmt = tempArr.copy;
 }
+
+- (CGFloat)topicCellRowHeight {
+    CGFloat rowHeight = 0.0f;
+    
+    // 1.计算顶部StatusView视图高度
+    CGRect bounds = [self.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 2*kMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:kBaseTopViewContentLabelFontSize]} context:nil];
+    rowHeight += kMargin * 3 + kIconImageViewSize + bounds.size.height;
+    // 2.计算中间部分视图高度
+#warning 假数据
+    /*
+    switch (self.type) {
+        case TopicCellStyleDefault:
+            NSLog(@"TopicCellStyleDefault");
+            break;
+        case TopicCellStyleText:
+            NSLog(@"TopicCellStyleText");
+            break;
+        case TopicCellStyleVoice:
+            NSLog(@"TopicCellStyleVoice");
+            break;
+        case TopicCellStylePicture:
+            NSLog(@"TopicCellStylePicture");
+            break;
+        case TopicCellStyleVideo:
+            NSLog(@"TopicCellStyleVideo");
+            break;
+        default:
+            break;
+    }
+    */
+    rowHeight += 1;
+    
+    // 3.计算评论区视图高度
+    if (self.top_cmt.count > 0) {
+        JSTopCmtModel *topCmt = self.top_cmt.firstObject;
+        // 用户名
+        JSUserModel *userModel = topCmt.user;
+        CGRect userNameBounds = [userModel.username boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:kTopCommentViewUserNameLabelFontSize]} context:nil];
+        // 评论内容
+        CGRect contentBounds = [topCmt.content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 2*kMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:kTopCommentViewContentLabelFontSize]} context:nil];
+        rowHeight += userNameBounds.size.height + contentBounds.size.height;
+    }
+    
+    // 4.底部工具条视图高度
+    rowHeight += kBottomToolBarHeigth + kMargin;
+    
+    return rowHeight;
+}
+
 
 - (NSString *)create_at_formatter {
     return [self getWeiBoFormatterDateString:self.created_at];
