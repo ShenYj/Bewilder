@@ -29,7 +29,8 @@
 }
 
 - (void)prepareBaseCellView {
-    self.backgroundColor = JS_Gray_Color(236);
+    //self.backgroundColor = JS_Gray_Color(236);
+    self.backgroundColor = [UIColor purpleColor];
     //self.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"mainCellBackground"].CGImage);
     //self.layer.contentsScale = [UIScreen mainScreen].scale;
     self.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -55,10 +56,18 @@
     }];
 }
 
+- (void)setFrame:(CGRect)frame {
+    CGRect f = CGRectMake(frame.origin.x+kMargin, frame.origin.y, frame.size.width - 2*kMargin, frame.size.height);
+    [super setFrame:f];
+}
+
 - (void)setTopicModel:(JSTopicModel *)topicModel {
+    
     _topicModel = topicModel;
+
     self.topic_top_status.topicModel = topicModel;
     self.topic_bottom_toolbar.topicModel = topicModel;
+    // 根据是否有最热评论调整底部ToolBar约束
     [self.topic_bottom_toolbar_top_constraint uninstall];
     if (topicModel.top_cmt.count > 0) {
         self.topic_comment_view.hidden = NO;

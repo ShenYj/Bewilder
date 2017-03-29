@@ -108,7 +108,7 @@
 
 - (UIView *)seperatorView {
     if (!_seperatorView) {
-        _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 1)];
+        _seperatorView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 2*kMargin, 1)];
         _seperatorView.backgroundColor = JS_Gray_Color(206);
     }
     return _seperatorView;

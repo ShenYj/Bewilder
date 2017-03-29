@@ -120,7 +120,6 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
     JSTopicModel *topic = self.topicLists[indexPath.item];
     cell.topicModel = topic;
     
-    NSLog(@"%zd",topic.type);
     return cell;
 }
 

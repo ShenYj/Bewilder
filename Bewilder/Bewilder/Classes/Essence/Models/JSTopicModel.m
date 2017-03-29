@@ -96,7 +96,7 @@
             break;
     }
     */
-    rowHeight += 1;
+    rowHeight += 0;
     
     // 3.计算评论区视图高度
     if (self.top_cmt.count > 0) {
