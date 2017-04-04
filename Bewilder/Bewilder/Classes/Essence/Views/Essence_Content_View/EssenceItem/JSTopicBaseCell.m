@@ -49,10 +49,14 @@
     [self.topic_bottom_toolbar mas_makeConstraints:^(MASConstraintMaker *make) {
         self.topic_bottom_toolbar_top_constraint = make.top.mas_equalTo(self.topic_comment_view.mas_bottom);
         make.left.right.mas_equalTo(self.contentView);
+        // xocde 8 + ios 10 约束问题
+        make.bottom.mas_equalTo(self.contentView).mas_offset(-kMargin);
     }];
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.mas_equalTo(self);
-        make.bottom.mas_equalTo(self.topic_bottom_toolbar).mas_offset(kMargin);
+        // xocde 8 + ios 10 约束问题
+        make.bottom.mas_equalTo(self);
+        //make.bottom.mas_equalTo(self.topic_bottom_toolbar).mas_offset(kMargin);
     }];
 }
 

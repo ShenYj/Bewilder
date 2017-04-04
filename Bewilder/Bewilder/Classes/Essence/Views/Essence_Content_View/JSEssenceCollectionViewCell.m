@@ -44,6 +44,7 @@ static NSString * const kTableViewReusedIdentifier = @"kTableViewReusedIdentifie
 
     //self.tableView.estimatedRowHeight = 190;
     //self.tableView.rowHeight = UITableViewAutomaticDimension;
+    //self.tableView.rowHeight = 190;
     
     self.tableView.contentInset = UIEdgeInsetsMake(64+44, 0, 49, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
