@@ -27,7 +27,6 @@
     return [[self alloc] initWithTopicDict:dict];
 }
 
-
 - (void)setValue:(id)value forKey:(NSString *)key {
     if ([key isEqualToString:@"type"]) {
         NSString *type = (NSString *)value;
@@ -67,37 +66,23 @@
     _top_cmt = tempArr.copy;
 }
 
-- (CGFloat)topicCellRowHeight {
-    CGFloat rowHeight = 0.0f;
-    
+
+#pragma mark - 计算各个子视图行高
+- (CGFloat)topicCellTopStatusViewHeigth {
     // 1.计算顶部StatusView视图高度
     CGRect bounds = [self.text boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 2*kMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:kBaseTopViewContentLabelFontSize]} context:nil];
-    rowHeight += kMargin * 3 + kIconImageViewSize + bounds.size.height;
-    // 2.计算中间部分视图高度
-#warning 假数据
-    /*
-    switch (self.type) {
-        case TopicCellStyleDefault:
-            NSLog(@"TopicCellStyleDefault");
-            break;
-        case TopicCellStyleText:
-            NSLog(@"TopicCellStyleText");
-            break;
-        case TopicCellStyleVoice:
-            NSLog(@"TopicCellStyleVoice");
-            break;
-        case TopicCellStylePicture:
-            NSLog(@"TopicCellStylePicture");
-            break;
-        case TopicCellStyleVideo:
-            NSLog(@"TopicCellStyleVideo");
-            break;
-        default:
-            break;
+    return kMargin * 3 + kIconImageViewSize + bounds.size.height;
+}
+- (CGFloat)topicCellCenterContentViewHeight {
+    if ((self.type != TopicCellStyleText || self.type != TopicCellStyleDefault) && (self.height != 0 || self.width != 0)) { // 如果是图片/声音/视频帖子,才需要计算中间内容的高度
+        CGFloat imgHeigth = 0.0;
+        // 中间内容的高度 = 中间内容的宽度 * 图片的真实高度 / 图片的真实宽度
+        imgHeigth = ((SCREEN_WIDTH - (2 * kMargin)) * self.height) / self.width;
+        return imgHeigth + kMargin;
     }
-    */
-    rowHeight += 0;
-    
+    return 0;
+}
+- (CGFloat)topicCellTopicCommentViewHeigth {
     // 3.计算评论区视图高度
     if (self.top_cmt.count > 0) {
         JSTopCmtModel *topCmt = self.top_cmt.firstObject;
@@ -106,13 +91,25 @@
         CGRect userNameBounds = [userModel.username boundingRectWithSize:CGSizeMake(SCREEN_WIDTH, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:kTopCommentViewUserNameLabelFontSize]} context:nil];
         // 评论内容
         CGRect contentBounds = [topCmt.content boundingRectWithSize:CGSizeMake(SCREEN_WIDTH - 2*kMargin, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName :[UIFont systemFontOfSize:kTopCommentViewContentLabelFontSize]} context:nil];
-        rowHeight += userNameBounds.size.height + contentBounds.size.height;
+        return userNameBounds.size.height + contentBounds.size.height + kMargin;
     }
-    
+    return 0;
+}
+- (CGFloat)topicCellBottomToolbarViewHeigth {
+    return  kBottomToolBarHeigth;
+}
+/** cell的总行高 */
+- (CGFloat)topicCellRowHeight {
+    CGFloat rowHeight = 0.0f;
+    // 1.计算顶部StatusView视图高度
+    rowHeight += self.topicCellTopStatusViewHeigth;
+    // 2.计算中间部分视图高度
+    rowHeight += self.topicCellCenterContentViewHeight;
+    // 3.计算评论区视图高度
+    rowHeight += self.topicCellTopicCommentViewHeigth;
     // 4.底部工具条视图高度
-    rowHeight += kBottomToolBarHeigth + kMargin;
-    
-    return rowHeight;
+    rowHeight += self.topicCellBottomToolbarViewHeigth;
+    return rowHeight + kMargin;
 }
 
 
@@ -230,7 +227,6 @@
     
 }
 
-    
 - (NSString *)description {
     NSArray *keys = @[@"name",@"profile_image",@"text",@"created_at",@"ding",@"cai",@"repost",@"comment"];
     return [self dictionaryWithValuesForKeys:keys].description;

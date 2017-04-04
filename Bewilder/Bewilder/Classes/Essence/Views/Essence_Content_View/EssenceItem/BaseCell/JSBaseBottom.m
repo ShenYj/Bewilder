@@ -51,7 +51,7 @@
     }];
     
     [self mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(kBottomToolBarHeigth);
+        make.height.mas_equalTo(kBottomToolBarHeigth).priorityHigh();
     }];
 }
 

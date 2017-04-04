@@ -25,6 +25,12 @@ typedef NS_ENUM(NSUInteger, TopicCellStyle) {
 @property (nonatomic,assign) TopicCellStyle type;
 /** Cell行高 */
 @property (nonatomic,assign,readonly) CGFloat topicCellRowHeight;
+@property (nonatomic,assign,readonly) CGFloat topicCellTopStatusViewHeigth;
+@property (nonatomic,assign,readonly) CGFloat topicCellCenterContentViewHeight;
+@property (nonatomic,assign,readonly) CGFloat topicCellTopicCommentViewHeigth;
+@property (nonatomic,assign,readonly) CGFloat topicCellBottomToolbarViewHeigth;
+
+
 /** 发布时间 */
 @property (nonatomic,copy,readonly) NSString *create_at_formatter;
 /** 顶贴数量 */
@@ -56,6 +62,12 @@ typedef NS_ENUM(NSUInteger, TopicCellStyle) {
 @property (nonatomic,strong) NSNumber *repost;
 /** 评论数量 */
 @property (nonatomic,strong) NSNumber *comment;
+
+/** 中央区域图片(图片&视频图片)高度 */
+@property (nonatomic,assign) CGFloat height;
+/** 中央区域图片(图片&视频图片)宽度 */
+@property (nonatomic,assign) CGFloat width;
+
 /** 最热评论 */
 @property (nonatomic,strong) NSArray <JSTopCmtModel *>*top_cmt;
 /** topic ID */

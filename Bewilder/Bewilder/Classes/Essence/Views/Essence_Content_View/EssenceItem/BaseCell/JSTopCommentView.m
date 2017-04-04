@@ -29,7 +29,7 @@
 }
 
 - (void)prepareTopCommentView {
-    self.backgroundColor = [UIColor orangeColor];
+    self.backgroundColor = [UIColor lightTextColor];
     [self addSubview:self.userName_Label];
     [self addSubview:self.content_label];
     
