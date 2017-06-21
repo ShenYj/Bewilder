@@ -93,7 +93,6 @@ static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式table
 #pragma mark - lazy
 
 - (UINavigationBar *)js_NavigationBar {
-    
     if (!_js_NavigationBar) {
         _js_NavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, kNavigationBarHeight)];
     }
@@ -101,7 +100,6 @@ static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式table
 }
 
 - (UINavigationItem *)js_navigationItem {
-    
     if (!_js_navigationItem) {
         _js_navigationItem = [[UINavigationItem alloc] init];
     }

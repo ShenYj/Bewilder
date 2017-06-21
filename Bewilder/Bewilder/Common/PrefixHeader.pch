@@ -33,6 +33,7 @@
 #import "NSString+JSFileSize.h"
 #import "JSRefreshNormalHeader.h"
 #import "JSRefreshAutoFooter.h"
+#import "UIImage+JSExtension.h"
 
 
 #pragma mark = 宏定义
@@ -52,7 +53,7 @@
 #define JS_Gray_Color(g) JS_RGB_Color(g,g,g)
 
 
+
+
 #endif
-
-
 #endif /* PrefixHeader_pch */

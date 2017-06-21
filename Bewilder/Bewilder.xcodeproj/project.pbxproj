@@ -31,6 +31,7 @@
 		F734B2E61E820D4A0049C114 /* NSDate+JSIsThisYear.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2E51E820D4A0049C114 /* NSDate+JSIsThisYear.m */; };
 		F734B2E91E8213360049C114 /* JSDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2E81E8213360049C114 /* JSDateFormatter.m */; };
 		F734B2EC1E82A0A20049C114 /* JSVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2EB1E82A0A20049C114 /* JSVideoCell.m */; };
+		F762F40C1EFA5E7E0099652C /* UIImage+JSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F762F40B1EFA5E7D0099652C /* UIImage+JSExtension.m */; };
 		F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */; };
 		F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CE1E7570D000BC9D0B /* JSWebViewToolBar.m */; };
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
@@ -63,6 +64,9 @@
 		F7EF10DC1E84FDEE0056A8C3 /* JSTopCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EF10DB1E84FDEE0056A8C3 /* JSTopCommentView.m */; };
 		F7EF10DF1E85117F0056A8C3 /* JSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EF10DE1E85117F0056A8C3 /* JSUserModel.m */; };
 		F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */; };
+		F7F4AC241EFA5D7C00AADFA2 /* JSLoadIngView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AC201EFA5D7C00AADFA2 /* JSLoadIngView.m */; };
+		F7F4AC251EFA5D7C00AADFA2 /* JSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AC221EFA5D7C00AADFA2 /* JSProgressHUD.m */; };
+		F7F4AC261EFA5D7C00AADFA2 /* src.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7F4AC231EFA5D7C00AADFA2 /* src.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +118,8 @@
 		F734B2E81E8213360049C114 /* JSDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDateFormatter.m; sourceTree = "<group>"; };
 		F734B2EA1E82A0A20049C114 /* JSVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSVideoCell.h; sourceTree = "<group>"; };
 		F734B2EB1E82A0A20049C114 /* JSVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSVideoCell.m; sourceTree = "<group>"; };
+		F762F40A1EFA5E7D0099652C /* UIImage+JSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+JSExtension.h"; path = "../../../../WB_Sina_OC/Weibo_Object-C/Weibo_Object-C/Common/UIKit+JSExtension/UIImage+JSExtension.h"; sourceTree = "<group>"; };
+		F762F40B1EFA5E7D0099652C /* UIImage+JSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+JSExtension.m"; path = "../../../../WB_Sina_OC/Weibo_Object-C/Weibo_Object-C/Common/UIKit+JSExtension/UIImage+JSExtension.m"; sourceTree = "<group>"; };
 		F770C4CA1E75651E00BC9D0B /* JSMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineSubViewController.h; sourceTree = "<group>"; };
 		F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineSubViewController.m; sourceTree = "<group>"; };
 		F770C4CD1E7570CF00BC9D0B /* JSWebViewToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSWebViewToolBar.h; sourceTree = "<group>"; };
@@ -178,6 +184,11 @@
 		F7EF10DE1E85117F0056A8C3 /* JSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSUserModel.m; sourceTree = "<group>"; };
 		F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSFileSize.h"; sourceTree = "<group>"; };
 		F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSFileSize.m"; sourceTree = "<group>"; };
+		F7F4AC1F1EFA5D7C00AADFA2 /* JSLoadIngView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoadIngView.h; sourceTree = "<group>"; };
+		F7F4AC201EFA5D7C00AADFA2 /* JSLoadIngView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoadIngView.m; sourceTree = "<group>"; };
+		F7F4AC211EFA5D7C00AADFA2 /* JSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSProgressHUD.h; sourceTree = "<group>"; };
+		F7F4AC221EFA5D7C00AADFA2 /* JSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSProgressHUD.m; sourceTree = "<group>"; };
+		F7F4AC231EFA5D7C00AADFA2 /* src.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = src.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,15 +314,18 @@
 		F70457001E68504E00CCF791 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F7E63BB31E7FAC2A005FAB0F /* RefreshControl */,
+				F772DF851E73023C00519692 /* NetworkTool */,
+				F7F4AC1E1EFA5D7C00AADFA2 /* JSProgressHUD */,
 				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
 				F734B2E71E8213360049C114 /* JSDateFormatter.h */,
 				F734B2E81E8213360049C114 /* JSDateFormatter.m */,
+				F762F40A1EFA5E7D0099652C /* UIImage+JSExtension.h */,
+				F762F40B1EFA5E7D0099652C /* UIImage+JSExtension.m */,
 				F734B2E41E820D4A0049C114 /* NSDate+JSIsThisYear.h */,
 				F734B2E51E820D4A0049C114 /* NSDate+JSIsThisYear.m */,
 				F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */,
 				F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */,
-				F7E63BB31E7FAC2A005FAB0F /* RefreshControl */,
-				F772DF851E73023C00519692 /* NetworkTool */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -599,6 +613,19 @@
 			path = RefreshControl;
 			sourceTree = "<group>";
 		};
+		F7F4AC1E1EFA5D7C00AADFA2 /* JSProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				F7F4AC1F1EFA5D7C00AADFA2 /* JSLoadIngView.h */,
+				F7F4AC201EFA5D7C00AADFA2 /* JSLoadIngView.m */,
+				F7F4AC211EFA5D7C00AADFA2 /* JSProgressHUD.h */,
+				F7F4AC221EFA5D7C00AADFA2 /* JSProgressHUD.m */,
+				F7F4AC231EFA5D7C00AADFA2 /* src.bundle */,
+			);
+			name = JSProgressHUD;
+			path = ../../../../JSProgressHud/JSProgressHUD/JSProgressHUD/JSProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -634,7 +661,7 @@
 				TargetAttributes = {
 					F70456C91E684CE300CCF791 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = EC2EUS3UQ9;
+						DevelopmentTeam = 4AT6MHXZPN;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -664,6 +691,7 @@
 			files = (
 				F70457201E69BD8400CCF791 /* v2_goback@2x.png in Resources */,
 				F70456F81E684DDD00CCF791 /* Main.storyboard in Resources */,
+				F7F4AC261EFA5D7C00AADFA2 /* src.bundle in Resources */,
 				F70456F61E684DDD00CCF791 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,9 +751,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7F4AC241EFA5D7C00AADFA2 /* JSLoadIngView.m in Sources */,
 				F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */,
 				F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */,
 				F7E63B9D1E7A7141005FAB0F /* JSMenuLabel.m in Sources */,
+				F762F40C1EFA5E7E0099652C /* UIImage+JSExtension.m in Sources */,
 				F772DF8B1E73C58A00519692 /* JSNetworkManager+JSMineDatas.m in Sources */,
 				F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */,
 				F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */,
@@ -769,6 +799,7 @@
 				F734B2DA1E80CF120049C114 /* JSBaseTop.m in Sources */,
 				F7E63B941E7A5629005FAB0F /* JSEssenceCollectionView.m in Sources */,
 				F7EF10DC1E84FDEE0056A8C3 /* JSTopCommentView.m in Sources */,
+				F7F4AC251EFA5D7C00AADFA2 /* JSProgressHUD.m in Sources */,
 				F772DF911E73F28F00519692 /* JSTagList.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 				F7E63BB61E800217005FAB0F /* JSEssenceTableView.m in Sources */,
@@ -886,7 +917,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = EC2EUS3UQ9;
+				DEVELOPMENT_TEAM = 4AT6MHXZPN;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$PRODUCT_NAME/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = Bewilder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -902,7 +933,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = EC2EUS3UQ9;
+				DEVELOPMENT_TEAM = 4AT6MHXZPN;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$PRODUCT_NAME/Common/PrefixHeader.pch";
 				INFOPLIST_FILE = Bewilder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

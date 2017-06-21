@@ -7,7 +7,7 @@
 //
 
 #import "JSNetworkManager.h"
-
+#import "JSProgressHUD.h"
 
 static JSNetworkManager *_instanceType = nil;
 
@@ -26,13 +26,17 @@ static JSNetworkManager *_instanceType = nil;
            parameters:(NSDictionary *)parameters
    compeletionHandler:(void(^)(id res,NSError *error))compeletionHandler {
     
+    JSProgressHUD *hud = [JSProgressHUD js_showHUDTo:nil animated:YES];
     if (requestMethod == RequestMethodGet) {
         
         [self GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             compeletionHandler(responseObject,nil);
+            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
             compeletionHandler(nil,error);
         }];
+        [hud hideAnimated:YES afterDelay:0.25];
         
     } else {
         
@@ -46,6 +50,7 @@ static JSNetworkManager *_instanceType = nil;
             }
             compeletionHandler(nil,error);
         }];
+        [hud hideAnimated:YES afterDelay:0.25];
     }
 }
 
