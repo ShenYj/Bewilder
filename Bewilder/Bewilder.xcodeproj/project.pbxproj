@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		689273AA211971C60011687C /* JSLoadIngView.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273A6211971C50011687C /* JSLoadIngView.m */; };
+		689273AB211971C60011687C /* JSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273A8211971C50011687C /* JSProgressHUD.m */; };
+		689273AC211971C60011687C /* src.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 689273A9211971C50011687C /* src.bundle */; };
+		689273AF211971FE0011687C /* UIImage+JSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273AD211971FD0011687C /* UIImage+JSExtension.m */; };
+		689273B5211972230011687C /* JSRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273B3211972230011687C /* JSRefreshAutoFooter.m */; };
+		689273B6211972230011687C /* JSRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273B4211972230011687C /* JSRefreshNormalHeader.m */; };
+		689273B92119737D0011687C /* JSNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273B82119737D0011687C /* JSNavigationBar.m */; };
 		90A0D9555FF66BF820292EEE /* libPods-Bewilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B23923AFD692801C6E65BBF /* libPods-Bewilder.a */; };
 		F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456EE1E684DDD00CCF791 /* AppDelegate.m */; };
 		F70456F61E684DDD00CCF791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70456EF1E684DDD00CCF791 /* Assets.xcassets */; };
@@ -31,7 +38,6 @@
 		F734B2E61E820D4A0049C114 /* NSDate+JSIsThisYear.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2E51E820D4A0049C114 /* NSDate+JSIsThisYear.m */; };
 		F734B2E91E8213360049C114 /* JSDateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2E81E8213360049C114 /* JSDateFormatter.m */; };
 		F734B2EC1E82A0A20049C114 /* JSVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F734B2EB1E82A0A20049C114 /* JSVideoCell.m */; };
-		F762F40C1EFA5E7E0099652C /* UIImage+JSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = F762F40B1EFA5E7D0099652C /* UIImage+JSExtension.m */; };
 		F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */; };
 		F770C4CF1E7570D000BC9D0B /* JSWebViewToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F770C4CE1E7570D000BC9D0B /* JSWebViewToolBar.m */; };
 		F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F772DF6C1E6E903300519692 /* JSLoginViewController.m */; };
@@ -56,21 +62,29 @@
 		F7E63BA21E7A7593005FAB0F /* JSEssenceCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BA11E7A7593005FAB0F /* JSEssenceCollectionViewCell.m */; };
 		F7E63BA91E7F5DC8005FAB0F /* JSNetworkManager+JSEssenceDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BA81E7F5DC8005FAB0F /* JSNetworkManager+JSEssenceDatas.m */; };
 		F7E63BAC1E7F61A7005FAB0F /* JSTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BAB1E7F61A7005FAB0F /* JSTopicModel.m */; };
-		F7E63BAF1E7F837E005FAB0F /* JSRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BAE1E7F837E005FAB0F /* JSRefreshNormalHeader.m */; };
-		F7E63BB21E7FAB89005FAB0F /* JSRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BB11E7FAB89005FAB0F /* JSRefreshAutoFooter.m */; };
 		F7E63BB61E800217005FAB0F /* JSEssenceTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BB51E800217005FAB0F /* JSEssenceTableView.m */; };
 		F7E63BB91E800A7D005FAB0F /* JSTopicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E63BB81E800A7D005FAB0F /* JSTopicInfo.m */; };
 		F7EF10D91E84F8D60056A8C3 /* JSTopCmtModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EF10D81E84F8D60056A8C3 /* JSTopCmtModel.m */; };
 		F7EF10DC1E84FDEE0056A8C3 /* JSTopCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EF10DB1E84FDEE0056A8C3 /* JSTopCommentView.m */; };
 		F7EF10DF1E85117F0056A8C3 /* JSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F7EF10DE1E85117F0056A8C3 /* JSUserModel.m */; };
 		F7F40CBF1E76609D003D134F /* NSString+JSFileSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */; };
-		F7F4AC241EFA5D7C00AADFA2 /* JSLoadIngView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AC201EFA5D7C00AADFA2 /* JSLoadIngView.m */; };
-		F7F4AC251EFA5D7C00AADFA2 /* JSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F4AC221EFA5D7C00AADFA2 /* JSProgressHUD.m */; };
-		F7F4AC261EFA5D7C00AADFA2 /* src.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7F4AC231EFA5D7C00AADFA2 /* src.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B23923AFD692801C6E65BBF /* libPods-Bewilder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bewilder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		689273A5211971C50011687C /* JSLoadIngView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoadIngView.h; sourceTree = "<group>"; };
+		689273A6211971C50011687C /* JSLoadIngView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoadIngView.m; sourceTree = "<group>"; };
+		689273A7211971C50011687C /* JSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSProgressHUD.h; sourceTree = "<group>"; };
+		689273A8211971C50011687C /* JSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSProgressHUD.m; sourceTree = "<group>"; };
+		689273A9211971C50011687C /* src.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = src.bundle; sourceTree = "<group>"; };
+		689273AD211971FD0011687C /* UIImage+JSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JSExtension.m"; sourceTree = "<group>"; };
+		689273AE211971FE0011687C /* UIImage+JSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JSExtension.h"; sourceTree = "<group>"; };
+		689273B1211972230011687C /* JSRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRefreshAutoFooter.h; sourceTree = "<group>"; };
+		689273B2211972230011687C /* JSRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSRefreshNormalHeader.h; sourceTree = "<group>"; };
+		689273B3211972230011687C /* JSRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRefreshAutoFooter.m; sourceTree = "<group>"; };
+		689273B4211972230011687C /* JSRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRefreshNormalHeader.m; sourceTree = "<group>"; };
+		689273B72119737D0011687C /* JSNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSNavigationBar.h; sourceTree = "<group>"; };
+		689273B82119737D0011687C /* JSNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSNavigationBar.m; sourceTree = "<group>"; };
 		752DE8AA6B43872FFBC31A44 /* Pods-Bewilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bewilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder.debug.xcconfig"; sourceTree = "<group>"; };
 		A64ACE02E5255EF3E5BA8CD8 /* Pods-Bewilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bewilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder.release.xcconfig"; sourceTree = "<group>"; };
 		F70456CA1E684CE300CCF791 /* Bewilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bewilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,8 +132,6 @@
 		F734B2E81E8213360049C114 /* JSDateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDateFormatter.m; sourceTree = "<group>"; };
 		F734B2EA1E82A0A20049C114 /* JSVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSVideoCell.h; sourceTree = "<group>"; };
 		F734B2EB1E82A0A20049C114 /* JSVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSVideoCell.m; sourceTree = "<group>"; };
-		F762F40A1EFA5E7D0099652C /* UIImage+JSExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+JSExtension.h"; path = "../../../../WB_Sina_OC/Weibo_Object-C/Weibo_Object-C/Common/UIKit+JSExtension/UIImage+JSExtension.h"; sourceTree = "<group>"; };
-		F762F40B1EFA5E7D0099652C /* UIImage+JSExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+JSExtension.m"; path = "../../../../WB_Sina_OC/Weibo_Object-C/Weibo_Object-C/Common/UIKit+JSExtension/UIImage+JSExtension.m"; sourceTree = "<group>"; };
 		F770C4CA1E75651E00BC9D0B /* JSMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMineSubViewController.h; sourceTree = "<group>"; };
 		F770C4CB1E75651E00BC9D0B /* JSMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSMineSubViewController.m; sourceTree = "<group>"; };
 		F770C4CD1E7570CF00BC9D0B /* JSWebViewToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSWebViewToolBar.h; sourceTree = "<group>"; };
@@ -168,10 +180,6 @@
 		F7E63BA81E7F5DC8005FAB0F /* JSNetworkManager+JSEssenceDatas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSNetworkManager+JSEssenceDatas.m"; sourceTree = "<group>"; };
 		F7E63BAA1E7F61A7005FAB0F /* JSTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTopicModel.h; sourceTree = "<group>"; };
 		F7E63BAB1E7F61A7005FAB0F /* JSTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTopicModel.m; sourceTree = "<group>"; };
-		F7E63BAD1E7F837E005FAB0F /* JSRefreshNormalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSRefreshNormalHeader.h; path = ../JSRefreshNormalHeader.h; sourceTree = "<group>"; };
-		F7E63BAE1E7F837E005FAB0F /* JSRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSRefreshNormalHeader.m; path = ../JSRefreshNormalHeader.m; sourceTree = "<group>"; };
-		F7E63BB01E7FAB89005FAB0F /* JSRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSRefreshAutoFooter.h; path = ../JSRefreshAutoFooter.h; sourceTree = "<group>"; };
-		F7E63BB11E7FAB89005FAB0F /* JSRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSRefreshAutoFooter.m; path = ../JSRefreshAutoFooter.m; sourceTree = "<group>"; };
 		F7E63BB41E800217005FAB0F /* JSEssenceTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSEssenceTableView.h; sourceTree = "<group>"; };
 		F7E63BB51E800217005FAB0F /* JSEssenceTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSEssenceTableView.m; sourceTree = "<group>"; };
 		F7E63BB71E800A7D005FAB0F /* JSTopicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTopicInfo.h; sourceTree = "<group>"; };
@@ -184,11 +192,6 @@
 		F7EF10DE1E85117F0056A8C3 /* JSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSUserModel.m; sourceTree = "<group>"; };
 		F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSFileSize.h"; sourceTree = "<group>"; };
 		F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSFileSize.m"; sourceTree = "<group>"; };
-		F7F4AC1F1EFA5D7C00AADFA2 /* JSLoadIngView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoadIngView.h; sourceTree = "<group>"; };
-		F7F4AC201EFA5D7C00AADFA2 /* JSLoadIngView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoadIngView.m; sourceTree = "<group>"; };
-		F7F4AC211EFA5D7C00AADFA2 /* JSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSProgressHUD.h; sourceTree = "<group>"; };
-		F7F4AC221EFA5D7C00AADFA2 /* JSProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSProgressHUD.m; sourceTree = "<group>"; };
-		F7F4AC231EFA5D7C00AADFA2 /* src.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = src.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		689273A4211971C50011687C /* JSProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				689273A5211971C50011687C /* JSLoadIngView.h */,
+				689273A6211971C50011687C /* JSLoadIngView.m */,
+				689273A7211971C50011687C /* JSProgressHUD.h */,
+				689273A8211971C50011687C /* JSProgressHUD.m */,
+				689273A9211971C50011687C /* src.bundle */,
+			);
+			path = JSProgressHUD;
+			sourceTree = "<group>";
+		};
+		689273B0211972050011687C /* RefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				689273B1211972230011687C /* JSRefreshAutoFooter.h */,
+				689273B3211972230011687C /* JSRefreshAutoFooter.m */,
+				689273B2211972230011687C /* JSRefreshNormalHeader.h */,
+				689273B4211972230011687C /* JSRefreshNormalHeader.m */,
+			);
+			path = RefreshControl;
+			sourceTree = "<group>";
+		};
 		A8BC1B028E96721636EB3258 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +309,8 @@
 				F772DF7B1E6FA6D300519692 /* LoginView */,
 				F70457121E695D0200CCF791 /* JSTabBar.h */,
 				F70457131E695D0200CCF791 /* JSTabBar.m */,
+				689273B72119737D0011687C /* JSNavigationBar.h */,
+				689273B82119737D0011687C /* JSNavigationBar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,18 +342,18 @@
 		F70457001E68504E00CCF791 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F7E63BB31E7FAC2A005FAB0F /* RefreshControl */,
-				F772DF851E73023C00519692 /* NetworkTool */,
-				F7F4AC1E1EFA5D7C00AADFA2 /* JSProgressHUD */,
 				F70457011E68505F00CCF791 /* PrefixHeader.pch */,
+				689273B0211972050011687C /* RefreshControl */,
+				689273A4211971C50011687C /* JSProgressHUD */,
+				F772DF851E73023C00519692 /* NetworkTool */,
 				F734B2E71E8213360049C114 /* JSDateFormatter.h */,
 				F734B2E81E8213360049C114 /* JSDateFormatter.m */,
-				F762F40A1EFA5E7D0099652C /* UIImage+JSExtension.h */,
-				F762F40B1EFA5E7D0099652C /* UIImage+JSExtension.m */,
 				F734B2E41E820D4A0049C114 /* NSDate+JSIsThisYear.h */,
 				F734B2E51E820D4A0049C114 /* NSDate+JSIsThisYear.m */,
 				F7F40CBD1E76609D003D134F /* NSString+JSFileSize.h */,
 				F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */,
+				689273AE211971FE0011687C /* UIImage+JSExtension.h */,
+				689273AD211971FD0011687C /* UIImage+JSExtension.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -602,30 +630,6 @@
 			path = EssenceItem;
 			sourceTree = "<group>";
 		};
-		F7E63BB31E7FAC2A005FAB0F /* RefreshControl */ = {
-			isa = PBXGroup;
-			children = (
-				F7E63BAD1E7F837E005FAB0F /* JSRefreshNormalHeader.h */,
-				F7E63BAE1E7F837E005FAB0F /* JSRefreshNormalHeader.m */,
-				F7E63BB01E7FAB89005FAB0F /* JSRefreshAutoFooter.h */,
-				F7E63BB11E7FAB89005FAB0F /* JSRefreshAutoFooter.m */,
-			);
-			path = RefreshControl;
-			sourceTree = "<group>";
-		};
-		F7F4AC1E1EFA5D7C00AADFA2 /* JSProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				F7F4AC1F1EFA5D7C00AADFA2 /* JSLoadIngView.h */,
-				F7F4AC201EFA5D7C00AADFA2 /* JSLoadIngView.m */,
-				F7F4AC211EFA5D7C00AADFA2 /* JSProgressHUD.h */,
-				F7F4AC221EFA5D7C00AADFA2 /* JSProgressHUD.m */,
-				F7F4AC231EFA5D7C00AADFA2 /* src.bundle */,
-			);
-			name = JSProgressHUD;
-			path = ../../../../JSProgressHud/JSProgressHUD/JSProgressHUD/JSProgressHUD;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -637,7 +641,6 @@
 				F70456C61E684CE300CCF791 /* Sources */,
 				F70456C71E684CE300CCF791 /* Frameworks */,
 				F70456C81E684CE300CCF791 /* Resources */,
-				9A6A8C3401CDFB547281CE85 /* [CP] Embed Pods Frameworks */,
 				76E93EDFF304AD1CA4D745AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -691,7 +694,7 @@
 			files = (
 				F70457201E69BD8400CCF791 /* v2_goback@2x.png in Resources */,
 				F70456F81E684DDD00CCF791 /* Main.storyboard in Resources */,
-				F7F4AC261EFA5D7C00AADFA2 /* src.bundle in Resources */,
+				689273AC211971C60011687C /* src.bundle in Resources */,
 				F70456F61E684DDD00CCF791 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -705,13 +708,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bewilder-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		76E93EDFF304AD1CA4D745AF /* [CP] Copy Pods Resources */ = {
@@ -720,28 +726,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9A6A8C3401CDFB547281CE85 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -751,20 +745,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F4AC241EFA5D7C00AADFA2 /* JSLoadIngView.m in Sources */,
 				F704572F1E6CE30C00CCF791 /* JSMineViewController.m in Sources */,
 				F770C4CC1E75651E00BC9D0B /* JSMineSubViewController.m in Sources */,
 				F7E63B9D1E7A7141005FAB0F /* JSMenuLabel.m in Sources */,
-				F762F40C1EFA5E7E0099652C /* UIImage+JSExtension.m in Sources */,
 				F772DF8B1E73C58A00519692 /* JSNetworkManager+JSMineDatas.m in Sources */,
+				689273AF211971FE0011687C /* UIImage+JSExtension.m in Sources */,
 				F772DF741E6EE3DF00519692 /* JSSSOBtn.m in Sources */,
 				F772DF711E6EDACA00519692 /* JSSSOLoginView.m in Sources */,
 				F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */,
+				689273B6211972230011687C /* JSRefreshNormalHeader.m in Sources */,
 				F7EF10DF1E85117F0056A8C3 /* JSUserModel.m in Sources */,
 				F7E63BA21E7A7593005FAB0F /* JSEssenceCollectionViewCell.m in Sources */,
 				F7E63B9A1E7A5ACB005FAB0F /* JSEssenceMenuView.m in Sources */,
 				F70456F91E684DDD00CCF791 /* main.m in Sources */,
 				F734B2DD1E80CF560049C114 /* JSBaseBottom.m in Sources */,
+				689273B92119737D0011687C /* JSNavigationBar.m in Sources */,
 				F7EF10D91E84F8D60056A8C3 /* JSTopCmtModel.m in Sources */,
 				F734B2E91E8213360049C114 /* JSDateFormatter.m in Sources */,
 				F70457291E6CE2F200CCF791 /* JSNewPostsController.m in Sources */,
@@ -775,7 +770,6 @@
 				F772DF941E73F2F300519692 /* JSMineModel.m in Sources */,
 				F7E63B911E768539005FAB0F /* JSClearTableViewCell.m in Sources */,
 				F7E63B8E1E7684DA005FAB0F /* JSSettingTableViewCell.m in Sources */,
-				F7E63BAF1E7F837E005FAB0F /* JSRefreshNormalHeader.m in Sources */,
 				F7E63BB91E800A7D005FAB0F /* JSTopicInfo.m in Sources */,
 				F772DF841E72F45800519692 /* JSNetworkManager.m in Sources */,
 				F734B2E01E80D1F50049C114 /* JSBaseConst.m in Sources */,
@@ -787,11 +781,13 @@
 				F772DF6D1E6E903300519692 /* JSLoginViewController.m in Sources */,
 				F772DF811E723CE600519692 /* JSMineLastTableViewCell.m in Sources */,
 				F772DF7E1E6FDF7400519692 /* JSLoginTextField.m in Sources */,
+				689273AB211971C60011687C /* JSProgressHUD.m in Sources */,
 				F704571E1E69BD8400CCF791 /* JSBaseNavigationController.m in Sources */,
+				689273B5211972230011687C /* JSRefreshAutoFooter.m in Sources */,
 				F772DF7A1E6FA6BC00519692 /* JSCenterLoginView.m in Sources */,
 				F704571D1E69BD8400CCF791 /* JSBaseNavBarButtonItem.m in Sources */,
 				F734B2E31E8123600049C114 /* JSToolBarButton.m in Sources */,
-				F7E63BB21E7FAB89005FAB0F /* JSRefreshAutoFooter.m in Sources */,
+				689273AA211971C60011687C /* JSLoadIngView.m in Sources */,
 				F734B2EC1E82A0A20049C114 /* JSVideoCell.m in Sources */,
 				F70456FF1E684FE300CCF791 /* JSMainController.m in Sources */,
 				F704571F1E69BD8400CCF791 /* JSBaseViewController.m in Sources */,
@@ -799,7 +795,6 @@
 				F734B2DA1E80CF120049C114 /* JSBaseTop.m in Sources */,
 				F7E63B941E7A5629005FAB0F /* JSEssenceCollectionView.m in Sources */,
 				F7EF10DC1E84FDEE0056A8C3 /* JSTopCommentView.m in Sources */,
-				F7F4AC251EFA5D7C00AADFA2 /* JSProgressHUD.m in Sources */,
 				F772DF911E73F28F00519692 /* JSTagList.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 				F7E63BB61E800217005FAB0F /* JSEssenceTableView.m in Sources */,

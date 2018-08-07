@@ -9,7 +9,6 @@
 #import "JSBaseViewController.h"
 #import "JSBaseNavigationController.h"
 
-static CGFloat const kNavigationBarHeight = 64.f;           /** 自定义导航条高度 */
 static CGFloat const kSectionHeaderHeigth = 10.f;           // 分组样式tableView的头间距
 static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式tableView的尾间距
 
@@ -46,7 +45,6 @@ static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式table
                                                     NSFontAttributeName: [UIFont systemFontOfSize:18],
                                                     NSForegroundColorAttributeName: [UIColor orangeColor]}
      ];
-    
 }
 
 /** 设置UI */
@@ -61,7 +59,7 @@ static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式table
     self.tableView.backgroundColor = JS_Gray_Color(206);
     // 取消穿透
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+    if (@available(iOS 11.0, *)) self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 }
 /** 表格视图 */
 - (void)prepareTableView {
@@ -92,9 +90,9 @@ static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式table
 #pragma mark 
 #pragma mark - lazy
 
-- (UINavigationBar *)js_NavigationBar {
+- (JSNavigationBar *)js_NavigationBar {
     if (!_js_NavigationBar) {
-        _js_NavigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, kNavigationBarHeight)];
+        _js_NavigationBar = [[JSNavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, NAV_STATUS_BAR_Height)];
     }
     return _js_NavigationBar;
 }

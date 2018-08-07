@@ -26,7 +26,8 @@ static JSNetworkManager *_instanceType = nil;
            parameters:(NSDictionary *)parameters
    compeletionHandler:(void(^)(id res,NSError *error))compeletionHandler {
     
-    JSProgressHUD *hud = [JSProgressHUD js_showHUDTo:nil animated:YES];
+    JSProgressHUD *hud = [JSProgressHUD sharedProgressHUD];
+    [hud js_showHUDTo:nil animated:YES];
     if (requestMethod == RequestMethodGet) {
         
         [self GET:urlString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
