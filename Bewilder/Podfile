@@ -15,5 +15,9 @@ pod 'YYModel'
 pod 'MJRefresh'
 pod 'pop'
 pod 'AFNetworking'
+pod 'UMCCommon'
+pod 'UMCAnalytics'
+pod 'UMCSecurityPlugins'
+
 
 end

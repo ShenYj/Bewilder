@@ -21,6 +21,12 @@
     // Override point for customization after application launch.
     // 网络指示器(AFN的网络指示器)
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    // 友盟初始化
+    [UMConfigure initWithAppkey:@"5b695fbf8f4a9d75bd000060" channel:@"App Store"];
+    [UMConfigure setLogEnabled:YES];
+    
+    [MobClick profileSignInWithPUID:@"playerID"];
+    
     // 监听网络
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     // 初始化Window

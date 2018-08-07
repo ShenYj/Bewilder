@@ -34,6 +34,9 @@
 #import "JSRefreshNormalHeader.h"
 #import "JSRefreshAutoFooter.h"
 #import "UIImage+JSExtension.h"
+#import <UMCommon/UMCommon.h>
+#import <UMAnalytics/MobClick.h>
+#import <UMAnalytics/MobClickGameAnalytics.h>
 
 
 #pragma mark = 宏定义

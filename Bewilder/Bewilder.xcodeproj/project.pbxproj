@@ -14,6 +14,10 @@
 		689273B5211972230011687C /* JSRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273B3211972230011687C /* JSRefreshAutoFooter.m */; };
 		689273B6211972230011687C /* JSRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273B4211972230011687C /* JSRefreshNormalHeader.m */; };
 		689273B92119737D0011687C /* JSNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273B82119737D0011687C /* JSNavigationBar.m */; };
+		689273BB21198F2A0011687C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689273BA21198F2A0011687C /* CoreTelephony.framework */; };
+		689273BD21198F300011687C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 689273BC21198F2F0011687C /* libz.tbd */; };
+		689273BF21198F380011687C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 689273BE21198F380011687C /* libsqlite3.tbd */; };
+		689273C121198F430011687C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689273C021198F430011687C /* SystemConfiguration.framework */; };
 		90A0D9555FF66BF820292EEE /* libPods-Bewilder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B23923AFD692801C6E65BBF /* libPods-Bewilder.a */; };
 		F70456F51E684DDD00CCF791 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F70456EE1E684DDD00CCF791 /* AppDelegate.m */; };
 		F70456F61E684DDD00CCF791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F70456EF1E684DDD00CCF791 /* Assets.xcassets */; };
@@ -85,6 +89,10 @@
 		689273B4211972230011687C /* JSRefreshNormalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSRefreshNormalHeader.m; sourceTree = "<group>"; };
 		689273B72119737D0011687C /* JSNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSNavigationBar.h; sourceTree = "<group>"; };
 		689273B82119737D0011687C /* JSNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSNavigationBar.m; sourceTree = "<group>"; };
+		689273BA21198F2A0011687C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		689273BC21198F2F0011687C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		689273BE21198F380011687C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		689273C021198F430011687C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		752DE8AA6B43872FFBC31A44 /* Pods-Bewilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bewilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder.debug.xcconfig"; sourceTree = "<group>"; };
 		A64ACE02E5255EF3E5BA8CD8 /* Pods-Bewilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bewilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder.release.xcconfig"; sourceTree = "<group>"; };
 		F70456CA1E684CE300CCF791 /* Bewilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bewilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +207,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689273C121198F430011687C /* SystemConfiguration.framework in Frameworks */,
+				689273BF21198F380011687C /* libsqlite3.tbd in Frameworks */,
+				689273BD21198F300011687C /* libz.tbd in Frameworks */,
+				689273BB21198F2A0011687C /* CoreTelephony.framework in Frameworks */,
 				90A0D9555FF66BF820292EEE /* libPods-Bewilder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +253,10 @@
 		BCAF989EA52CF0DF029CD2F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				689273C021198F430011687C /* SystemConfiguration.framework */,
+				689273BE21198F380011687C /* libsqlite3.tbd */,
+				689273BC21198F2F0011687C /* libz.tbd */,
+				689273BA21198F2A0011687C /* CoreTelephony.framework */,
 				5B23923AFD692801C6E65BBF /* libPods-Bewilder.a */,
 			);
 			name = Frameworks;
