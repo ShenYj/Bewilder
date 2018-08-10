@@ -25,6 +25,10 @@
     [UMConfigure initWithAppkey:@"5b695fbf8f4a9d75bd000060" channel:@"App Store"];
     [UMConfigure setLogEnabled:YES];
     
+    [MobClick setScenarioType:E_UM_NORMAL];
+    [MobClick setCrashReportEnabled:YES];
+    
+    
     [MobClick profileSignInWithPUID:@"playerID"];
     
     // 监听网络

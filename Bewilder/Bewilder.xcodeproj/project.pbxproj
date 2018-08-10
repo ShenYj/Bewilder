@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68374D0F211D659F00BC359F /* UIViewController+JSALiAnalitics.m in Sources */ = {isa = PBXBuildFile; fileRef = 68374D0E211D659F00BC359F /* UIViewController+JSALiAnalitics.m */; };
 		689273AA211971C60011687C /* JSLoadIngView.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273A6211971C50011687C /* JSLoadIngView.m */; };
 		689273AB211971C60011687C /* JSProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 689273A8211971C50011687C /* JSProgressHUD.m */; };
 		689273AC211971C60011687C /* src.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 689273A9211971C50011687C /* src.bundle */; };
@@ -76,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		5B23923AFD692801C6E65BBF /* libPods-Bewilder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bewilder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		68374D0D211D659F00BC359F /* UIViewController+JSALiAnalitics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JSALiAnalitics.h"; sourceTree = "<group>"; };
+		68374D0E211D659F00BC359F /* UIViewController+JSALiAnalitics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JSALiAnalitics.m"; sourceTree = "<group>"; };
 		689273A5211971C50011687C /* JSLoadIngView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSLoadIngView.h; sourceTree = "<group>"; };
 		689273A6211971C50011687C /* JSLoadIngView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSLoadIngView.m; sourceTree = "<group>"; };
 		689273A7211971C50011687C /* JSProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSProgressHUD.h; sourceTree = "<group>"; };
@@ -370,6 +373,8 @@
 				F7F40CBE1E76609D003D134F /* NSString+JSFileSize.m */,
 				689273AE211971FE0011687C /* UIImage+JSExtension.h */,
 				689273AD211971FD0011687C /* UIImage+JSExtension.m */,
+				68374D0D211D659F00BC359F /* UIViewController+JSALiAnalitics.h */,
+				68374D0E211D659F00BC359F /* UIViewController+JSALiAnalitics.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -812,6 +817,7 @@
 				F7E63B941E7A5629005FAB0F /* JSEssenceCollectionView.m in Sources */,
 				F7EF10DC1E84FDEE0056A8C3 /* JSTopCommentView.m in Sources */,
 				F772DF911E73F28F00519692 /* JSTagList.m in Sources */,
+				68374D0F211D659F00BC359F /* UIViewController+JSALiAnalitics.m in Sources */,
 				F70457231E6CE2B900CCF791 /* JSEssenceController.m in Sources */,
 				F7E63BB61E800217005FAB0F /* JSEssenceTableView.m in Sources */,
 				F772DF771E6EED1900519692 /* JSTopLoginView.m in Sources */,

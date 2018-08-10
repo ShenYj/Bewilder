@@ -20,6 +20,8 @@ static CGFloat const kSectionFooterHeight = 0.0f;           // 分组样式table
 
 @implementation JSBaseViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置视图
