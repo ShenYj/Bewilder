@@ -45,6 +45,8 @@
 
 - (void)clearDisk {
     
+    [MobClick event:@"clean"];
+    
     if ([self.textLabel.text isEqualToString:@"清除缓存(0B)"]) {
         [MBProgressHUD showHUDAddedTo:self.superview animated:YES];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

@@ -51,6 +51,7 @@
 }
 
 - (void)goBackToParentController:(JSBaseNavBarButtonItem *)sender {
+    [MobClick event:@"back"];
     [self popViewControllerAnimated:YES];
 }
 

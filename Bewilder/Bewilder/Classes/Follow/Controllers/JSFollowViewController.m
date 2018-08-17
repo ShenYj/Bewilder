@@ -73,9 +73,11 @@ static CGFloat const kSubViewMargin = 20.f;                             // å†…éƒ
 
 - (void)clickLeftNavigationBarItem:(JSBaseNavBarButtonItem *)sender {
     NSLog(@"%s",__func__);
+    [MobClick event:@"addfriend"];
 }
 
 - (void)clickLoginRegisterBtn:(UIButton *)sender {
+    [MobClick event:@"registe_login"];
     JSLoginViewController *loginRegisterVC = [[JSLoginViewController alloc] init];
     [self presentViewController:loginRegisterVC animated:YES completion:nil];
 }

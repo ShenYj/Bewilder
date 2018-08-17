@@ -28,9 +28,6 @@
     [MobClick setScenarioType:E_UM_NORMAL];
     [MobClick setCrashReportEnabled:YES];
     
-    
-    [MobClick profileSignInWithPUID:@"playerID"];
-    
     // 监听网络
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     // 初始化Window

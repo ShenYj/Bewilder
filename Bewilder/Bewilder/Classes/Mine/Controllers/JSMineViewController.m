@@ -70,6 +70,7 @@ extern NSInteger const flag;                                // tag值中间变�
     NSLog(@"%s",__func__);
 }
 - (void)clickRightNavigationBarItem:(JSBaseNavBarButtonItem *)sender {
+    [MobClick event:@"setting"];
     JSSettingViewController *settingVC = [[JSSettingViewController alloc] init];
     [self.navigationController pushViewController:settingVC animated:YES];
 }
@@ -143,6 +144,7 @@ extern NSInteger const flag;                                // tag值中间变�
         JSMineSubViewController *mineSubVC = [[JSMineSubViewController alloc] init];
         mineSubVC.urlString = urlString;
         mineSubVC.js_navigationItem.title = squareList.name;
+        [MobClick event:@"WebView"];
         [self.navigationController pushViewController:mineSubVC animated:YES];
         
     } else if ([urlString hasPrefix:@"mod"]) {
@@ -150,14 +152,18 @@ extern NSInteger const flag;                                // tag值中间变�
         if ([urlString hasSuffix:@"BDJ_To_Check"]) {
             // 审帖
             NSLog(@"跳转到审帖界面");
+            [MobClick event:@"shentie"];
         } else if ([urlString hasSuffix:@"BDJ_To_RecentHot"]){
             NSLog(@"跳转到'每日排行'界面");
+            [MobClick event:@"meiripaihang"];
         } else {
             NSLog(@"跳转到其他界面");
+            [MobClick event:@"other"];
         }
         
     } else {
         NSLog(@"不是http或mod协议");
+        [MobClick event:@"more"];
     }
     
 }

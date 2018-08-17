@@ -86,11 +86,13 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
 #pragma mark - JSTopLoginViewCloseControllerDelegate
 
 - (void)closeLoginRegisterViewControllerWithTopLoginView:(JSTopLoginView *)topLoginView {
+    [MobClick event:@"close_login"];
     [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)registAccountWithTopLoginView:(JSTopLoginView *)topLoginView {
+    [MobClick event:@"changeLoginRegiste"];
     [self.view endEditing:YES];
     [UIView animateWithDuration:0.5 delay:0.25 usingSpringWithDamping:0.8 initialSpringVelocity:1.0 options:0 animations:^{
         self.centerViewOffset *= -1;
@@ -108,9 +110,11 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
     switch (mode) {
         case JSCenterLoginViewModeLoginIn:
             NSLog(@"登录");
+            [MobClick event:@"login"];
             break;
         case JSCenterLoginViewModeRegister:
             NSLog(@"注册");
+            [MobClick event:@"registe"];
             break;
         default:
             break;
@@ -125,12 +129,15 @@ static CGFloat const kTopViewMargin = 34.f;         // 顶部关闭注册视图�
     switch (type) {
         case SSOButtonTypeSinaWB:
             NSLog(@"新浪微博登录");
+            [MobClick event:@"sina"];
             break;
         case SSOButtonTypeQQ:
             NSLog(@"QQ账号登录");
+            [MobClick event:@"QQ"];
             break;
         case SSOButtonTypeTencentWB:
             NSLog(@"腾讯微博登录");
+            [MobClick event:@"sb"];
             break;
         default:
             break;

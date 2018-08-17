@@ -20,13 +20,17 @@
 
 - (void)my_viewDidAppear:(BOOL)animated {
     NSString *className = NSStringFromClass(self.class);
-    [MobClick beginLogPageView:className];
+    if ( ![className isEqualToString:@"JSBaseNavigationController"] || ![className isEqualToString:@"JSBaseViewController"] ) {
+        [MobClick beginLogPageView:className];
+    }
     [self my_viewDidAppear:animated];
 }
 
 - (void)my_viewDidDisappear:(BOOL)animated {
     NSString *className = NSStringFromClass(self.class);
-    [MobClick endLogPageView:className];
+    if ( ![className isEqualToString:@"JSBaseNavigationController"] || ![className isEqualToString:@"JSBaseViewController"] ) {
+        [MobClick endLogPageView:className];
+    }
     [self my_viewDidDisappear:animated];
 }
 
@@ -37,9 +41,20 @@
     Method originalMethod = class_getInstanceMethod(class,originSelector);
     Method swizzledMethod = class_getInstanceMethod(class,swizzledSelector);
     
-    BOOL didAddMethod = class_addMethod(class, originSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+    BOOL didAddMethod = class_addMethod(
+                                        class,
+                                        originSelector,
+                                        method_getImplementation(swizzledMethod),
+                                        method_getTypeEncoding(swizzledMethod)
+                                        );
     
-    if (didAddMethod) { class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+    if (didAddMethod) {
+        class_replaceMethod(
+                            class,
+                            swizzledSelector,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod)
+                            );
     } else {
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
