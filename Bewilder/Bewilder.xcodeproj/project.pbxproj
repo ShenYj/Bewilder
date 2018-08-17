@@ -663,6 +663,7 @@
 				F70456C71E684CE300CCF791 /* Frameworks */,
 				F70456C81E684CE300CCF791 /* Resources */,
 				76E93EDFF304AD1CA4D745AF /* [CP] Copy Pods Resources */,
+				819473B9157DA08398FE1747 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -752,11 +753,26 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		819473B9157DA08398FE1747 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bewilder/Pods-Bewilder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

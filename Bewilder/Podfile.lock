@@ -47,22 +47,6 @@ DEPENDENCIES:
   - YYModel
   - YYWebImage
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - pop
-    - SDWebImage
-    - UMCAnalytics
-    - UMCCommon
-    - UMCSecurityPlugins
-    - YYCache
-    - YYImage
-    - YYModel
-    - YYWebImage
-
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -80,4 +64,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 675426472efdef68d0c5cd7507e1526db38f016b
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0.beta.2
